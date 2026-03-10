@@ -1,0 +1,144 @@
+@startuml Diagrama_Flujo_Carrito_Cafetin_SENA
+
+title Diagrama de Flujo - Sistema Carrito de Compras Cafetín SENA
+
+start
+
+:Usuario accede al sistema;
+
+:Iniciar sesión;
+
+if (¿Credenciales válidas?) then (Sí)
+
+    :Validar horario del cafetín;
+    
+    if (¿Dentro del horario?) then (Sí)
+    
+        :Visualizar catálogo de productos;
+        
+        note right
+        RN5: Solo productos activos
+        end note
+        
+        label catalogo
+        
+        if (¿Desea agregar producto?) then (Sí)
+        
+            :Seleccionar producto;
+            
+            :Ingresar cantidad;
+            
+            if (¿Cantidad >= 1?) then (Sí)
+            
+                note right
+                RN2: Cantidad mínima = 1
+                end note
+                
+                :Agregar producto al carrito;
+                
+            else (No)
+            
+                :Mostrar error "Cantidad mínima es 1";
+                goto catalogo
+                
+            endif
+            
+            :Calcular total automático;
+            
+            label gestion
+            
+            if (¿Gestionar carrito?) then (Sí)
+            
+                if (¿Acción?) then (Modificar cantidad)
+                
+                    :Actualizar cantidad;
+                    goto gestion
+                    
+                elseif (Eliminar producto)
+                
+                    :Eliminar producto del carrito;
+                    goto gestion
+                    
+                else (Agregar más)
+                
+                    goto catalogo
+                    
+                endif
+                
+            endif
+            
+        else (No)
+            stop
+        endif
+        
+        :Mostrar resumen del pedido;
+        
+        if (¿Confirmar pedido?) then (Sí)
+        
+            note right
+            RN3: Confirmación obligatoria
+            end note
+            
+            :Crear pedido en el sistema;
+            
+            :Generar identificador único;
+            
+            note right
+            RN1: ID único para cada pedido
+            end note
+            
+            :Generar tiquete digital;
+            
+            :Cambiar estado del pedido a "Confirmado";
+            
+            :Enviar pedido al personal del cafetín;
+            
+            :Personal prepara pedido;
+            
+            :Cambiar estado a "En preparación";
+            
+            :Pedido listo;
+            
+            :Cambiar estado a "Listo";
+            
+            :Cliente presenta código del tiquete;
+            
+            if (¿Código válido?) then (Sí)
+            
+                note right
+                RN8: Validar código antes de entregar
+                end note
+                
+                :Entregar pedido;
+                
+                :Cambiar estado a "Entregado";
+                
+                :Registrar pedido en historial;
+                
+            else (No)
+            
+                :Rechazar entrega;
+                
+            endif
+            
+        else (No)
+        
+            :Cancelar pedido;
+            
+        endif
+        
+    else (No)
+    
+        :Mostrar mensaje "Cafetín fuera de horario";
+        
+    endif
+    
+else (No)
+
+    :Mostrar error de autenticación;
+
+endif
+
+stop
+
+@enduml

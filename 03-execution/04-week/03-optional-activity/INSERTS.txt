@@ -1,0 +1,215 @@
+-- type_document
+INSERT INTO type_document (status) VALUES (uuid_generate_v4());
+INSERT INTO type_document (status) VALUES (uuid_generate_v4());
+INSERT INTO type_document (status) VALUES (uuid_generate_v4());
+INSERT INTO type_document (status) VALUES (uuid_generate_v4());
+INSERT INTO type_document (status) VALUES (uuid_generate_v4());
+INSERT INTO type_document (status) VALUES (uuid_generate_v4());
+INSERT INTO type_document (status) VALUES (uuid_generate_v4());
+INSERT INTO type_document (status) VALUES (uuid_generate_v4());
+INSERT INTO type_document (status) VALUES (uuid_generate_v4());
+INSERT INTO type_document (status) VALUES (uuid_generate_v4());
+
+-- person
+INSERT INTO person (status) VALUES (uuid_generate_v4());
+INSERT INTO person (status) VALUES (uuid_generate_v4());
+INSERT INTO person (status) VALUES (uuid_generate_v4());
+INSERT INTO person (status) VALUES (uuid_generate_v4());
+INSERT INTO person (status) VALUES (uuid_generate_v4());
+INSERT INTO person (status) VALUES (uuid_generate_v4());
+INSERT INTO person (status) VALUES (uuid_generate_v4());
+INSERT INTO person (status) VALUES (uuid_generate_v4());
+INSERT INTO person (status) VALUES (uuid_generate_v4());
+INSERT INTO person (status) VALUES (uuid_generate_v4());
+
+-- file
+INSERT INTO file (status) VALUES (uuid_generate_v4());
+INSERT INTO file (status) VALUES (uuid_generate_v4());
+INSERT INTO file (status) VALUES (uuid_generate_v4());
+INSERT INTO file (status) VALUES (uuid_generate_v4());
+INSERT INTO file (status) VALUES (uuid_generate_v4());
+INSERT INTO file (status) VALUES (uuid_generate_v4());
+INSERT INTO file (status) VALUES (uuid_generate_v4());
+INSERT INTO file (status) VALUES (uuid_generate_v4());
+INSERT INTO file (status) VALUES (uuid_generate_v4());
+INSERT INTO file (status) VALUES (uuid_generate_v4());
+
+-- user
+INSERT INTO "user" (status) VALUES (uuid_generate_v4());
+INSERT INTO "user" (status) VALUES (uuid_generate_v4());
+INSERT INTO "user" (status) VALUES (uuid_generate_v4());
+INSERT INTO "user" (status) VALUES (uuid_generate_v4());
+INSERT INTO "user" (status) VALUES (uuid_generate_v4());
+INSERT INTO "user" (status) VALUES (uuid_generate_v4());
+INSERT INTO "user" (status) VALUES (uuid_generate_v4());
+INSERT INTO "user" (status) VALUES (uuid_generate_v4());
+INSERT INTO "user" (status) VALUES (uuid_generate_v4());
+INSERT INTO "user" (status) VALUES (uuid_generate_v4());
+
+-- role
+INSERT INTO role (status) VALUES (uuid_generate_v4());
+INSERT INTO role (status) VALUES (uuid_generate_v4());
+INSERT INTO role (status) VALUES (uuid_generate_v4());
+INSERT INTO role (status) VALUES (uuid_generate_v4());
+INSERT INTO role (status) VALUES (uuid_generate_v4());
+INSERT INTO role (status) VALUES (uuid_generate_v4());
+INSERT INTO role (status) VALUES (uuid_generate_v4());
+INSERT INTO role (status) VALUES (uuid_generate_v4());
+INSERT INTO role (status) VALUES (uuid_generate_v4());
+INSERT INTO role (status) VALUES (uuid_generate_v4());
+
+-- module
+INSERT INTO "module" (status) VALUES (uuid_generate_v4());
+INSERT INTO "module" (status) VALUES (uuid_generate_v4());
+INSERT INTO "module" (status) VALUES (uuid_generate_v4());
+INSERT INTO "module" (status) VALUES (uuid_generate_v4());
+INSERT INTO "module" (status) VALUES (uuid_generate_v4());
+INSERT INTO "module" (status) VALUES (uuid_generate_v4());
+INSERT INTO "module" (status) VALUES (uuid_generate_v4());
+INSERT INTO "module" (status) VALUES (uuid_generate_v4());
+INSERT INTO "module" (status) VALUES (uuid_generate_v4());
+INSERT INTO "module" (status) VALUES (uuid_generate_v4());
+
+-- view
+INSERT INTO "view" (status) VALUES (uuid_generate_v4());
+INSERT INTO "view" (status) VALUES (uuid_generate_v4());
+INSERT INTO "view" (status) VALUES (uuid_generate_v4());
+INSERT INTO "view" (status) VALUES (uuid_generate_v4());
+INSERT INTO "view" (status) VALUES (uuid_generate_v4());
+INSERT INTO "view" (status) VALUES (uuid_generate_v4());
+INSERT INTO "view" (status) VALUES (uuid_generate_v4());
+INSERT INTO "view" (status) VALUES (uuid_generate_v4());
+INSERT INTO "view" (status) VALUES (uuid_generate_v4());
+INSERT INTO "view" (status) VALUES (uuid_generate_v4());
+
+-- category
+INSERT INTO category (status) VALUES (uuid_generate_v4());
+INSERT INTO category (status) VALUES (uuid_generate_v4());
+INSERT INTO category (status) VALUES (uuid_generate_v4());
+INSERT INTO category (status) VALUES (uuid_generate_v4());
+INSERT INTO category (status) VALUES (uuid_generate_v4());
+INSERT INTO category (status) VALUES (uuid_generate_v4());
+INSERT INTO category (status) VALUES (uuid_generate_v4());
+INSERT INTO category (status) VALUES (uuid_generate_v4());
+INSERT INTO category (status) VALUES (uuid_generate_v4());
+INSERT INTO category (status) VALUES (uuid_generate_v4());
+
+-- product
+INSERT INTO product (status) VALUES (uuid_generate_v4());
+INSERT INTO product (status) VALUES (uuid_generate_v4());
+INSERT INTO product (status) VALUES (uuid_generate_v4());
+INSERT INTO product (status) VALUES (uuid_generate_v4());
+INSERT INTO product (status) VALUES (uuid_generate_v4());
+INSERT INTO product (status) VALUES (uuid_generate_v4());
+INSERT INTO product (status) VALUES (uuid_generate_v4());
+INSERT INTO product (status) VALUES (uuid_generate_v4());
+INSERT INTO product (status) VALUES (uuid_generate_v4());
+INSERT INTO product (status) VALUES (uuid_generate_v4());
+
+-- supplier
+INSERT INTO supplier (status) VALUES (uuid_generate_v4());
+INSERT INTO supplier (status) VALUES (uuid_generate_v4());
+INSERT INTO supplier (status) VALUES (uuid_generate_v4());
+INSERT INTO supplier (status) VALUES (uuid_generate_v4());
+INSERT INTO supplier (status) VALUES (uuid_generate_v4());
+INSERT INTO supplier (status) VALUES (uuid_generate_v4());
+INSERT INTO supplier (status) VALUES (uuid_generate_v4());
+INSERT INTO supplier (status) VALUES (uuid_generate_v4());
+INSERT INTO supplier (status) VALUES (uuid_generate_v4());
+INSERT INTO supplier (status) VALUES (uuid_generate_v4());
+
+-- inventory
+INSERT INTO inventory (status) VALUES (uuid_generate_v4());
+INSERT INTO inventory (status) VALUES (uuid_generate_v4());
+INSERT INTO inventory (status) VALUES (uuid_generate_v4());
+INSERT INTO inventory (status) VALUES (uuid_generate_v4());
+INSERT INTO inventory (status) VALUES (uuid_generate_v4());
+INSERT INTO inventory (status) VALUES (uuid_generate_v4());
+INSERT INTO inventory (status) VALUES (uuid_generate_v4());
+INSERT INTO inventory (status) VALUES (uuid_generate_v4());
+INSERT INTO inventory (status) VALUES (uuid_generate_v4());
+INSERT INTO inventory (status) VALUES (uuid_generate_v4());
+
+-- customer
+INSERT INTO customer (status) VALUES (uuid_generate_v4());
+INSERT INTO customer (status) VALUES (uuid_generate_v4());
+INSERT INTO customer (status) VALUES (uuid_generate_v4());
+INSERT INTO customer (status) VALUES (uuid_generate_v4());
+INSERT INTO customer (status) VALUES (uuid_generate_v4());
+INSERT INTO customer (status) VALUES (uuid_generate_v4());
+INSERT INTO customer (status) VALUES (uuid_generate_v4());
+INSERT INTO customer (status) VALUES (uuid_generate_v4());
+INSERT INTO customer (status) VALUES (uuid_generate_v4());
+INSERT INTO customer (status) VALUES (uuid_generate_v4());
+
+-- order
+INSERT INTO "order" (status) VALUES (uuid_generate_v4());
+INSERT INTO "order" (status) VALUES (uuid_generate_v4());
+INSERT INTO "order" (status) VALUES (uuid_generate_v4());
+INSERT INTO "order" (status) VALUES (uuid_generate_v4());
+INSERT INTO "order" (status) VALUES (uuid_generate_v4());
+INSERT INTO "order" (status) VALUES (uuid_generate_v4());
+INSERT INTO "order" (status) VALUES (uuid_generate_v4());
+INSERT INTO "order" (status) VALUES (uuid_generate_v4());
+INSERT INTO "order" (status) VALUES (uuid_generate_v4());
+INSERT INTO "order" (status) VALUES (uuid_generate_v4());
+
+-- order_item
+INSERT INTO order_item (status) VALUES (uuid_generate_v4());
+INSERT INTO order_item (status) VALUES (uuid_generate_v4());
+INSERT INTO order_item (status) VALUES (uuid_generate_v4());
+INSERT INTO order_item (status) VALUES (uuid_generate_v4());
+INSERT INTO order_item (status) VALUES (uuid_generate_v4());
+INSERT INTO order_item (status) VALUES (uuid_generate_v4());
+INSERT INTO order_item (status) VALUES (uuid_generate_v4());
+INSERT INTO order_item (status) VALUES (uuid_generate_v4());
+INSERT INTO order_item (status) VALUES (uuid_generate_v4());
+INSERT INTO order_item (status) VALUES (uuid_generate_v4());
+
+-- method_payment
+INSERT INTO method_payment (status) VALUES (uuid_generate_v4());
+INSERT INTO method_payment (status) VALUES (uuid_generate_v4());
+INSERT INTO method_payment (status) VALUES (uuid_generate_v4());
+INSERT INTO method_payment (status) VALUES (uuid_generate_v4());
+INSERT INTO method_payment (status) VALUES (uuid_generate_v4());
+INSERT INTO method_payment (status) VALUES (uuid_generate_v4());
+INSERT INTO method_payment (status) VALUES (uuid_generate_v4());
+INSERT INTO method_payment (status) VALUES (uuid_generate_v4());
+INSERT INTO method_payment (status) VALUES (uuid_generate_v4());
+INSERT INTO method_payment (status) VALUES (uuid_generate_v4());
+
+-- invoice
+INSERT INTO invoice (status) VALUES (uuid_generate_v4());
+INSERT INTO invoice (status) VALUES (uuid_generate_v4());
+INSERT INTO invoice (status) VALUES (uuid_generate_v4());
+INSERT INTO invoice (status) VALUES (uuid_generate_v4());
+INSERT INTO invoice (status) VALUES (uuid_generate_v4());
+INSERT INTO invoice (status) VALUES (uuid_generate_v4());
+INSERT INTO invoice (status) VALUES (uuid_generate_v4());
+INSERT INTO invoice (status) VALUES (uuid_generate_v4());
+INSERT INTO invoice (status) VALUES (uuid_generate_v4());
+INSERT INTO invoice (status) VALUES (uuid_generate_v4());
+
+-- invoice_item
+INSERT INTO invoice_item (status) VALUES (uuid_generate_v4());
+INSERT INTO invoice_item (status) VALUES (uuid_generate_v4());
+INSERT INTO invoice_item (status) VALUES (uuid_generate_v4());
+INSERT INTO invoice_item (status) VALUES (uuid_generate_v4());
+INSERT INTO invoice_item (status) VALUES (uuid_generate_v4());
+INSERT INTO invoice_item (status) VALUES (uuid_generate_v4());
+INSERT INTO invoice_item (status) VALUES (uuid_generate_v4());
+INSERT INTO invoice_item (status) VALUES (uuid_generate_v4());
+INSERT INTO invoice_item (status) VALUES (uuid_generate_v4());
+INSERT INTO invoice_item (status) VALUES (uuid_generate_v4());
+
+-- payment
+INSERT INTO payment (status) VALUES (uuid_generate_v4());
+INSERT INTO payment (status) VALUES (uuid_generate_v4());
+INSERT INTO payment (status) VALUES (uuid_generate_v4());
+INSERT INTO payment (status) VALUES (uuid_generate_v4());
+INSERT INTO payment (status) VALUES (uuid_generate_v4());
+INSERT INTO payment (status) VALUES (uuid_generate_v4());
+INSERT INTO payment (status) VALUES (uuid_generate_v4());
+INSERT INTO payment (status) VALUES (uuid_generate_v4());
+INSERT INTO payment (status) VALUES (uuid_generate_v4());
+INSERT INTO payment (status) VALUES (uuid_generate_v4());

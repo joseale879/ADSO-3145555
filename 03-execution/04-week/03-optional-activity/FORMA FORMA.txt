@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL"
+xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI"
+xmlns:dc="http://www.omg.org/spec/DD/20100524/DC"
+xmlns:di="http://www.omg.org/spec/DD/20100524/DI"
+id="Definitions_Cafetin"
+targetNamespace="http://sena/cafetin">
+
+<bpmn:process id="Proceso_Pedido_Cafetin" isExecutable="false">
+
+<bpmn:startEvent id="Inicio" name="Inicio Pedido"/>
+
+<bpmn:userTask id="Login" name="Iniciar Sesión"/>
+
+<bpmn:exclusiveGateway id="Credenciales" name="¿Credenciales válidas?"/>
+
+<bpmn:userTask id="VerCatalogo" name="Visualizar Catálogo"/>
+
+<bpmn:userTask id="AgregarCarrito" name="Agregar productos al carrito"/>
+
+<bpmn:userTask id="ConfirmarPedido" name="Confirmar pedido"/>
+
+<bpmn:serviceTask id="GenerarTiquete" name="Generar código de retiro"/>
+
+<bpmn:userTask id="PrepararPedido" name="Preparar pedido"/>
+
+<bpmn:userTask id="PedidoListo" name="Marcar pedido listo"/>
+
+<bpmn:userTask id="ValidarCodigo" name="Validar código de tiquete"/>
+
+<bpmn:endEvent id="Fin" name="Pedido Entregado"/>
+
+<bpmn:sequenceFlow sourceRef="Inicio" targetRef="Login"/>
+
+<bpmn:sequenceFlow sourceRef="Login" targetRef="Credenciales"/>
+
+<bpmn:sequenceFlow sourceRef="Credenciales" targetRef="VerCatalogo">
+<bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">si</bpmn:conditionExpression>
+</bpmn:sequenceFlow>
+
+<bpmn:sequenceFlow sourceRef="VerCatalogo" targetRef="AgregarCarrito"/>
+
+<bpmn:sequenceFlow sourceRef="AgregarCarrito" targetRef="ConfirmarPedido"/>
+
+<bpmn:sequenceFlow sourceRef="ConfirmarPedido" targetRef="GenerarTiquete"/>
+
+<bpmn:sequenceFlow sourceRef="GenerarTiquete" targetRef="PrepararPedido"/>
+
+<bpmn:sequenceFlow sourceRef="PrepararPedido" targetRef="PedidoListo"/>
+
+<bpmn:sequenceFlow sourceRef="PedidoListo" targetRef="ValidarCodigo"/>
+
+<bpmn:sequenceFlow sourceRef="ValidarCodigo" targetRef="Fin"/>
+
+</bpmn:process>
+
+</bpmn:definitions>

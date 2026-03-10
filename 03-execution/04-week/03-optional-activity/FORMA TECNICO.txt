@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL"
+xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI"
+xmlns:dc="http://www.omg.org/spec/DD/20100524/DC"
+xmlns:di="http://www.omg.org/spec/DD/20100524/DI"
+id="Definitions_Cafetin_Tecnico"
+targetNamespace="http://sena/cafetin">
+
+<bpmn:process id="Proceso_Sistema_Cafetin" isExecutable="true">
+
+<bpmn:startEvent id="InicioSistema" name="Inicio"/>
+
+<bpmn:userTask id="LoginUsuario" name="Usuario inicia sesión"/>
+
+<bpmn:serviceTask id="ValidarCredenciales" name="Validar credenciales"/>
+
+<bpmn:exclusiveGateway id="CredencialesOK" name="¿Credenciales válidas?"/>
+
+<bpmn:serviceTask id="ValidarHorario" name="Validar horario del cafetín"/>
+
+<bpmn:exclusiveGateway id="HorarioOK" name="¿Horario permitido?"/>
+
+<bpmn:userTask id="MostrarCatalogo" name="Mostrar catálogo"/>
+
+<bpmn:userTask id="GestionarCarrito" name="Gestionar carrito"/>
+
+<bpmn:serviceTask id="CrearPedido" name="Crear pedido"/>
+
+<bpmn:serviceTask id="GenerarID" name="Generar identificador único"/>
+
+<bpmn:serviceTask id="GuardarPedido" name="Guardar pedido en base de datos"/>
+
+<bpmn:userTask id="PrepararPedidoSistema" name="Personal prepara pedido"/>
+
+<bpmn:userTask id="PedidoListoSistema" name="Pedido listo"/>
+
+<bpmn:userTask id="ValidarCodigoSistema" name="Validar código del tiquete"/>
+
+<bpmn:endEvent id="PedidoEntregado" name="Pedido entregado"/>
+
+<bpmn:endEvent id="ErrorHorario" name="Fuera de horario"/>
+
+<bpmn:sequenceFlow sourceRef="InicioSistema" targetRef="LoginUsuario"/>
+
+<bpmn:sequenceFlow sourceRef="LoginUsuario" targetRef="ValidarCredenciales"/>
+
+<bpmn:sequenceFlow sourceRef="ValidarCredenciales" targetRef="CredencialesOK"/>
+
+<bpmn:sequenceFlow sourceRef="CredencialesOK" targetRef="ValidarHorario"/>
+
+<bpmn:sequenceFlow sourceRef="ValidarHorario" targetRef="HorarioOK"/>
+
+<bpmn:sequenceFlow sourceRef="HorarioOK" targetRef="MostrarCatalogo"/>
+
+<bpmn:sequenceFlow sourceRef="MostrarCatalogo" targetRef="GestionarCarrito"/>
+
+<bpmn:sequenceFlow sourceRef="GestionarCarrito" targetRef="CrearPedido"/>
+
+<bpmn:sequenceFlow sourceRef="CrearPedido" targetRef="GenerarID"/>
+
+<bpmn:sequenceFlow sourceRef="GenerarID" targetRef="GuardarPedido"/>
+
+<bpmn:sequenceFlow sourceRef="GuardarPedido" targetRef="PrepararPedidoSistema"/>
+
+<bpmn:sequenceFlow sourceRef="PrepararPedidoSistema" targetRef="PedidoListoSistema"/>
+
+<bpmn:sequenceFlow sourceRef="PedidoListoSistema" targetRef="ValidarCodigoSistema"/>
+
+<bpmn:sequenceFlow sourceRef="ValidarCodigoSistema" targetRef="PedidoEntregado"/>
+
+</bpmn:process>
+
+</bpmn:definitions>
