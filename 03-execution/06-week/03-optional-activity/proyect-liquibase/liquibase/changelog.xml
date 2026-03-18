@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+    http://www.liquibase.org/xml/ns/dbchangelog
+    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd">
+
+    <!-- USUARIO -->
+    <changeSet id="1" author="tu">
+        <createTable tableName="usuario">
+            <column name="id" type="SERIAL">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="nombre" type="VARCHAR(100)"/>
+            <column name="email" type="VARCHAR(100)"/>
+        </createTable>
+    </changeSet>
+
+    <!-- CATEGORIA -->
+    <changeSet id="2" author="tu">
+        <createTable tableName="categoria">
+            <column name="id" type="SERIAL">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="nombre" type="VARCHAR(100)"/>
+        </createTable>
+    </changeSet>
+
+    <!-- PRODUCTO -->
+    <changeSet id="3" author="tu">
+        <createTable tableName="producto">
+            <column name="id" type="SERIAL">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="nombre" type="VARCHAR(100)"/>
+            <column name="precio" type="DECIMAL(10,2)"/>
+            <column name="categoria_id" type="INT"/>
+        </createTable>
+
+        <addForeignKeyConstraint
+            baseTableName="producto"
+            baseColumnNames="categoria_id"
+            referencedTableName="categoria"
+            referencedColumnNames="id"
+            constraintName="fk_producto_categoria"/>
+    </changeSet>
+
+
+<changeSet id="4" author="jose">
+    <preConditions onFail="MARK_RAN">
+        <not>
+            <columnExists tableName="producto" columnName="precio"/>
+        </not>
+    </preConditions>
+
+    <addColumn tableName="producto">
+        <column name="precio" type="DECIMAL(10,2)"/>
+    </addColumn>
+</changeSet>
+
+
+
+</databaseChangeLog>
