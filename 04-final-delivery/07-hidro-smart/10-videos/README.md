@@ -2,10 +2,28 @@
 
 Two videos are required. / Se requieren dos videos.
 
+## Video recibido / Video received
+
+| Video | Link / Enlace | Estado |
+|---|---|---|
+| Project explanation / Explicación del proyecto | [Ver video en Canva](https://canva.link/ahrd0lqoxynu6d5) | Enlace recibido; falta confirmar duración, acceso público y si cumple el pitch o el tutorial requerido. |
+
 | Video | Duration / Duración | Link / Enlace | Done / Listo |
 |---|---|---|---|
 | Advertising pitch / Pitch publicitario | 1 to 2 minutes / 1 a 2 minutos | | ☐ |
 | Short usage tutorial / Tutorial corto de uso | 3 to 5 minutes / 3 a 5 minutos | | ☐ |
+
+## Video complementario / Supplementary video
+
+Este video sirve como evidencia adicional del despliegue; no reemplaza ninguno de los dos videos obligatorios.
+
+| Video | Duración sugerida | Link / Enlace | Estado |
+|---|---|---|---|
+| Deployment walkthrough / Recorrido del despliegue | 2 to 4 minutes / 2 a 4 minutos | Pendiente | Pendiente de grabar |
+
+Puede mostrar la arquitectura desplegada, el estado exitoso de los servicios y la aplicación funcionando en sus URLs públicas. No mostrar valores de variables de entorno, tokens, contraseñas, cookies ni datos personales.
+
+**Aplicación desplegada que el equipo indicó para mostrar:** [https://pt-hs.pages.dev/login](https://pt-hs.pages.dev/login). La disponibilidad y el acceso deben comprobarse al preparar la grabación.
 
 ## 1. Advertising pitch / Pitch publicitario
 
