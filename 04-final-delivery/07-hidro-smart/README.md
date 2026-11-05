@@ -1,71 +1,76 @@
-# Hidro Smart
+# Hidro Smart — entrega final
 
-Final delivery of the training project / Entrega final del proyecto formativo.
+**Estado: borrador de entrega en revisión.** Los avances están subidos a la rama [codex/hidrosmart-delivery-draft](https://github.com/joseale879/ADSO-3145555/tree/codex/hidrosmart-delivery-draft) del remoto de trabajo joseale879/ADSO-3145555. No se ha aprobado ni fusionado el paquete como entrega final; todavía no se debe crear el tag.
 
-## General information / Información general
+## Información general
 
-| Field / Campo | Value / Valor |
+| Campo | Estado / dato disponible |
 |---|---|
-| Product name / Nombre del producto | Hidro Smart |
+| Producto | Hidro Smart |
 | Ficha | 3145555 |
-| Training program / Programa de formación | Análisis y Desarrollo de Software (228118) |
-| Training project / Proyecto formativo | Desarrollo de software orientado a servicios |
-| Training center / Centro de formación | Centro de la Industria, la Empresa y los Servicios (Regional Huila) |
-| Process / Proceso | Completion of the technologist taught stage / Finalización de la etapa lectiva del tecnólogo |
-| Research seedbed / Semillero de investigación | Developers & Geeks |
-| Delivery version / Versión entregada | `final-delivery-2026` |
-| Delivery date / Fecha de entrega | |
-| Delivered by / Entregado por | |
+| Programa de formación | Análisis y Desarrollo de Software (228118) |
+| Proyecto formativo | Desarrollo de software orientado a servicios |
+| Centro de formación | Centro de la Industria, la Empresa y los Servicios — Regional Huila |
+| Proceso | Finalización de la etapa lectiva del tecnólogo |
+| Semillero | Developers & Geeks — confirmar que corresponde a esta entrega |
+| Versión | Pendiente: tag y SHA del código aprobado |
+| Fecha de entrega | Pendiente |
+| Responsable de entrega | Pendiente de confirmar con el equipo/instructor |
 
-## Summary / Resumen
+## Resumen del proyecto
 
-- **Problem it solves / Problema que resuelve:**
-- **Target users / Usuarios:**
-- **Main features / Funciones principales:**
-- **Technology stack / Tecnologías:**
-- **Production URL / URL en producción:**
-- **Demo credentials / Credenciales de prueba:** do not write real passwords here / no escriba contraseñas reales aquí
+Hidro Smart es una solución para monitorear el consumo de agua por hogar. Un sensor conectado a un ESP32 envía telemetría por MQTT; el backend procesa las lecturas y las almacena en PostgreSQL. Las interfaces web y móvil permiten consultar hogares, dispositivos, consumo, reportes e información de alertas. La descripción y las funciones deben cotejarse con el commit final antes de presentar la entrega.
 
-## Team members / Integrantes
+| Información | Dato |
+|---|---|
+| URL web indicada por el equipo | [https://pt-hs.pages.dev/login](https://pt-hs.pages.dev/login) — comprobar disponibilidad el día de la demostración |
+| Tecnologías que aparecen en los repositorios | React, TypeScript, Expo/React Native, Node.js/Express, PostgreSQL/Liquibase y firmware ESP32 en C++/Arduino |
+| Acceso de demostración | No incluir credenciales en este repositorio. Coordinar acceso temporal por un canal privado aprobado por el instructor. |
 
-> Names and document numbers were preloaded by the instructor from the Sofía Plus report. Each member checks their row, completes GitHub user and role, and marks the last column. Report any error, missing member or extra member to the instructor.
->
-> Los nombres y documentos los precargó el instructor desde el reporte de Sofía Plus. Cada integrante revisa su fila, completa usuario de GitHub y rol, y marca la última columna. Reporte al instructor cualquier error, o si falta o sobra alguien.
+## Equipo
 
-| Full name / Nombre completo | Doc. type / Tipo | Doc. number / Número | Ficha | GitHub user / Usuario | Role / Rol | Verified and authorized / Verificado y autorizado |
-|---|---|---|---|---|---|---|
-| JOSE ALEJANDRO MONTEALEGRE RODRIGUEZ | CC | 1070600183 | 3145555 | joseale879 | | ☐ |
-| JOSE DAVID AMAYA MOSQUERA | CC | 1076907220 | 3145555 | joseamaya009 | | ☐ |
-| EMERSON CALET MOLANO CARDOZO | CC | 1077228448 | 3145555 | EmersonMolano | | ☐ |
+La participación se consolida desde PT_HS y los repositorios separados. Los roles de la tabla se basan en áreas con actividad Git observada y deben confirmarse por cada integrante. La autoría formal se confirma en `software-registration.md`.
 
-Data use authorization: by checking the box, the member confirms their data and authorizes publishing their name, document number and ficha in this public repository, for the software registration process (Ley 1581 de 2012). Anyone who does not authorize it tells the instructor before delivering.
+| Integrante | Usuario(s) Git observados | Áreas de actividad registradas | Confirmación |
+|---|---|---|---|
+| JOSE ALEJANDRO MONTEALEGRE RODRIGUEZ | `joseale879` | Integración y desarrollo transversal: backend, frontend, base de datos, firmware y documentación | Pendiente |
+| JOSE DAVID AMAYA MOSQUERA | `joseamaya009`; `José David Amaya Mosquera` | Backend, frontend, base de datos e integración/mantenimiento de firmware | Pendiente |
+| EMERSON CALET MOLANO CARDOZO | `EmersonMolano`; `Emerson Calet Molano Cardozo` | Backend, frontend, base de datos y documentación | Pendiente |
 
-Autorización de datos: al marcar la casilla, el integrante confirma sus datos y autoriza publicar su nombre, número de documento y ficha en este repositorio público, para el trámite de registro de software (Ley 1581 de 2012). Quien no lo autorice se lo informa al instructor antes de entregar.
+Los documentos de identidad, teléfonos, direcciones y correos personales se entregan por un canal privado; **no se publican en esta carpeta ni se incluyen en los ZIP públicos**.
 
-## Delivery contents / Contenido de la entrega
+## Contenido y estado
 
-| Folder / Carpeta | Content / Contenido | Done / Listo |
+La existencia de un archivo Markdown significa que el documento está redactado; no implica aprobación ni evidencia de ejecución. El estado siguiente diferencia el borrador disponible de lo que falta para cerrar la entrega.
+
+| Carpeta o archivo | Contenido disponible | Estado de cierre |
 |---|---|---|
-| [`01-requirements-specification/`](01-requirements-specification/) | Requirements specification / Especificación de requisitos | ☐ |
-| [`02-software-analysis/`](02-software-analysis/) | Software analysis / Análisis del software | ☐ |
-| [`03-technical-proposal/`](03-technical-proposal/) | Technical proposal / Propuesta técnica | ☐ |
-| [`04-software-design/`](04-software-design/) | Software design / Diseño del software | ☐ |
-| [`05-test-documentation/`](05-test-documentation/) | Test documentation / Documentación de pruebas | ☐ |
-| [`06-implementation-procedure/`](06-implementation-procedure/) | Implementation procedure / Procedimiento de implementación | ☐ |
-| [`07-improvement-actions/`](07-improvement-actions/) | Improvement actions / Acciones de mejoramiento | ☐ |
-| [`08-manuals/`](08-manuals/) | Manuals / Manuales | ☐ |
-| [`09-project-article/`](09-project-article/) | Project article / Artículo del proyecto | ☐ |
-| [`10-videos/`](10-videos/) | Videos / Videos | ☐ |
-| [`code-tag/`](code-tag/) | Repository links, tags and ZIP files / Enlaces, tags y ZIP | ☐ |
-| [`team-roster.md`](team-roster.md) | Team and roles / Equipo y roles | ☐ |
-| [`software-registration.md`](software-registration.md) | Software registration data / Datos para registro de software | ☐ |
+| `01-requirements-specification/` | SRS y matriz de cobertura | Redactados; falta aprobación del equipo/instructor y evidencia de aceptación por requisito. |
+| `02-software-analysis/` | Análisis del sistema y flujos | Redactado; cotejar actores y procesos contra la versión candidata. |
+| `03-technical-proposal/` | Propuesta técnica | Redactada; confirmar supuestos y estimaciones históricas. |
+| `04-software-design/` | Arquitectura, diseño, modelo ER conceptual, inventario estático de 57 tablas, wireframe y diagramas | Redactados; verificar el modelo con la base aprobada y actualizar si cambia el código. |
+| `05-test-documentation/` | Plan/resultados documentados, reproducibilidad y CI de HU-20 | Redactados; falta evidencia reciente de la versión candidata y ensayos físicos del alcance IoT/correo. |
+| `06-implementation-procedure/` | Instalación, operación, dependencias y despliegue | Redactados; reproducir desde clon limpio y verificar las URLs actuales. |
+| `07-improvement-actions/` | Acciones correctivas, preventivas y de mejora | Registro redactado; faltan responsables, fechas y evidencias de cierre. |
+| `08-manuals/` | Manual técnico, de instalación y de usuario | Redactados; recorrerlos con la versión candidata y corregir desajustes. |
+| `09-project-article/` | Artículo del proyecto | Redactado; confirmar autores, fuentes, formato y resultados con el equipo/instructor. |
+| `10-videos/` | Enlace Canva recibido e inventario de videos | Hay un enlace sin clasificar; falta verificar acceso y completar/validar pitch y tutorial obligatorios. |
+| `code-tag/` | Inventario de repositorios y checklist de artefactos | Incompleto; faltan versión aprobada, exportaciones, hashes, permisos y Release/tag. |
+| `team-roster.md` | Integrantes y aportes observados en Git | Borrador; cada persona debe confirmar nombre, usuario, rol y aportes. |
+| `software-registration.md` | Borrador de registro de software | Requiere confirmación de autoría, titularidad, productor y demás datos legales/institucionales. |
+| `delivery-draft-status.md` | Estado, fuente y pendientes del borrador | Actualizado al 2026-11-05; refleja lo publicado en la rama de revisión y las validaciones aún pendientes. |
+| PDF de categorías | Nueve copias de lectura de las categorías 01–09 | Siete se regeneraron el 2026-11-04 y los PDF de acciones y manuales el 2026-11-05. Se revisaron muestras visuales; falta revisión completa y aprobación. |
 
-## Large files on Google Drive / Archivos pesados en Google Drive
+## Criterios para cerrar la entrega
 
-Only files too heavy for GitHub go here, such as demo videos. Everything else stays in this folder.
+- Todos los documentos describen la misma versión identificada por tag y SHA.
+- La rama final acordada contiene el commit aprobado y su CI termina verde.
+- Los autores, productor, solicitante y declaraciones del registro están confirmados por el equipo.
+- El inventario de repositorios y componentes de terceros está completo; los secretos y datos personales no aparecen en el material público.
+- Los videos obligatorios tienen duración, contenido y permisos de acceso comprobados; el tutorial muestra el sistema real.
+- Los PDF corresponden a sus fuentes Markdown finales.
+- El código empaquetado, los ZIP, sus hashes y los enlaces del Release corresponden al mismo tag aprobado.
 
-Aquí solo van archivos demasiado pesados para GitHub, como videos de demostración. Todo lo demás vive en esta carpeta.
+## Archivos grandes
 
-| File / Archivo | Size / Tamaño | Link / Enlace |
-|---|---|---|
-| | | |
+Los videos y otros archivos que excedan el límite del repositorio se alojan fuera de Git y se enlazan en `10-videos/README.md` o en el documento correspondiente. Comprobar el acceso de cada enlace antes de entregar.

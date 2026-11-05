@@ -1,4 +1,4 @@
-> **Nota de conversión y vigencia.** Este archivo conserva el contenido de su documento fuente convertido a Markdown. Las afirmaciones de diseño, alcance, roles, tecnologías y fechas pertenecen a esa fuente y no prueban el estado implementado. Para el corte técnico 2026-11-03 consulta la [documentación técnica vigente](../08_Documentacion_Tecnica_Actualizada/README.md) y el [resumen de fuentes y ramas](../08_Documentacion_Tecnica_Actualizada/01_Resumen_y_Arquitectura/00_Resumen_del_Sistema.md).
+> **Nota de conversión y vigencia.** Este archivo conserva el contenido de su documento fuente convertido a Markdown. Las afirmaciones de diseño, alcance, roles, tecnologías y fechas pertenecen a esa fuente y no prueban el estado implementado. Para el corte técnico 2026-11-05 consulta el [estado de la entrega](../delivery-draft-status.md) y el [diseño del software](../04-software-design/software-design.md).
 
 <strong> HIDROSMART</strong>
 

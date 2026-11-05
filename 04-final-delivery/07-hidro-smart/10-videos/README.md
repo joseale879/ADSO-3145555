@@ -1,51 +1,51 @@
-# Videos: Hidro Smart
+# Videos de Hidro Smart
 
-Two videos are required. / Se requieren dos videos.
+La estructura de entrega solicita dos videos obligatorios. El enlace recibido del equipo se conserva como material pendiente de clasificar; no se asume que reemplace el pitch o el tutorial.
 
-## Video recibido / Video received
+## Enlace recibido
 
-| Video | Link / Enlace | Estado |
+| Material | Enlace | Estado de revisión |
 |---|---|---|
-| Project explanation / Explicación del proyecto | [Ver video en Canva](https://canva.link/ahrd0lqoxynu6d5) | Enlace recibido; falta confirmar duración, acceso público y si cumple el pitch o el tutorial requerido. |
+| Explicación del proyecto en Canva | [Abrir video en Canva](https://canva.link/ahrd0lqoxynu6d5) | El equipo lo identificó como explicación del proyecto. No se verificaron acceso, duración ni contenido completo desde esta revisión. Confirmar si cumple alguno de los dos requisitos obligatorios. |
 
-| Video | Duration / Duración | Link / Enlace | Done / Listo |
-|---|---|---|---|
-| Advertising pitch / Pitch publicitario | 1 to 2 minutes / 1 a 2 minutos | | ☐ |
-| Short usage tutorial / Tutorial corto de uso | 3 to 5 minutes / 3 a 5 minutos | | ☐ |
+## Videos obligatorios
 
-## Video complementario / Supplementary video
+| Video | Duración requerida | Enlace | Estado |
+|---|---:|---|---|
+| Pitch publicitario | 1 a 2 minutos | Pendiente | Falta confirmar o producir, revisar contenido y probar acceso. |
+| Tutorial corto de uso | 3 a 5 minutos | Pendiente | Falta grabar o clasificar el enlace recibido, revisar el flujo real y probar acceso. |
 
-Este video sirve como evidencia adicional del despliegue; no reemplaza ninguno de los dos videos obligatorios.
+### Contenido mínimo del pitch
 
-| Video | Duración sugerida | Link / Enlace | Estado |
-|---|---|---|---|
-| Deployment walkthrough / Recorrido del despliegue | 2 to 4 minutes / 2 a 4 minutos | Pendiente | Pendiente de grabar |
+- Problema que resuelve Hidro Smart.
+- Usuarios a quienes está dirigido.
+- Solución y característica que la diferencia.
+- Cierre claro e invitación a conocer el producto.
 
-Puede mostrar la arquitectura desplegada, el estado exitoso de los servicios y la aplicación funcionando en sus URLs públicas. No mostrar valores de variables de entorno, tokens, contraseñas, cookies ni datos personales.
+### Contenido mínimo del tutorial
 
-**Aplicación desplegada que el equipo indicó para mostrar:** [https://pt-hs.pages.dev/login](https://pt-hs.pages.dev/login). La disponibilidad y el acceso deben comprobarse al preparar la grabación.
+- Ingreso y roles principales, usando cuentas de demostración autorizadas.
+- Flujo principal paso a paso sobre la versión candidata.
+- Resultado que obtiene la persona usuaria.
+- Voz o subtítulos que expliquen las acciones.
 
-## 1. Advertising pitch / Pitch publicitario
+## Video complementario
 
-Sells the product to someone who does not know it. / Presenta el producto a alguien que no lo conoce.
+El recorrido del despliegue es evidencia adicional; no reemplaza ninguno de los dos videos obligatorios.
 
-- [ ] Problem it solves / Problema que resuelve
-- [ ] Who it is for / Para quién es
-- [ ] The solution and what sets it apart / La solución y qué la diferencia
-- [ ] Clear closing message / Mensaje final claro
+| Video | Duración sugerida | Enlace | Estado |
+|---|---:|---|---|
+| Recorrido del despliegue | 2 a 4 minutos | Pendiente | Falta grabar. |
 
-## 2. Short usage tutorial / Tutorial corto de uso
+Puede mostrar la arquitectura desplegada, el estado de los servicios y la aplicación en sus direcciones públicas. No debe mostrar valores de variables de entorno, tokens, contraseñas, cookies ni datos personales.
 
-Shows how the system is used, on the real system. / Muestra cómo se usa el sistema, sobre el sistema real.
+**Aplicación que el equipo indicó para mostrar:** [https://pt-hs.pages.dev/login](https://pt-hs.pages.dev/login). Comprobar que esté disponible y que la cuenta de demostración funcione antes de grabar.
 
-- [ ] Sign-in and main roles / Ingreso y roles principales
-- [ ] The main flow, step by step / El flujo principal, paso a paso
-- [ ] The result the user gets / El resultado que obtiene el usuario
-- [ ] Voice or captions that explain each step / Voz o subtítulos que expliquen cada paso
+## Entrega y revisión
 
-## Rules / Reglas
-
-- Upload them to Google Drive, with access for anyone who has the link. / Súbalos a Google Drive, con acceso para cualquiera que tenga el enlace.
-- Check the links in a private browser window. / Pruebe los enlaces en una ventana privada del navegador.
-- Do not show passwords, tokens or real personal data. / No muestre contraseñas, tokens ni datos personales reales.
-- Use music and images you are allowed to use. / Use música e imágenes que tenga permiso de usar.
+1. Alojar los videos en una ubicación accesible para el instructor, con el permiso definido por el equipo.
+2. Abrir cada enlace en una ventana privada para verificar que no requiere acceso del propietario.
+3. Confirmar la duración y que el video corresponda al requisito al que se asigna.
+4. Grabar el tutorial en la versión candidata real, sin simular resultados que no se hayan comprobado.
+5. Evitar mostrar secretos, tokens, contraseñas, cookies o datos personales.
+6. Usar música e imágenes con permiso de uso.

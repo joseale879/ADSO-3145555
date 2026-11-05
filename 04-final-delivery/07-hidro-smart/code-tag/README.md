@@ -1,44 +1,38 @@
-# Code and tags / Código y tags: Hidro Smart
+# Código fuente, tag y artefactos de entrega
 
-## Original repositories / Repositorios originales
+**Estado:** inventario local; ningún tag, ZIP, hash o Release final está creado. PT_HS es la fuente funcional canónica elegida. Los repositorios separados se listan para trazabilidad y no se presumen sincronizados con PT_HS.
 
-Every original working repository of the project must be listed here and must be **public**. The instructor compares what was delivered against these repositories, so they must stay public and keep their full history until the review ends.
+## Checkouts locales consultados
 
-Todos los repositorios originales de trabajo del proyecto deben estar aquí y deben ser **públicos**. El instructor contrasta lo entregado contra estos repositorios, así que deben seguir públicos y con todo su historial hasta terminar la revisión.
+Los commits siguientes se observaron localmente el 2026-11-04. No son todavía una versión coordinada de entrega.
 
-If one is missing, add a row. If one is empty or no longer used, write that in the commit column. The visibility shown was checked on 2026-11-04.
+| Componente | Repositorio original | Rama y commit local | Tag de entrega | ZIP de versión | Exportación completa | Visibilidad y acceso de revisor |
+| --- | --- | --- | --- | --- | --- | --- |
+| Monorepo e integración | [joseale879/PT_HS](https://github.com/joseale879/PT_HS) | `hu-20-dev` / `1f02b78` | Pendiente | Pendiente | Pendiente | Verificar |
+| Backend separado | [joseamaya009/BK_HS](https://github.com/joseamaya009/BK_HS) | `hu-15-dev` / `9db5040` | Pendiente | Pendiente | Pendiente | Verificar |
+| Frontend separado | [joseamaya009/FT_HS](https://github.com/joseamaya009/FT_HS) | `hu-16-staging` / `18d26e3` | Pendiente | Pendiente | Pendiente | Verificar |
+| Base de datos | [EmersonMolano/BD_HS](https://github.com/EmersonMolano/BD_HS) | `hu-23-dev` / `7095168` | Pendiente | Pendiente | Pendiente | Verificar |
+| Firmware ESP32 | [joseamaya009/Firmaware_HS](https://github.com/joseamaya009/Firmaware_HS) | `hu-03-dev` / `5ec5013` | Pendiente | Pendiente | Pendiente | Verificar |
+| Documentación del proyecto | [EmersonMolano/DOCS_HS](https://github.com/EmersonMolano/DOCS_HS) | `main` / `eab6c78` | Pendiente | Pendiente | Pendiente | Verificar |
 
-Si falta alguno, agregue la fila. Si uno está vacío o ya no se usa, indíquelo en la columna del commit. La visibilidad indicada se revisó el 2026-11-04.
+## Repositorios de entrega y trazabilidad
 
-| Component / Componente | Repository / Repositorio | Status / Estado | Access for `ariel5253` / Acceso de `ariel5253` | Commit of tag `final-delivery-2026` / Commit del tag | Main version ZIP / ZIP versión main | Full export ZIP / ZIP completo |
-|---|---|---|---|---|---|---|
-| Main repository | [joseale879/PT_HS](https://github.com/joseale879/PT_HS) | Public / Público | **Add / Agregar** | | | |
-| Database | [joseamaya009/BD_HS](https://github.com/joseamaya009/BD_HS) | Public / Público<br>Fork: the original is listed below / Fork: el original está abajo | **Add / Agregar** | | | |
-| Backend | [joseamaya009/BK_HS](https://github.com/joseamaya009/BK_HS) | Public / Público | **Add / Agregar** | | | |
-| Web frontend | [joseamaya009/FT_HS](https://github.com/joseamaya009/FT_HS) | Public / Público | **Add / Agregar** | | | |
-| Database | [EmersonMolano/BD_HS](https://github.com/EmersonMolano/BD_HS) | Public / Público | **Add / Agregar** | | | |
+El equipo indicó joseale879/ADSO-3145555 como remoto de trabajo para subir este paquete. Los documentos actuales están publicados en la rama [codex/hidrosmart-delivery-draft](https://github.com/joseale879/ADSO-3145555/tree/codex/hidrosmart-delivery-draft). Esta rama es un borrador de revisión y no está fusionada en main.
 
-Before making a repository public, remove `.env` files and change any password, token or key that was ever committed.
+La estructura de entrega también referencia [code-sena/ADSO-3145555](https://github.com/code-sena/ADSO-3145555). No se afirma que el fork de trabajo y el repositorio institucional sean el mismo remoto ni que esta rama ya esté entregada allí. Confirmar con el instructor cuál enlace y método de contribución debe recibir la versión final.
 
-Antes de hacer público un repositorio, quite los archivos `.env` y cambie toda contraseña, token o llave que se haya subido alguna vez.
+## Artefactos por preparar
 
-The instructor account `ariel5253` needs write access to every repository, so pending items can be corrected for the software registration. Add it as a collaborator where the table says so.
+La versión de entrega debe quedar identificada por un tag real y el SHA exacto en cada repositorio que se decida entregar. final-delivery-2026 se ha usado como nombre propuesto, pero no se debe presentar como tag existente mientras no se cree y verifique.
 
-La cuenta del instructor, `ariel5253`, necesita acceso de escritura en cada repositorio, para poder corregir pendientes del registro de software. Agréguela como colaboradora donde la tabla lo indique.
+- ZIP del código de la versión aprobada, sin secretos ni datos locales.
+- Exportación completa en el formato exigido por la guía oficial. Confirmar si requiere solo archivos o también ramas, tags e historial; un ZIP de GitHub de una rama no incluye el historial completo.
+- Archivo SHA256SUMS.txt con el hash de cada artefacto una vez generado.
+- Release asociado al tag y con los artefactos que indique la guía oficial.
+- Acceso de lectura/revisión para el instructor o cuenta indicada por el SENA, confirmado por el propietario de cada repositorio.
 
-## Why two ZIP files / Por qué dos ZIP
+Antes de empaquetar, comprobar que las credenciales expuestas en el historial fueron rotadas y que los archivos de entorno con secretos no están en los adjuntos. La limpieza de ramas o del historial se coordina aparte y no debe alterar la evidencia que el SENA solicite conservar.
 
-| File / Archivo | Content / Contenido | Purpose / Para qué sirve |
-|---|---|---|
-| `<repo>-final-delivery-2026-main.zip` | Only the code of `main` at tag `final-delivery-2026` / Solo el código de `main` en el tag | The exact version delivered, used for software registration / La versión exacta entregada, la que se usa para registro de software |
-| `<repo>-full-export.zip` | The whole repository: all branches, tags and history / Todo el repositorio: ramas, tags e historial | Proof of the work done and a complete backup / Prueba del trabajo realizado y respaldo completo |
+## Criterio de cierre
 
-## Where the ZIP files live / Dónde quedan los ZIP
-
-The ZIP files do not go in this folder. They are attached to a GitHub Release in the fork of the person who delivers, named `final-delivery`, and linked in the table above.
-
-Los ZIP no van en esta carpeta. Se adjuntan a un Release de GitHub llamado `final-delivery` en el fork de quien entrega, y se enlazan en la tabla de arriba.
-
-## Integrity / Integridad
-
-Copy the SHA-256 of every ZIP into [`SHA256SUMS.txt`](SHA256SUMS.txt). / Copie el SHA-256 de cada ZIP en ese archivo.
+No marcar esta sección como completa hasta que el equipo apruebe el conjunto de repositorios, se verifique cada tag/SHA, se construyan y revisen los ZIP, se calcule SHA-256, se compruebe el acceso del revisor y el Release se vincule a la misma versión documentada en todos los archivos.
