@@ -1,14 +1,14 @@
-# Project article / Artículo del proyecto
+# Artículo del proyecto
 
-**Training project deliverable / Producto del proyecto formativo:** Artículo del proyecto.
+## Contenido de esta carpeta
 
-## Required content / Contenido requerido
+- [Artículo Hidro Smart](project-article.md): resumen, contexto, propuesta tecnológica, método, resultados documentados, discusión y conclusiones.
+- `project-article.pdf`: copia de lectura generada el 2026-11-04 desde las fuentes actuales; regenerarla si cambia el Markdown. Sigue siendo un borrador, no una versión aprobada.
 
-- [ ] Final article of the project / Artículo final del proyecto
+## Estado de revisión
 
-## Format / Formato
+El artículo está redactado. Los resultados históricos se conservan como resultados reportados en su corte original; no se presentan como una evaluación nueva. Deben confirmarse autores, citas, formato institucional y resultados con el equipo/instructor.
 
-- Final version in PDF, plus the editable source when it exists. / Versión final en PDF y, si existe, el archivo fuente editable.
-- English file names, without spaces or accents: `requirements-specification.pdf`. / Nombres de archivo en inglés, sin espacios ni tildes.
-- Files over 50 MB go to Drive and are listed in the project `README.md`. / Los archivos de más de 50 MB van a Drive y se relacionan en el `README.md` del proyecto.
-- Do not add passwords, tokens, keys or real user data. / No incluya contraseñas, tokens, llaves ni datos reales de usuarios.
+## Para cerrar
+
+Validar bibliografía y autoría, cotejar resultados con evidencias de la versión final, aplicar el formato exigido por el SENA y regenerar el PDF.
