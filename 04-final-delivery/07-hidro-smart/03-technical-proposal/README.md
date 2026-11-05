@@ -1,15 +1,14 @@
-# Technical proposal / Propuesta técnica
+# Propuesta técnica
 
-**Training project deliverable / Producto del proyecto formativo:** Documentación de propuesta técnica del software.
+## Contenido de esta carpeta
 
-## Required content / Contenido requerido
+- [Propuesta técnica](technical-proposal.md): problema, alcance, solución propuesta, tecnologías, arquitectura y estimaciones.
+- `technical-proposal.pdf`: copia de lectura generada el 2026-11-04 desde las fuentes actuales; regenerarla si cambia el Markdown. Sigue siendo un borrador, no una versi?n aprobada.
 
-- [ ] Software technical proposal / Propuesta técnica del software
-- [ ] Selected technologies and why / Tecnologías seleccionadas y su justificación
+## Estado de revisión
 
-## Format / Formato
+El documento está redactado. Las cifras históricas de costos y beneficios se identifican como estimaciones y no como resultados medidos. La arquitectura y las tecnologías deben cotejarse con la versión que se apruebe para entrega.
 
-- Final version in PDF, plus the editable source when it exists. / Versión final en PDF y, si existe, el archivo fuente editable.
-- English file names, without spaces or accents: `requirements-specification.pdf`. / Nombres de archivo en inglés, sin espacios ni tildes.
-- Files over 50 MB go to Drive and are listed in the project `README.md`. / Los archivos de más de 50 MB van a Drive y se relacionan en el `README.md` del proyecto.
-- Do not add passwords, tokens, keys or real user data. / No incluya contraseñas, tokens, llaves ni datos reales de usuarios.
+## Para cerrar
+
+Confirmar alcance, costos/beneficios, restricciones y justificación tecnológica con el equipo; regenerar y revisar visualmente el PDF.
