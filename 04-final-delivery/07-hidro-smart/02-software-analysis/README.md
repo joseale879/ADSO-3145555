@@ -1,15 +1,14 @@
-# Software analysis / Análisis del software
+# Análisis del software
 
-**Training project deliverable / Producto del proyecto formativo:** Documentación de análisis del software (vistas dinámicas del software).
+## Contenido de esta carpeta
 
-## Required content / Contenido requerido
+- [Análisis del sistema](system-analysis.md): contexto, usuarios, necesidades, procesos y contraste técnico con el monorepo.
+- `system-analysis.pdf`: copia de lectura generada el 2026-11-04 desde las fuentes actuales; regenerarla si cambia el Markdown. Sigue siendo un borrador, no una versi?n aprobada.
 
-- [ ] Software analysis document / Documento de análisis del software
-- [ ] Dynamic views: use cases, sequence, activity or state diagrams / Vistas dinámicas: casos de uso, secuencia, actividades o estados
+## Estado de revisión
 
-## Format / Formato
+El borrador está redactado y distingue el análisis académico original de las observaciones actuales sobre el código. Las afirmaciones de comportamiento se deben comprobar contra el commit que se presente. Las vistas dinámicas editables están en `../04-software-design/diagrams/`.
 
-- Final version in PDF, plus the editable source when it exists. / Versión final en PDF y, si existe, el archivo fuente editable.
-- English file names, without spaces or accents: `requirements-specification.pdf`. / Nombres de archivo en inglés, sin espacios ni tildes.
-- Files over 50 MB go to Drive and are listed in the project `README.md`. / Los archivos de más de 50 MB van a Drive y se relacionan en el `README.md` del proyecto.
-- Do not add passwords, tokens, keys or real user data. / No incluya contraseñas, tokens, llaves ni datos reales de usuarios.
+## Para cerrar
+
+Validar actores, procesos y límites con el equipo; revisar que cada flujo descrito tenga correspondencia con el producto final; regenerar y revisar el PDF.
