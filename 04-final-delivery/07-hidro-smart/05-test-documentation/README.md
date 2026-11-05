@@ -1,16 +1,16 @@
-# Test documentation / Documentación de pruebas
+# Documentación de pruebas
 
-**Training project deliverable / Producto del proyecto formativo:** Documentación de pruebas.
+## Contenido de esta carpeta
 
-## Required content / Contenido requerido
+- [Plan y resultados documentados](test-plan-results.md): alcance, casos y estado de evidencia disponible.
+- [Reproducibilidad](test-reproducibility.md): entorno, ejecución desde clon y límites actuales.
+- [Evidencia de CI de HU-20](ci-evidence-hu-20.md): referencia de una ejecución asociada a la rama de desarrollo, no al futuro commit final.
+- `test-documentation.pdf`: copia de lectura generada el 2026-11-04 desde las fuentes actuales; regenerarla si cambia el Markdown. Sigue siendo un borrador, no una versión aprobada.
 
-- [ ] Test plan / Plan de pruebas
-- [ ] Test cases / Casos de prueba
-- [ ] Test results with evidence / Resultados de las pruebas con evidencia
+## Estado de evidencia
 
-## Format / Formato
+La documentación de pruebas está escrita, pero no equivale a una corrida integral reciente. La CI de HU-20 no demuestra que el commit final tenga CI verde. Las pruebas físicas de ESP32, MQTT/Flespi y correo requieren evidencias fechadas del ensayo real; no se afirman como completadas en este paquete.
 
-- Final version in PDF, plus the editable source when it exists. / Versión final en PDF y, si existe, el archivo fuente editable.
-- English file names, without spaces or accents: `requirements-specification.pdf`. / Nombres de archivo en inglés, sin espacios ni tildes.
-- Files over 50 MB go to Drive and are listed in the project `README.md`. / Los archivos de más de 50 MB van a Drive y se relacionan en el `README.md` del proyecto.
-- Do not add passwords, tokens, keys or real user data. / No incluya contraseñas, tokens, llaves ni datos reales de usuarios.
+## Para cerrar
+
+Ejecutar los casos en el commit candidato, conservar logs/capturas sin secretos ni datos personales, vincular resultados a cada caso y regenerar el PDF.
