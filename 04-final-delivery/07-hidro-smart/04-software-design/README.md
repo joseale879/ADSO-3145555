@@ -1,17 +1,19 @@
-# Software design / Diseño del software
+# Diseño del software
 
-**Training project deliverable / Producto del proyecto formativo:** Documentación de diseño del software (interfaces gráficas, modelo arquitectónico, patrones de diseño, modelo de datos).
+## Contenido de esta carpeta
 
-## Required content / Contenido requerido
+- [Documento de diseño](software-design.md): arquitectura, componentes, patrones y decisiones de diseño.
+- [Arquitectura](architecture.md): límites de componentes, comunicación y flujos principales.
+- [Modelo entidad-relación](entity-relationship.md): modelo conceptual y relaciones principales.
+- [Inventario de tablas](database-schema-inventory.md): recuento estático de 57 tablas en nueve esquemas, derivado de las migraciones presentes en PT_HS.
+- [Wireframe](ui-wireframe.md) y [PDF fuente del wireframe](ui-wireframe.pdf).
+- `diagrams/`: diagramas editables Draw.io y sus fuentes Markdown: casos de uso, actividades, secuencia, componentes, despliegue, estado del dispositivo y dominio.
+- `software-design.pdf`: copia de lectura generada el 2026-11-04 desde las fuentes actuales; regenerarla si cambia el Markdown. Sigue siendo un borrador, no una versión aprobada.
 
-- [ ] Graphical interfaces: mockups or prototype / Interfaces gráficas: mockups o prototipo
-- [ ] Architectural model / Modelo arquitectónico
-- [ ] Design patterns applied, with where they are used / Patrones de diseño aplicados, indicando dónde se usan
-- [ ] Data model: conceptual, logical and physical / Modelo de datos: conceptual, lógico y físico
+## Alcance y límites
 
-## Format / Formato
+El corte de referencia es PT_HS `hu-20-dev`, commit `1f02b78`. El inventario se obtuvo estáticamente de `BD_HS/01_ddl`; no es una consulta a Neon y no incluye un diccionario exhaustivo de columnas. El diagrama ER se presenta como modelo conceptual, no como representación física completa. Los diagramas describen el sistema y requieren cotejo final con la versión aprobada.
 
-- Final version in PDF, plus the editable source when it exists. / Versión final en PDF y, si existe, el archivo fuente editable.
-- English file names, without spaces or accents: `requirements-specification.pdf`. / Nombres de archivo en inglés, sin espacios ni tildes.
-- Files over 50 MB go to Drive and are listed in the project `README.md`. / Los archivos de más de 50 MB van a Drive y se relacionan en el `README.md` del proyecto.
-- Do not add passwords, tokens, keys or real user data. / No incluya contraseñas, tokens, llaves ni datos reales de usuarios.
+## Para cerrar
+
+Validar arquitectura y patrones con el código final, revisar relaciones y diagramas con BD_HS, confirmar que el wireframe corresponde a la interfaz vigente y volver a generar el PDF si cambia alguna fuente.
