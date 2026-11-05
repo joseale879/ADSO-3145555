@@ -1,16 +1,17 @@
-# Requirements specification / Especificación de requisitos
+# Especificación de requisitos
 
-**Training project deliverable / Producto del proyecto formativo:** Informe de especificación de requisitos.
+## Contenido de esta carpeta
 
-## Required content / Contenido requerido
+- [Especificación de requisitos de software](requirements-specification.md): conserva el documento académico base y añade el estado técnico cotejado con PT_HS.
+- [Matriz de requisitos y cobertura](requirements-matrix.md): relaciona los requisitos con las funciones, documentos y evidencias disponibles.
+- `requirements-specification.pdf`: copia de lectura generada el 2026-11-04 desde las fuentes actuales; regenerarla si cambia el Markdown. Sigue siendo un borrador, no una versión aprobada.
 
-- [ ] Requirements specification report / Informe de especificación de requisitos
-- [ ] Functional and non-functional requirements / Requisitos funcionales y no funcionales
-- [ ] User stories and prioritized backlog, if used / Historias de usuario y backlog priorizado, si se usaron
+## Estado de revisión
 
-## Format / Formato
+El SRS y la matriz están redactados. Los requisitos se contrastaron con el checkout local PT_HS `hu-20-dev` (`1f02b78`), pero la aceptación final y la prioridad de cada requisito requieren validación del equipo y del instructor. El documento no representa una certificación de que todos los requisitos hayan pasado pruebas de aceptación.
 
-- Final version in PDF, plus the editable source when it exists. / Versión final en PDF y, si existe, el archivo fuente editable.
-- English file names, without spaces or accents: `requirements-specification.pdf`. / Nombres de archivo en inglés, sin espacios ni tildes.
-- Files over 50 MB go to Drive and are listed in the project `README.md`. / Los archivos de más de 50 MB van a Drive y se relacionan en el `README.md` del proyecto.
-- Do not add passwords, tokens, keys or real user data. / No incluya contraseñas, tokens, llaves ni datos reales de usuarios.
+## Para cerrar
+
+1. Confirmar el alcance y los requisitos vigentes con el equipo.
+2. Adjuntar o enlazar evidencia de aceptación para cada requisito que la requiera.
+3. Regenerar y revisar visualmente el PDF desde la fuente Markdown aprobada.
