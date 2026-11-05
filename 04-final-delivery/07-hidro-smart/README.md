@@ -59,7 +59,7 @@ La existencia de un archivo Markdown significa que el documento está redactado;
 | `team-roster.md` | Integrantes y aportes observados en Git | Borrador; cada persona debe confirmar nombre, usuario, rol y aportes. |
 | `software-registration.md` | Borrador de registro de software | Requiere confirmación de autoría, titularidad, productor y demás datos legales/institucionales. |
 | `delivery-draft-status.md` | Estado, fuente y pendientes del borrador | Actualizado al 2026-11-05; refleja lo publicado en la rama de revisión y las validaciones aún pendientes. |
-| PDF de categorías | Nueve copias de lectura de las categorías 01–09 | Siete se regeneraron el 2026-11-04 y los PDF de acciones y manuales el 2026-11-05. Se revisaron muestras visuales; falta revisión completa y aprobación. |
+| PDF de categorías | Nueve copias de lectura de las categorías 01–09 | Seis se regeneraron el 2026-11-04; diseño, acciones y manuales se regeneraron el 2026-11-05. Se revisaron muestras visuales; falta revisión completa y aprobación. |
 
 ## Criterios para cerrar la entrega
 

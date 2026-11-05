@@ -8,7 +8,7 @@
 - [Inventario de tablas](database-schema-inventory.md): recuento estático de 57 tablas en nueve esquemas, derivado de las migraciones presentes en PT_HS.
 - [Wireframe](ui-wireframe.md) y [PDF fuente del wireframe](ui-wireframe.pdf).
 - `diagrams/`: diagramas editables Draw.io y sus fuentes Markdown: casos de uso, actividades, secuencia, componentes, despliegue, estado del dispositivo y dominio.
-- `software-design.pdf`: copia de lectura generada el 2026-11-04 desde las fuentes actuales; regenerarla si cambia el Markdown. Sigue siendo un borrador, no una versión aprobada.
+- `software-design.pdf`: copia de lectura generada el 2026-11-05 desde las fuentes actuales; regenerarla si cambia el Markdown. Sigue siendo un borrador, no una versión aprobada.
 
 ## Alcance y límites
 

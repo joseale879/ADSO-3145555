@@ -6,7 +6,7 @@
 ## Avance documental
 
 - Las nueve carpetas principales, de 01-requirements-specification a 09-project-article, tienen fuentes Markdown. Esto mide disponibilidad de borradores, no aprobación ni exactitud final.
-- Las nueve carpetas tienen PDF de lectura. Los PDF de acciones y manuales se regeneraron el 2026-11-05; los otros siete se habían generado el 2026-11-04.
+- Las nueve carpetas tienen PDF de lectura. Seis se regeneraron el 2026-11-04; diseño, acciones y manuales se regeneraron el 2026-11-05.
 - Se revisaron visualmente muestras de páginas de los PDF, además de portada, página intermedia y página final de los manuales. No se ha completado una inspección visual página por página.
 - 10-videos/README.md registra un enlace Canva entregado por el equipo; no se verificaron su acceso, duración ni contenido. Faltan evidencias de los dos videos obligatorios.
 - No asigno un porcentaje global de preparación: no hay una rúbrica ponderada para calcularlo. Los borradores están redactados; todavía faltan validaciones técnicas, aprobaciones del equipo y artefactos finales.

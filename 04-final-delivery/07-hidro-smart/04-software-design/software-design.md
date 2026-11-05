@@ -1,4 +1,4 @@
-> **Estado y alcance.** Documento en revisión para la entrega. Las fechas, cifras y funciones heredadas del documento fuente solo se consideran vigentes cuando están respaldadas por evidencia del monorepo PT_HS. Consulta el [índice de entrega](../README.md) y el [estado del borrador](../delivery-draft-status.md).
+> **Estado y alcance.** Borrador de diseño con contenido histórico y objetivos de arquitectura. Las funciones enumeradas no se consideran implementadas solo por aparecer aquí. Para el comportamiento contrastado con código, consulta el corte técnico al final del documento, el [índice de entrega](../README.md) y el [estado del borrador](../delivery-draft-status.md).
 
 <strong>Hidro Smart</strong>
 
@@ -36,7 +36,7 @@ Ficha - 3145555
 
 <strong>Resumen</strong>
 
-El presente Informe de Diseño de Software describe la arquitectura, módulos, base de datos, diagramas UML y especificaciones técnicas del sistema Hidro Smart, una solución IoT para el monitoreo inteligente del consumo de agua en hogares. El sistema permite visualización en tiempo real, alertas automáticas, recomendaciones de ahorro, reportes exportables, modo vacaciones, metas de consumo, historial de conectividad de dispositivos y soporte técnico integrado. Se utiliza React + Vite para el frontend (web/móvil responsivo), Node.js para el backend, PostgreSQL como base de datos, y se aplican patrones de arquitectura moderna como Hexagonal, Event-Driven, Circuit Breaker y DTOs. El diseño se basa en el SRS v3.0 actualizado.
+Este documento conserva el diseño objetivo de Hidro Smart: arquitectura, módulos, modelo de datos, diagramas UML e interfaces planteadas durante el proyecto. La lista de funciones y tecnologías describe ese diseño y no certifica que cada elemento esté implementado o desplegado. El corte técnico al final separa las capacidades contrastadas con PT_HS de las propuestas aún no verificadas. El producto contempla clientes web y móvil, un backend Node.js, PostgreSQL y un dispositivo IoT basado en ESP32.
 
 <strong>Palabras clave: Consumo de agua, IoT, React, Vite, Node.js, sostenibilidad, alertas inteligentes, arquitectura hexagonal, event-driven.</strong>
 
@@ -69,7 +69,7 @@ Introducción
 
 El presente documento constituye el Informe de Diseño de Software del proyecto Hidro Smart, desarrollado como parte del Tecnólogo en Análisis y Desarrollo de Software del Servicio Nacional de Aprendizaje (SENA), ficha 3145555.
 
-Propósito del documento: Este documento tiene como propósito principal describir de forma detallada y técnica cómo se va a construir el sistema Hidro Smart, tomando como base la Especificación de Requisitos de Software (SRS v1.1) actualizada. Sirve como guía oficial para el equipo de desarrollo durante las fases de:
+Propósito del documento: registrar el diseño objetivo elaborado a partir de los requisitos disponibles en su momento y mantener trazabilidad para la revisión del equipo. Este documento es una referencia de diseño; la implementación vigente se determina con el corte técnico al final y con el código identificado en el índice de entrega. No reemplaza el SRS ni constituye aprobación formal.
 
 <p> Construcción de la base de datos (PostgreSQL).</p>
 <p> Desarrollo del frontend (React + Vite).</p>
@@ -77,14 +77,16 @@ Propósito del documento: Este documento tiene como propósito principal describ
 <p> Codificación de la lógica de negocio (Arquitectura Hexagonal, Casos de Uso).</p>
 <p> Integración de dispositivos IoT (MQTT).</p>
 <p> Realización de pruebas funcionales y no funcionales.</p>
-Así mismo, garantiza la trazabilidad entre los requerimientos definidos  y su implementación técnica, documentando los patrones arquitectónicos y de diseño aplicados para garantizar escalabilidad, mantenibilidad y tolerancia a fallos.
+El documento organiza los objetivos y decisiones de diseño para facilitar su revisión. La trazabilidad y el grado de implementación de cada requisito deben verificarse contra la matriz de requisitos y el código del corte identificado.
 
 
 
 
-<strong>Alcance del sistema</strong>
+<strong>Alcance funcional descrito en el diseño original</strong>
 
 <strong>Hidro Smart es una solución tecnológica compuesta por un medidor inteligente de agua (basado en ESP32) conectado mediante MQTT, con perfil Flespi/TLS en el firmware y Mosquitto sin TLS reservado a desarrollo, además de un cliente web React/Vite y un cliente móvil Expo/React Native. El sistema permite a los usuarios domésticos:</strong>
+
+<p><strong>Nota:</strong> La lista siguiente reúne objetivos funcionales del diseño fuente; no demuestra que todas las funciones estén disponibles en el corte de código. Para lo implementado y sus límites, consulta el corte técnico al final del documento.</p>
 
 <p> Monitorear el consumo de agua en tiempo real con polling HTTP; WebSockets no verificado.</p>
 <p> Clasificar el consumo por actividades (ducha, lavado, aseo, cocina, etc.).</p>
@@ -161,6 +163,8 @@ Quedan fuera del alcance inicial: integración con sistemas externos de acueduct
 
 <strong>Referencias de documentos relacionados</strong>
 
+<p>Los enlaces a carpetas externas provienen del documento fuente; su acceso y correspondencia con esta versión no están verificados. Los diagramas, el modelo conceptual y el wireframe incluidos en esta entrega se enlazan desde sus secciones locales.</p>
+
 •    Amaya Mosquera, J. D., Molano Cardozo, E. C. &amp; Montealegre Rodríguez, J. A. (2025). Diseño conceptual y arquitectura de información. SENA. 
 
 [<u>https://drive.google.com/drive/folders/1O1brvYi-oYlElVLB6hLb7HU881uh8dJU?usp=sharing</u>](https://drive.google.com/drive/folders/1O1brvYi-oYlElVLB6hLb7HU881uh8dJU?usp=sharing)
@@ -195,7 +199,7 @@ Quedan fuera del alcance inicial: integración con sistemas externos de acueduct
 
 Descripción general del sistema
 
-<strong>Hidro Smart es un sistema inteligente diseñado para resolver el problema de la falta de visibilidad y control del consumo de agua en los hogares colombianos. Combina un medidor físico inteligente (IoT) con una aplicación web/móvil que procesa, analiza y presenta la información en tiempo real..</strong>
+<strong>Hidro Smart es un sistema inteligente diseñado para resolver el problema de la falta de visibilidad y control del consumo de agua en los hogares colombianos. Combina un medidor físico inteligente (IoT) con una aplicación web/móvil que procesa, analiza y presenta la información en tiempo real.</strong>
 
 Diseñar e implementar una solución tecnológica que permita a los usuarios domésticos monitorear, controlar y optimizar su consumo diario de agua, proporcionando información detallada por actividad, alertas preventivas, herramientas de administración avanzada (modo vacaciones, metas, soporte) y recomendaciones prácticas para reducir el desperdicio y promover el uso responsable del recurso hídrico.
 
@@ -361,7 +365,7 @@ Arquitectura en Capas
 <tr>
 <td><p>Capa de Eventos</p></td>
 <td><p>Event Bus para comunicaci&#243;n as&#237;ncrona entre m&#243;dulos.</p></td>
-<td><p>EventEmitter2 (desarrollo) / procesamiento as&#237;ncrono no verificado no verificado (producci&#243;n)</p></td>
+<td><p>EventEmitter2 (desarrollo) / procesamiento as&#237;ncrono no verificado (producci&#243;n)</p></td>
 <td><p>Desacopla la ingesta MQTT, el procesamiento de alertas y el env&#237;o de notificaciones.</p></td>
 </tr>
 </table>
@@ -573,7 +577,7 @@ A continuación se describen los módulos principales del sistema Hidro Smart. C
 <td><p>Reportes y An&#225;lisis (RF5)</p></td>
 <td><p>Genera informes hist&#243;ricos, gr&#225;ficos comparativos, an&#225;lisis de h&#225;bitos de consumo, predicciones y exportaci&#243;n a PDF y Excel.</p></td>
 <td><p>Rango de fechas, hogar seleccionado, tipo de reporte (diario, semanal, mensual, anual), formato de exportaci&#243;n (PDF/Excel).</p></td>
-<td><p>Consulta de datos hist&#243;ricos desde sensor_reading, daily_consumption_summary, monthly_consumption_history, generaci&#243;n de gr&#225;ficos (recharts en frontend), c&#225;lculo de h&#225;bitos de consumo (horas pico, d&#237;as de mayor consumo), aplicaci&#243;n de modelo predictivo (media m&#243;vil simple o regresi&#243;n lineal), generaci&#243;n de archivos PDF (pdf-lib) y Excel (exceljs) de forma as&#237;ncrona (procesamiento as&#237;ncrono no verificado no verificado).</p></td>
+<td><p>Consulta de datos hist&#243;ricos desde sensor_reading, daily_consumption_summary, monthly_consumption_history, generaci&#243;n de gr&#225;ficos (recharts en frontend), c&#225;lculo de h&#225;bitos de consumo (horas pico, d&#237;as de mayor consumo), aplicaci&#243;n de modelo predictivo (media m&#243;vil simple o regresi&#243;n lineal), generaci&#243;n de archivos PDF (pdf-lib) y Excel (exceljs) de forma as&#237;ncrona (procesamiento as&#237;ncrono no verificado).</p></td>
 <td><p>Reportes PDF/Excel descargables, gr&#225;ficos comparativos, h&#225;bitos de consumo, predicci&#243;n de consumo, an&#225;lisis de tendencias.</p></td>
 </tr>
 <tr>
@@ -600,73 +604,29 @@ A continuación se describen los módulos principales del sistema Hidro Smart. C
 </table>
 
 
-Diagramas del Sistema (UML)
+<strong>Diagramas del Sistema (UML)</strong>
 
-Los diagramas UML representan gráficamente el diseño del sistema Hidro Smart, facilitando la comprensión de su estructura, comportamiento y componentes. A continuación se presentan los diagramas más relevantes elaborados para este proyecto.
+Los diagramas editables y sus fuentes se incluyen en la carpeta local diagrams/. Son artefactos de diseño y no constituyen por sí mismos evidencia de ejecución física.
 
-Diagrama de Casos de Uso
+- Casos de uso: [diagrams/use-cases.md](diagrams/use-cases.md) y [diagrams/use-cases.drawio](diagrams/use-cases.drawio).
+- Dominio: [diagrams/domain-diagram.md](diagrams/domain-diagram.md) y [diagrams/domain-diagram.drawio](diagrams/domain-diagram.drawio).
+- Actividades: [diagrams/activity-diagrams.md](diagrams/activity-diagrams.md) y [diagrams/activity-diagrams.drawio](diagrams/activity-diagrams.drawio).
+- Estado del dispositivo: [diagrams/device-state-diagram.md](diagrams/device-state-diagram.md) y [diagrams/device-state-diagram.drawio](diagrams/device-state-diagram.drawio).
+- Secuencias: [diagrams/sequence-diagrams.md](diagrams/sequence-diagrams.md) y [diagrams/sequence-diagrams.drawio](diagrams/sequence-diagrams.drawio).
+- Componentes: [diagrams/component-diagram.md](diagrams/component-diagram.md) y [diagrams/component-diagram.drawio](diagrams/component-diagram.drawio).
+- Despliegue: [diagrams/deployment-diagram.md](diagrams/deployment-diagram.md) y [diagrams/deployment-diagram.drawio](diagrams/deployment-diagram.drawio).
 
-Representa los actores (Usuario, Administrador, Soporte Técnico y Sistema IoT) y los casos de uso principales del sistema. Archivo fuente: use-cases.drawio
+<strong>Diseño de Base de Datos</strong>
 
-[<u>https://drive.google.com/drive/folders/1\_S3C4k7N0oDvtXIebcFDupXPOaXKEgQU?usp=drive\_link</u>](https://drive.google.com/drive/folders/1_S3C4k7N0oDvtXIebcFDupXPOaXKEgQU?usp=drive_link)
-
-Diagrama de Clases (Diagrama de Dominio)
-
-Muestra las principales entidades del sistema y sus relaciones (usuarios, hogares, dispositivos, lecturas, alertas, etc.). Archivo fuente: domain-diagram.drawio + Copia de MER.png
-
-[<u>https://drive.google.com/drive/folders/1KfAR3c4ENyvTRjR08R2E1Au3oeB63phK?usp=drive\_link</u>](https://drive.google.com/drive/folders/1KfAR3c4ENyvTRjR08R2E1Au3oeB63phK?usp=drive_link)
-
-Diagrama de Actividad
-
-Describe el flujo detallado de los procesos principales (RF1 a RF5). Archivo fuente: activity-diagrams.drawio (5 diagramas: RF1, RF2, RF3, RF4 y RF5)
-
-[<u>https://drive.google.com/drive/folders/1lq7OcCKL2-YpipC9u8UQzUvz7BH7togz?usp=drive\_link</u>](https://drive.google.com/drive/folders/1lq7OcCKL2-YpipC9u8UQzUvz7BH7togz?usp=drive_link)
-
-Diagrama de Transición de Estados
-
-Ilustra los diferentes estados por los que pueden pasar los objetos clave (sesión de usuario, dispositivo, hogar, alerta). Archivo fuente: device-state-diagram.drawio
-
-[<u>https://drive.google.com/drive/folders/1YRPdO0aztE2tG7kAMc2\_wJRs9acPrxF-?usp=drive\_link</u>](https://drive.google.com/drive/folders/1YRPdO0aztE2tG7kAMc2_wJRs9acPrxF-?usp=drive_link)
-
-Diagrama de Secuencia
-
-Representará el flujo temporal de mensajes entre objetos para los casos más críticos (Login, Lectura en tiempo real y Generación de alerta). Estado: Pendiente (se recomienda crear en Draw.io o PlantUML).
-
-\[Insertar imagen del Diagrama de Transición de Estados aquí\]
-
-Diagrama de Componentes
-
-Muestra la organización física de los componentes del sistema (frontend web y shell móvil, Backend Node.js, Base de datos PostgreSQL y dispositivos IoT). Estado: Pendiente.
-
-\[Insertar imagen del Diagrama de Transición de Estados aquí\]
-
-Diagrama de Despliegue
-
-Ilustra la infraestructura donde se ejecutarán los componentes (dispositivos IoT, servidor en la nube y dispositivos móviles del usuario). Estado: Pendiente. 
-
-\[Insertar imagen del Diagrama de Transición de Estados aquí\]
-
-
-
-
-
-
-
-
-
-Diseño de Base de Datos
-
-El diseño de la base de datos se realizó bajo el modelo relacional, garantizando la integridad de los datos, la normalización y el cumplimiento de todos los requerimientos funcionales y no funcionales definidos en el SRS v1.
+El diseño fuente plantea un modelo relacional para organizar la información y aplicar restricciones de integridad. Esta descripción no acredita por sí sola la normalización completa ni la cobertura de requisitos; consulta las migraciones y el inventario estático incluidos en la entrega para el estado contrastado con el código.
 
 Modelo Entidad - Relación
 
-El modelo Entidad-Relación (MER) representa todas las entidades principales del sistema y sus relaciones.
+El modelo conceptual y sus límites se documentan en [entity-relationship.md](entity-relationship.md). La fuente editable del diagrama de dominio está en [domain-diagram.md](diagrams/domain-diagram.md) y [domain-diagram.drawio](diagrams/domain-diagram.drawio). No debe interpretarse como un esquema físico exhaustivo.
 
-Archivo fuente: Copia de MER.png
+<pdf:nextpage />
 
-[<u>https://drive.google.com/drive/folders/10q-U9\_k-FVHzPtbMjG2GP4O6VEaU28QJ?usp=drive\_link</u>](https://drive.google.com/drive/folders/10q-U9_k-FVHzPtbMjG2GP4O6VEaU28QJ?usp=drive_link)
-
-Tablas principales
+Tablas conceptuales del diseño fuente (no confirman los nombres actuales de PostgreSQL)
 
 <table>
 <tr>
@@ -720,11 +680,11 @@ Tablas principales
 </table>
 
 
-<strong>Diccionario de Datos</strong>
+Referencia de datos e inventario actual
 
-A continuación se presenta el diccionario de datos completo del sistema Hidro Smart, organizado por módulos funcionales.
+El documento fuente llamaba a esta sección diccionario de datos completo. En esta entrega se incluye un inventario estático de esquemas y tablas, no un diccionario exhaustivo de columnas.
 
-https://drive.google.com/drive/folders/1Ol3vwXOemNJgrceT57sJ9F358DzI1\_ib?usp=drive\_link
+[Inventario estático de esquemas y tablas](database-schema-inventory.md). Este archivo no es un diccionario exhaustivo de columnas.
 
 
 
@@ -741,11 +701,11 @@ https://drive.google.com/drive/folders/1Ol3vwXOemNJgrceT57sJ9F358DzI1\_ib?usp=dr
 
 Diseño de Interfaces
 
-El diseño de interfaces de Hidro Smart busca ofrecer una experiencia intuitiva, moderna y responsiva, optimizada para navegadores web y dispositivos móviles. Todos los prototipos fueron creados en Figma y siguen los principios de usabilidad y accesibilidad (WCAG AA).
-
-[<u>https://drive.google.com/drive/folders/1Ittp-5IzEM4EQfMXPU3OtklOq3dttgvD?usp=drive\_link</u>](https://drive.google.com/drive/folders/1Ittp-5IzEM4EQfMXPU3OtklOq3dttgvD?usp=drive_link)
+El wireframe disponible para esta entrega está en [ui-wireframe.md](ui-wireframe.md) y [ui-wireframe.pdf](ui-wireframe.pdf). Debe cotejarse con la interfaz de la versión candidata; no se afirma aquí conformidad WCAG ni que coincida con todas las pantallas actuales.
 
 Tecnologías Frontend (React + Vite)
+
+Esta tabla conserva versiones y herramientas del diseño fuente; no representa las dependencias instaladas en el corte actual. Para verificarlas, consulta los manifiestos y lockfiles del código identificado.
 
 <table>
 <tr>
@@ -817,8 +777,8 @@ Tecnologías Frontend (React + Vite)
 
 <table>
 <tr>
-<td><p><strong>Pantalla</strong></p></td>
-<td><p><strong>Pantalla</strong></p></td>
+<td><p><strong>Nombre de pantalla</strong></p></td>
+<td><p><strong>Descripci&#243;n</strong></p></td>
 <td><p><strong>RF asociado</strong></p></td>
 </tr>
 <tr>
@@ -1623,7 +1583,7 @@ A continuación, se detallan las tecnologías seleccionadas para el desarrollo d
 </tr>
 <tr>
 <td><p>Colas y procesamiento as&#237;ncrono</p></td>
-<td><p>procesamiento as&#237;ncrono no verificado no verificado</p></td>
+<td><p>procesamiento as&#237;ncrono no verificado</p></td>
 <td><p>4.x / 7.x</p></td>
 <td><p>Procesamiento de tareas pesadas (reportes, notificaciones) en segundo plano sin bloquear la API.</p></td>
 </tr>
@@ -1784,667 +1744,21 @@ Manejo de errores
 
 <strong>Otras consideraciones</strong>
 
+<p>La tabla de esta sección estaba vacía en el documento fuente. La revisión de ramas, repositorios y artefactos se mantiene en el <a href="../code-tag/README.md">inventario de código y tag</a>; no se completan esos datos con supuestos.</p>
+
+<strong>Estructura vigente de componentes en PT_HS</strong>
+
+<p>El árbol de carpetas del documento fuente era una propuesta y no coincidía con el monorepo de referencia. Para evitar presentar nombres de archivos hipotéticos como si fueran actuales, esta sección resume los límites funcionales del corte PT_HS/hu-20-dev, commit 1f02b78. El detalle de flujos está en <a href="architecture.md">architecture.md</a>; el inventario estático de tablas está en <a href="database-schema-inventory.md">database-schema-inventory.md</a>.</p>
 
 <table>
-<tr>
-<td><p>Aspecto</p></td>
-<td><p>Detalle</p></td>
-</tr>
-<tr>
-<td><p>Control de versiones</p></td>
-<td><p>&nbsp;</p></td>
-</tr>
-<tr>
-<td><p>&nbsp;</p></td>
-<td><p>&nbsp;</p></td>
-</tr>
-<tr>
-<td><p>&nbsp;</p></td>
-<td><p>&nbsp;</p></td>
-</tr>
-<tr>
-<td><p>&nbsp;</p></td>
-<td><p>&nbsp;</p></td>
-</tr>
-<tr>
-<td><p>&nbsp;</p></td>
-<td><p>&nbsp;</p></td>
-</tr>
+<tr><td><strong>Componente</strong></td><td><strong>Responsabilidad documentada</strong></td><td><strong>Límite o verificación</strong></td></tr>
+<tr><td>Cliente web</td><td>Interfaz React/Vite y consumo de API REST.</td><td>La sesión web usa cookies y CSRF en el corte identificado. Confirmar el despliegue con el proveedor.</td></tr>
+<tr><td>Cliente móvil</td><td>Aplicación Expo/React Native separada del cliente web.</td><td>BLE requiere compilación nativa compatible; Expo Go no demuestra ese flujo.</td></tr>
+<tr><td>Backend</td><td>API Express con autenticación, autorización, reglas del dominio e ingesta MQTT.</td><td>La aceptación de un correo por Brevo no prueba su entrega al destinatario.</td></tr>
+<tr><td>Persistencia</td><td>PostgreSQL con esquema administrado por cambios Liquibase.</td><td>El inventario de esta entrega se obtiene estáticamente de las migraciones; no es consulta en vivo a Neon.</td></tr>
+<tr><td>Firmware y broker</td><td>ESP32 comunica estado y telemetría por MQTT; BLE aprovisiona la red. Mosquitto es local y Flespi/TLS corresponde al perfil externo.</td><td>El documento no acredita ACL, token vigente, disponibilidad del broker ni ensayo físico actual.</td></tr>
+<tr><td>Entrega</td><td>GitHub Actions valida el repositorio según el workflow configurado.</td><td>Un resultado de CI no equivale a despliegue; consulta la evidencia de CI y el inventario de tag.</td></tr>
 </table>
-
-
-
-
-
-
-
-
-
-hidro-smart-frontend/
-
-├── public/
-
-│   ├── favicon.ico
-
-│   └── manifest.json
-
-├── src/
-
-│   ├── api/
-
-│   │   ├── axiosConfig.js
-
-│   │   ├── authApi.js
-
-│   │   ├── homeApi.js
-
-│   │   ├── deviceApi.js
-
-│   │   ├── consumptionApi.js
-
-│   │   ├── alertApi.js
-
-│   │   ├── reportApi.js
-
-│   │   ├── goalApi.js
-
-│   │   ├── ticketApi.js
-
-│   │   └── vacationApi.js
-
-│   ├── components/
-
-│   │   ├── common/
-
-│   │   │   ├── Button.jsx
-
-│   │   │   ├── Card.jsx
-
-│   │   │   ├── Input.jsx
-
-│   │   │   ├── Select.jsx
-
-│   │   │   ├── Modal.jsx
-
-│   │   │   └── LoadingSpinner.jsx
-
-│   │   ├── layout/
-
-│   │   │   ├── Sidebar.jsx
-
-│   │   │   ├── Header.jsx
-
-│   │   │   └── Footer.jsx
-
-│   │   ├── dashboard/
-
-│   │   │   ├── ConsumptionChart.jsx
-
-│   │   │   ├── AlertCard.jsx
-
-│   │   │   ├── DeviceStatusCard.jsx
-
-│   │   │   └── RecommendationCard.jsx
-
-│   │   ├── homes/
-
-│   │   │   ├── HomeList.jsx
-
-│   │   │   ├── HomeForm.jsx
-
-│   │   │   ├── HomeDetail.jsx
-
-│   │   │   └── MemberList.jsx
-
-│   │   ├── devices/
-
-│   │   │   ├── DeviceList.jsx
-
-│   │   │   ├── DeviceForm.jsx
-
-│   │   │   ├── DeviceDetail.jsx
-
-│   │   │   ├── CalibrationForm.jsx
-
-│   │   │   └── ConnectivityHistory.jsx
-
-│   │   ├── reports/
-
-│   │   │   ├── ReportGenerator.jsx
-
-│   │   │   ├── ReportList.jsx
-
-│   │   │   ├── ConsumptionCharts.jsx
-
-│   │   │   └── CostProjection.jsx
-
-│   │   ├── goals/
-
-│   │   │   ├── GoalList.jsx
-
-│   │   │   ├── GoalForm.jsx
-
-│   │   │   └── GoalProgress.jsx
-
-│   │   ├── tickets/
-
-│   │   │   ├── TicketList.jsx
-
-│   │   │   ├── TicketForm.jsx
-
-│   │   │   ├── TicketDetail.jsx
-
-│   │   │   └── TicketResponse.jsx
-
-│   │   ├── settings/
-
-│   │   │   ├── Profile.jsx
-
-│   │   │   ├── Security.jsx
-
-│   │   │   ├── Privacy.jsx
-
-│   │   │   ├── Preferences.jsx
-
-│   │   │   ├── VacationMode.jsx
-
-│   │   │   └── Account.jsx
-
-│   │   └── auth/
-
-│   │       ├── Login.jsx
-
-│   │       ├── Register.jsx
-
-│   │       ├── ForgotPassword.jsx
-
-│   │       └── ResetPassword.jsx
-
-│   ├── contexts/
-
-│   │   ├── AuthContext.jsx
-
-│   │   ├── ThemeContext.jsx
-
-│   │   ├── NotificationContext.jsx
-
-│   │   └── SocketContext.jsx
-
-│   ├── hooks/
-
-│   │   ├── useAuth.js
-
-│   │   ├── useWebSocket.js
-
-│   │   ├── useConsumption.js
-
-│   │   └── useNotifications.js
-
-│   ├── pages/
-
-│   │   ├── DashboardPage.jsx
-
-│   │   ├── HomesPage.jsx
-
-│   │   ├── DevicesPage.jsx
-
-│   │   ├── ReportsPage.jsx
-
-│   │   ├── GoalsPage.jsx
-
-│   │   ├── NotificationsPage.jsx
-
-│   │   ├── SupportPage.jsx
-
-│   │   └── SettingsPage.jsx
-
-│   ├── services/
-
-│   │   ├── socketService.js
-
-│   │   ├── notificationService.js
-
-│   │   └── storageService.js
-
-│   ├── styles/
-
-│   │   ├── index.css
-
-│   │   └── tailwind.css
-
-│   ├── utils/
-
-│   │   ├── validators.js
-
-│   │   ├── formatters.js
-
-│   │   ├── constants.js
-
-│   │   └── helpers.js
-
-│   ├── App.jsx
-
-│   ├── main.jsx
-
-│   └── router.jsx
-
-├── .env
-
-├── .env.example
-
-├── .gitignore
-
-├── index.html
-
-├── package.json
-
-├── tailwind.config.js
-
-├── vite.config.js
-
-└── README.md
-
-
-<strong>Backend (Node.js con </strong><strong>arquitectura</strong><strong> hexagonal):</strong>
-
-hidro-smart-backend/
-
-├── src/
-
-│   ├── api/
-
-│   │   ├── controllers/
-
-│   │   │   ├── auth.controller.js
-
-│   │   │   ├── user.controller.js
-
-│   │   │   ├── home.controller.js
-
-│   │   │   ├── device.controller.js
-
-│   │   │   ├── consumption.controller.js
-
-│   │   │   ├── alert.controller.js
-
-│   │   │   ├── report.controller.js
-
-│   │   │   ├── recommendation.controller.js
-
-│   │   │   ├── vacation.controller.js
-
-│   │   │   ├── goal.controller.js
-
-│   │   │   ├── ticket.controller.js
-
-│   │   │   └── arco.controller.js
-
-│   │   ├── middlewares/
-
-│   │   │   ├── auth.middleware.js
-
-│   │   │   ├── role.middleware.js
-
-│   │   │   ├── validation.middleware.js
-
-│   │   │   ├── audit.middleware.js
-
-│   │   │   ├── rate-limit.middleware.js
-
-│   │   │   └── error-handler.middleware.js
-
-│   │   ├── routes/
-
-│   │   │   └── v1/
-
-│   │   │       ├── index.js
-
-│   │   │       ├── auth.routes.js
-
-│   │   │       ├── user.routes.js
-
-│   │   │       ├── home.routes.js
-
-│   │   │       ├── device.routes.js
-
-│   │   │       ├── consumption.routes.js
-
-│   │   │       ├── alert.routes.js
-
-│   │   │       ├── report.routes.js
-
-│   │   │       ├── recommendation.routes.js
-
-│   │   │       ├── vacation.routes.js
-
-│   │   │       ├── goal.routes.js
-
-│   │   │       ├── ticket.routes.js
-
-│   │   │       └── arco.routes.js
-
-│   │   └── validators/
-
-│   │       ├── auth.validator.js
-
-│   │       ├── user.validator.js
-
-│   │       ├── home.validator.js
-
-│   │       └── ...
-
-│   ├── core/
-
-│   │   ├── domain/
-
-│   │   │   ├── entities/
-
-│   │   │   │   ├── User.js
-
-│   │   │   │   ├── Home.js
-
-│   │   │   │   ├── Device.js
-
-│   │   │   │   ├── Reading.js
-
-│   │   │   │   ├── Alert.js
-
-│   │   │   │   ├── VacationMode.js
-
-│   │   │   │   └── Goal.js
-
-│   │   │   ├── value-objects/
-
-│   │   │   │   ├── Email.js
-
-│   │   │   │   ├── Password.js
-
-│   │   │   │   ├── DeviceCode.js
-
-│   │   │   │   └── Consumption.js
-
-│   │   │   ├── events/
-
-│   │   │   │   ├── ReadingCreatedEvent.js
-
-│   │   │   │   ├── AlertTriggeredEvent.js
-
-│   │   │   │   └── DeviceStatusChangedEvent.js
-
-│   │   │   └── exceptions/
-
-│   │   │       ├── DomainException.js
-
-│   │   │       ├── ValidationException.js
-
-│   │   │       ├── NotFoundException.js
-
-│   │   │       └── UnauthorizedException.js
-
-│   │   ├── application/
-
-│   │   │   ├── use-cases/
-
-│   │   │   │   ├── auth/
-
-│   │   │   │   │   ├── RegisterUserUseCase.js
-
-│   │   │   │   │   ├── LoginUserUseCase.js
-
-│   │   │   │   │   ├── ForgotPasswordUseCase.js
-
-│   │   │   │   │   └── ResetPasswordUseCase.js
-
-│   │   │   │   ├── home/
-
-│   │   │   │   │   ├── CreateHomeUseCase.js
-
-│   │   │   │   │   ├── UpdateHomeUseCase.js
-
-│   │   │   │   │   ├── DeleteHomeUseCase.js
-
-│   │   │   │   │   └── InviteMemberUseCase.js
-
-│   │   │   │   ├── device/
-
-│   │   │   │   │   ├── RegisterDeviceUseCase.js
-
-│   │   │   │   │   ├── CalibrateDeviceUseCase.js
-
-│   │   │   │   │   ├── SuspendDeviceUseCase.js
-
-│   │   │   │   │   └── UnlinkDeviceUseCase.js
-
-│   │   │   │   ├── consumption/
-
-│   │   │   │   │   ├── ProcessReadingUseCase.js
-
-│   │   │   │   │   ├── GetConsumptionHistoryUseCase.js
-
-│   │   │   │   │   └── GeneratePredictionUseCase.js
-
-│   │   │   │   ├── alert/
-
-│   │   │   │   │   ├── EvaluateAlertRulesUseCase.js
-
-│   │   │   │   │   ├── GetAlertsUseCase.js
-
-│   │   │   │   │   └── MarkAlertAsReadUseCase.js
-
-│   │   │   │   ├── vacation/
-
-│   │   │   │   │   ├── ActivateVacationModeUseCase.js
-
-│   │   │   │   │   └── GetVacationModeUseCase.js
-
-│   │   │   │   ├── goal/
-
-│   │   │   │   │   ├── CreateGoalUseCase.js
-
-│   │   │   │   │   ├── UpdateGoalUseCase.js
-
-│   │   │   │   │   └── DeleteGoalUseCase.js
-
-│   │   │   │   └── user/
-
-│   │   │   │       ├── UpdateProfileUseCase.js
-
-│   │   │   │       └── DeleteAccountUseCase.js
-
-│   │   │   ├── ports/
-
-│   │   │   │   ├── repositories/
-
-│   │   │   │   │   ├── IUserRepository.js
-
-│   │   │   │   │   ├── IHomeRepository.js
-
-│   │   │   │   │   ├── IDeviceRepository.js
-
-│   │   │   │   │   ├── IReadingRepository.js
-
-│   │   │   │   │   ├── IAlertRepository.js
-
-│   │   │   │   │   ├── IVacationRepository.js
-
-│   │   │   │   │   └── IGoalRepository.js
-
-│   │   │   │   └── services/
-
-│   │   │   │       ├── INotificationService.js
-
-│   │   │   │       ├── IEmailService.js
-
-│   │   │   │       ├── IPushService.js
-
-│   │   │   │       ├── IEventBus.js
-
-│   │   │   │       └── IUnitOfWork.js
-
-│   │   │   └── dtos/
-
-│   │   │       ├── requests/
-
-│   │   │       │   ├── RegisterUserRequest.js
-
-│   │   │       │   ├── LoginRequest.js
-
-│   │   │       │   ├── CreateHomeRequest.js
-
-│   │   │       │   └── ...
-
-│   │   │       └── responses/
-
-│   │   │           ├── AuthResponse.js
-
-│   │   │           ├── UserProfileResponse.js
-
-│   │   │           ├── HomeResponse.js
-
-│   │   │           ├── DeviceResponse.js
-
-│   │   │           └── ...
-
-│   │   └── infrastructure/
-
-│   │       ├── repositories/
-
-│   │       │   ├── postgres/
-
-│   │       │   │   ├── PostgresUserRepository.js
-
-│   │       │   │   ├── PostgresHomeRepository.js
-
-│   │       │   │   ├── PostgresDeviceRepository.js
-
-│   │       │   │   ├── PostgresReadingRepository.js
-
-│   │       │   │   ├── PostgresAlertRepository.js
-
-│   │       │   │   ├── PostgresVacationRepository.js
-
-│   │       │   │   ├── PostgresGoalRepository.js
-
-│   │       │   │   ├── PostgresUnitOfWork.js
-
-│   │       │   │   └── mappers/
-
-│   │       │   │       ├── UserMapper.js
-
-│   │       │   │       ├── HomeMapper.js
-
-│   │       │   │       └── ...
-
-│   │       │   └── in-memory/
-
-│   │       │       └── ...
-
-│   │       ├── services/
-
-│   │       │   ├── notification/
-
-│   │       │   │   ├── FirebasePushService.js
-
-│   │       │   │   ├── NodemailerEmailService.js
-
-│   │       │   │   └── TwilioSMSService.js
-
-│   │       │   ├── event-bus/
-
-│   │       │   │   └── EventEmitterBus.js
-
-│   │       │   └── cache/
-
-│   │       │       └── Redis no verificadoCacheService.js
-
-│   │       └── config/
-
-│   │           ├── database.js
-
-│   │           ├── mqtt.js
-
-│   │           ├── firebase.js
-
-│   │           ├── redis.js
-
-│   │           └── env.js
-
-│   ├── events/
-
-│   │   ├── handlers/
-
-│   │   │   ├── ReadingCreatedHandler.js
-
-│   │   │   ├── AlertTriggeredHandler.js
-
-│   │   │   └── DeviceStatusChangedHandler.js
-
-│   │   └── subscribers.js
-
-│   ├── jobs/
-
-│   │   ├── daily-summary.job.js
-
-│   │   ├── monthly-summary.job.js
-
-│   │   ├── generate-recommendations.job.js
-
-│   │   ├── refresh-materialized-views.job.js
-
-│   │   └── clean-audit-logs.job.js
-
-│   ├── mqtt/
-
-│   │   ├── mqtt.client.js
-
-│   │   ├── mqtt.handlers.js
-
-│   │   └── mqtt.topics.js
-
-│   ├── shared/
-
-│   │   ├── utils/
-
-│   │   │   ├── logger.js
-
-│   │   │   ├── jwt.js
-
-│   │   │   ├── bcrypt.js
-
-│   │   │   └── date-helper.js
-
-│   │   ├── constants/
-
-│   │   │   ├── roles.js
-
-│   │   │   └── alert-types.js
-
-│   │   └── exceptions/
-
-│   │       └── AppError.js
-
-│   └── app.js
-
-├── tests/
-
-│   ├── unit/
-
-│   ├── integration/
-
-│   ├── e2e/
-
-│   └── fixtures/
-
-├── .env
-
-├── .gitignore
-
-├── docker-compose.yml
-
-├── package.json
-
-└── server.js
-
 
 
 Referencias
@@ -2455,6 +1769,8 @@ Motta Vargas, J. de J. (2025). <em>Acta general del proceso del proyecto Hidro S
 
 Amaya Mosquera, J. D., Molano Cardozo, E. C., &amp; Montealegre Rodríguez, J. A. (2026). <em>Encuesta sobre el consumo de agua</em>. Google Forms.
 
+
+<pdf:nextpage />
 
 Anexo de actualización 2026: diseño frente a la implementación
 
@@ -2504,19 +1820,9 @@ El informe de diseño original se conserva por su amplitud, tablas, decisiones y
 </table>
 
 
-Componentes actuales que deben prevalecer
+<pdf:nextpage />
 
-Backend Express y PostgreSQL/Liquibase; Mosquitto es local de desarrollo y el perfil externo Flespi usa MQTT/TLS.
-
-Cliente web React/Vite y cliente móvil Expo/React Native; el aprovisionamiento BLE depende de una compilación nativa.
-
-El contrato del firmware usa hidrosmart/devices/{deviceCode}/telemetry, status y commands. Los topics de actuadores del backend no prueban que haya actuador físico implementado.
-
-Persistencia y deduplicación de lecturas mediante mqttMessageId.
-
-Polling HTTP de 5 segundos para reflejar datos persistidos en la UI.
-
-## Corte de implementación PT_HS - 2026-11-04
+## Corte de implementación PT_HS - 2026-11-05
 
 Este corte técnico complementa el diseño objetivo y evita interpretar tecnologías propuestas como funciones desplegadas. La referencia de código es PT_HS/hu-20-dev, commit `1f02b78`; el [índice de entrega](../README.md) identifica el monorepo como fuente funcional canónica y los repositorios separados como referencias que pueden divergir.
 
@@ -2525,6 +1831,7 @@ Este corte técnico complementa el diseño objetivo y evita interpretar tecnolog
 - Brevo se integra por API HTTPS. La respuesta de aceptación no demuestra entrega; solo están activos los disparadores descritos en la guía de correos.
 - Mosquitto es el broker de desarrollo local. El firmware tiene un perfil Flespi/TLS en el puerto 8883; la ACL y el token desplegados deben verificarse en el entorno.
 - El firmware admite varios códigos lógicos preasignados, pero mantiene un código activo por placa y publica cada lectura bajo ese código. hardwareId identifica la placa física.
+- La ingesta deduplica mensajes con mqttMessageId; la interfaz consulta los datos persistidos mediante polling HTTP configurado a cinco segundos.
 - measurementEnabled=false pausa la suma al consumo, mantiene sensor, Wi-Fi, MQTT y telemetría para que el backend evalúe flujo continuo y alertas de fuga. No equivale a apagar la placa.
 - AWS, FCM, Redis/Bull y WebSockets mencionados en el diseño original son propuestas o capacidades no verificadas como activas en este corte.
 
