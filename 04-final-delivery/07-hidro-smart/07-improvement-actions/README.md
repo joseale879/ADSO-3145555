@@ -1,16 +1,14 @@
-# Improvement actions / Acciones de mejoramiento
+# Acciones correctivas, preventivas y de mejora
 
-**Training project deliverable / Producto del proyecto formativo:** Documentación de acciones correctivas, preventivas y de mejoramiento del software.
+## Contenido de esta carpeta
 
-## Required content / Contenido requerido
+- [Registro de acciones](corrective-preventive-actions.md): acciones priorizadas, causas, responsables por asignar y criterios de cierre.
+- `improvement-actions.pdf`: copia de lectura generada el 2026-11-04 desde las fuentes actuales; regenerarla si cambia el Markdown. Sigue siendo un borrador, no una versión aprobada.
 
-- [ ] Corrective actions / Acciones correctivas
-- [ ] Preventive actions / Acciones preventivas
-- [ ] Software improvement actions / Acciones de mejoramiento del software
+## Estado de revisión
 
-## Format / Formato
+El registro está redactado con base en hallazgos de la evaluación y la revisión local. Las acciones no se consideran cerradas solo por aparecer en el documento: cada una requiere responsable, fecha, evidencia y verificación. El estado indicado debe actualizarse con el equipo.
 
-- Final version in PDF, plus the editable source when it exists. / Versión final en PDF y, si existe, el archivo fuente editable.
-- English file names, without spaces or accents: `requirements-specification.pdf`. / Nombres de archivo en inglés, sin espacios ni tildes.
-- Files over 50 MB go to Drive and are listed in the project `README.md`. / Los archivos de más de 50 MB van a Drive y se relacionan en el `README.md` del proyecto.
-- Do not add passwords, tokens, keys or real user data. / No incluya contraseñas, tokens, llaves ni datos reales de usuarios.
+## Para cerrar
+
+Asignar responsables y fechas, adjuntar evidencia de cierre para cada acción completada, revisar prioridades con el instructor y regenerar el PDF.
