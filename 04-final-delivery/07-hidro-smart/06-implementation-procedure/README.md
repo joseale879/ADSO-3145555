@@ -1,15 +1,16 @@
-# Implementation procedure / Procedimiento de implementación
+# Procedimiento de implementación y operación
 
-**Training project deliverable / Producto del proyecto formativo:** Procedimiento de implementación del software.
+## Contenido de esta carpeta
 
-## Required content / Contenido requerido
+- [Implementación y operación](implementation-operation.md): precondiciones, ejecución local, verificación, firmware y recuperación.
+- [Despliegue](deployment.md): ambientes, URLs informadas, variables requeridas sin valores y promoción.
+- [Dependencias e instalación](installation-dependencies.md): herramientas para web, Docker, firmware y Android.
+- `implementation-procedure.pdf`: copia de lectura generada el 2026-11-04 desde las fuentes actuales; regenerarla si cambia el Markdown. Sigue siendo un borrador, no una versión aprobada.
 
-- [ ] Implementation procedure, with environments and steps / Procedimiento de implementación, con ambientes y pasos
-- [ ] Deployment evidence and production URL, if deployed / Evidencia de despliegue y URL de producción, si se desplegó
+## Estado de revisión
 
-## Format / Formato
+Los procedimientos están redactados para el monorepo PT_HS. Las URLs se toman de la información del equipo y deben probarse el día de la entrega. No se incluyen valores de secretos. Los pasos deben validarse desde un clon limpio y contrastarse con los servicios desplegados vigentes.
 
-- Final version in PDF, plus the editable source when it exists. / Versión final en PDF y, si existe, el archivo fuente editable.
-- English file names, without spaces or accents: `requirements-specification.pdf`. / Nombres de archivo en inglés, sin espacios ni tildes.
-- Files over 50 MB go to Drive and are listed in the project `README.md`. / Los archivos de más de 50 MB van a Drive y se relacionan en el `README.md` del proyecto.
-- Do not add passwords, tokens, keys or real user data. / No incluya contraseñas, tokens, llaves ni datos reales de usuarios.
+## Para cerrar
+
+Repetir la instalación y el despliegue en un entorno limpio, adjuntar evidencia de ejecución y confirmar URLs/ambientes. Si cambia una fuente, volver a generar el PDF.
