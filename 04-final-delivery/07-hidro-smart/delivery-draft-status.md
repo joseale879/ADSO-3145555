@@ -47,7 +47,21 @@ Consulta directa y `fetch` de las ramas remotas el 2026-11-05. Se compararon com
 | FT_HS | `main` `1cc5779`; HU-21 | `main` y `hu-21-main` incluyen HU-21. `develop` está 25 commits adelantado por historia y 140 detrás; el árbol difiere solo en `SettingsPage.tsx` y `vercel.json`, que no está en `develop`. No promover `develop` porque quitaría la configuración SPA y revertiría la pantalla de ajustes. La brecha previa de ascendencia `qa` → `staging` permanece documentada; no se hizo force-push. |
 | DOCS_HS | Solo `main` `8ad8a01` | No tiene ramas HU ni cambios adelantados en el remoto consultado. |
 
-El fetch confirmó que los repositorios separados no tienen commits de código de sus ramas HU pendientes de integrar en sus `main`; algunas ramas de ambiente conservan merges históricos sin equivalencia de árbol y son más antiguas. PT_HS HU-05 es la única rama HU con commits únicos, pero no es una promoción segura por su antigüedad y conflictos. No se hizo ningún push, merge ni force-push en esta auditoría.
+El fetch confirmó que los repositorios separados no tienen commits de código de sus ramas HU pendientes de integrar en sus `main`; algunas ramas de ambiente conservan merges históricos sin equivalencia de árbol y son más antiguas. PT_HS HU-05 es la única rama HU con commits únicos, pero no es una promoción segura por su antigüedad y conflictos. No se hizo push ni merge de ramas de código, ni force-push, durante esta auditoría.
+
+### Cobertura de ascendencia de todas las HUs
+
+La revisión de cada borde `dev` → `qa` → `staging` → `hu-N-main` → `main` encontró brechas históricas aunque las ramas finales `hu-N-main` ya sean ancestros de `main`:
+
+| Repositorio | Flujos HU con ascendencia incompleta | Observación |
+|---|---:|---|
+| PT_HS | 3: HU-05, HU-16 y HU-19 | HU-05 falla en `qa` → `staging`; HU-16 tiene tres bordes intermedios rotos; HU-19 falla en `dev` → `qa`. |
+| BD_HS | 22 de 23 | HU-23 tiene la cadena completa; HU-01 a HU-22 no conservan los tres enlaces intermedios. |
+| BK_HS | 14 de 15 | HU-15 tiene la cadena completa; HU-01 a HU-14 no conservan los tres enlaces intermedios. |
+| FT_HS | 20 de 21 | HU-21 falla en `qa` → `staging` y `staging` → `hu-21-main`; el resto también presenta huecos históricos. |
+| Firmaware_HS | 2 de 3 | HU-03 está completa; HU-01 y HU-02 no conservan todos los enlaces intermedios. |
+
+Esto describe el grafo de commits, no una ausencia automática de código en `main`. No se reconstruyeron en bloque las cadenas antiguas: hacerlo ahora podría reintroducir árboles viejos, borrar configuración vigente o crear conflictos. La corrección segura es conservar el estado actual de `main` y documentar las brechas; a partir de las próximas HUs, abrir y fusionar cada PR estrictamente hacia la rama padre antes de continuar al siguiente ambiente.
 
 ## Evidencia de CI consultada
 
