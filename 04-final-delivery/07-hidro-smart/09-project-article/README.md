@@ -3,7 +3,7 @@
 ## Contenido de esta carpeta
 
 - [Artículo Hidro Smart](project-article.md): resumen, contexto, propuesta tecnológica, método, resultados documentados, discusión y conclusiones.
-- `project-article.pdf`: copia de lectura generada el 2026-11-04 desde las fuentes actuales; regenerarla si cambia el Markdown. Sigue siendo un borrador, no una versión aprobada.
+- `project-article.pdf`: copia de lectura generada el 2026-11-05 desde las fuentes actuales; regenerarla si cambia el Markdown. Sigue siendo un borrador, no una versión aprobada.
 
 ## Estado de revisión
 

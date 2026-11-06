@@ -1748,7 +1748,7 @@ Manejo de errores
 
 <strong>Estructura vigente de componentes en PT_HS</strong>
 
-<p>El árbol de carpetas del documento fuente era una propuesta y no coincidía con el monorepo de referencia. Para evitar presentar nombres de archivos hipotéticos como si fueran actuales, esta sección resume los límites funcionales del corte PT_HS/hu-20-dev, commit 1f02b78. El detalle de flujos está en <a href="architecture.md">architecture.md</a>; el inventario estático de tablas está en <a href="database-schema-inventory.md">database-schema-inventory.md</a>.</p>
+<p>El árbol de carpetas del documento fuente era una propuesta y no coincidía con el monorepo de referencia. Para evitar presentar nombres de archivos hipotéticos como si fueran actuales, esta sección resume los límites funcionales del corte PT_HS/main, commit 32be1cf. El detalle de flujos está en <a href="architecture.md">architecture.md</a>; el inventario estático de tablas está en <a href="database-schema-inventory.md">database-schema-inventory.md</a>.</p>
 
 <table>
 <tr><td><strong>Componente</strong></td><td><strong>Responsabilidad documentada</strong></td><td><strong>Límite o verificación</strong></td></tr>
@@ -1824,9 +1824,10 @@ El informe de diseño original se conserva por su amplitud, tablas, decisiones y
 
 ## Corte de implementación PT_HS - 2026-11-05
 
-Este corte técnico complementa el diseño objetivo y evita interpretar tecnologías propuestas como funciones desplegadas. La referencia de código es PT_HS/hu-20-dev, commit `1f02b78`; el [índice de entrega](../README.md) identifica el monorepo como fuente funcional canónica y los repositorios separados como referencias que pueden divergir.
+Este corte técnico complementa el diseño objetivo y evita interpretar tecnologías propuestas como funciones desplegadas. La referencia de código es PT_HS/main, commit `32be1cf`; el [índice de entrega](../README.md) identifica el monorepo como fuente funcional canónica y los repositorios separados como referencias que pueden divergir.
 
 - Web React/Vite y cliente móvil Expo/React Native son clientes distintos.
+- HU-21 separa la consulta del perfil (`userApi.me()`) de la carga de hogares y dispositivos. Un error en esas consultas ya no bloquea por sí solo los datos del perfil; esto describe el código, no prueba un despliegue externo.
 - La web usa sesión en cookies HttpOnly y protección CSRF para operaciones mutables; Bearer queda como compatibilidad opcional de API.
 - Brevo se integra por API HTTPS. La respuesta de aceptación no demuestra entrega; solo están activos los disparadores descritos en la guía de correos.
 - Mosquitto es el broker de desarrollo local. El firmware tiene un perfil Flespi/TLS en el puerto 8883; la ACL y el token desplegados deben verificarse en el entorno.

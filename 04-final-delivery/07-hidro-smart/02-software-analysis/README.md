@@ -3,7 +3,7 @@
 ## Contenido de esta carpeta
 
 - [Análisis del sistema](system-analysis.md): contexto, usuarios, necesidades, procesos y contraste técnico con el monorepo.
-- `system-analysis.pdf`: copia de lectura generada el 2026-11-04 desde las fuentes actuales; regenerarla si cambia el Markdown. Sigue siendo un borrador, no una versi?n aprobada.
+- `system-analysis.pdf`: copia de lectura generada el 2026-11-04 desde las fuentes actuales; regenerarla si cambia el Markdown. Sigue siendo un borrador, no una versión aprobada.
 
 ## Estado de revisión
 

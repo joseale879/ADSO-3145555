@@ -97,7 +97,7 @@ HidroSmart cuenta con una base técnica coherente para monitoreo de consumo: dis
 
 # Referencias
 
-Resultados del artículo: PT\_HS, README.md y docker-compose.yml, rama hu-11-dev, commit b54732e (corte histórico). Estado posterior del código: PT\_HS/hu-20-dev, commit `1f02b78`; los resultados experimentales no se recalcularon.
+Resultados del artículo: PT\_HS, README.md y docker-compose.yml, rama hu-11-dev, commit b54732e (corte histórico). Estado posterior del código: PT\_HS/main, commit `32be1cf`; los resultados experimentales no se recalcularon.
 
 PT\_HS/docs/estado-verificado-2026-09-26.md.
 
@@ -111,6 +111,6 @@ Reporte Proyecto Formativo – 2678382 – DESARROLLO DE SOFTWARE ORIENTADO A SE
 
 <!-- footer: HidroSmart | DOC-12 | Versión documental consolidada 1.0 | Página PAGE -->
 
-## Nota de actualización - 2026-11-04
+## Nota de actualización - 2026-11-05
 
-Los resultados y métricas de este artículo corresponden al corte histórico de 2026-09/10 y no se recalcularon. En PT_HS hu-20-dev (`1f02b78`) el código conserva el envío transaccional con Brevo por API HTTPS y el perfil MQTT/TLS de Flespi. La respuesta aceptada por un proveedor no prueba la entrega de todos los correos; la configuración de ACL, la calibración y las pruebas físicas requieren evidencia del entorno. Esta nota no modifica los resultados experimentales del artículo. Consulta el [estado del borrador](../delivery-draft-status.md).
+Los resultados y métricas de este artículo corresponden al corte histórico de 2026-09/10 y no se recalcularon. En PT_HS `main` (`32be1cf`) el código conserva el envío transaccional con Brevo por API HTTPS y el perfil MQTT/TLS de Flespi. La respuesta aceptada por un proveedor no prueba la entrega de todos los correos; la configuración de ACL, la calibración y las pruebas físicas requieren evidencia del entorno. Esta nota no modifica los resultados experimentales del artículo. Consulta el [estado del borrador](../delivery-draft-status.md).

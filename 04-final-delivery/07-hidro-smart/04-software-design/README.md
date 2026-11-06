@@ -12,7 +12,7 @@
 
 ## Alcance y límites
 
-El corte de referencia es PT_HS `hu-20-dev`, commit `1f02b78`. El inventario se obtuvo estáticamente de `BD_HS/01_ddl`; no es una consulta a Neon y no incluye un diccionario exhaustivo de columnas. El diagrama ER se presenta como modelo conceptual, no como representación física completa. Los diagramas describen el sistema y requieren cotejo final con la versión aprobada.
+El corte de referencia es PT_HS `main`, SHA `32be1cf787f20120dfd3b4cc72226dab55d88216`, consultado el 2026-11-05. HU-21 actualiza la carga del perfil dentro del frontend; no altera los componentes principales ni las migraciones inventariadas. El inventario se obtuvo estáticamente de `BD_HS/01_ddl`; no es una consulta a Neon y no incluye un diccionario exhaustivo de columnas. El diagrama ER se presenta como modelo conceptual, no como representación física completa. Los diagramas describen el sistema y requieren cotejo final con la versión aprobada.
 
 ## Para cerrar
 

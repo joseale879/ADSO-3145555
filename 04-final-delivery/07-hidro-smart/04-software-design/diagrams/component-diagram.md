@@ -1,6 +1,6 @@
 # Diagrama de componentes
 
-Vista lógica de PT_HS/hu-20-dev, commit `1f02b78`, revisada el 2026-11-04.
+Vista lógica de PT_HS `main`, SHA `32be1cf787f20120dfd3b4cc72226dab55d88216`, consultada el 2026-11-05. HU-21 cambia la carga del perfil dentro del frontend, no los componentes principales representados.
 El archivo editable es [component-diagram.drawio](component-diagram.drawio).
 
 ```mermaid

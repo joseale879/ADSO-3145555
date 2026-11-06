@@ -47,7 +47,7 @@ Los documentos de identidad de los instructores permanecen bajo custodia del ins
 
 ## Historiales consultados
 
-Se consolidó la actividad Git local de PT_HS y de cada repositorio separado listado abajo. Las ramas indican el checkout disponible durante esta revisión; no significan que todas las ramas estén sincronizadas entre sí. La tabla de aprendices agrupa alias que corresponden a la misma persona para no duplicar integrantes.
+Se consolidó la actividad Git local de PT_HS y de cada repositorio separado listado abajo. Las ramas indican los checkouts usados en la revisión histórica de autoría del 2026-11-04; no son la referencia remota actual ni significan que los repositorios estén sincronizados. La tabla de aprendices agrupa alias que corresponden a la misma persona para no duplicar integrantes. Para los SHA remotos actuales de `main` y el estado de los tags, consulta [código y tags](code-tag/README.md).
 
 | Repositorio | Rama local revisada |
 |---|---|
@@ -57,6 +57,8 @@ Se consolidó la actividad Git local de PT_HS y de cada repositorio separado lis
 | BD_HS | `hu-23-dev` |
 | Firmaware_HS | `hu-03-dev` |
 | DOCS_HS | `main` |
+
+Esta tabla conserva la procedencia de la revisión de autoría. El snapshot remoto consultado el 2026-11-05 usa las ramas `main` de cada repositorio y está registrado con SHA completos en `code-tag/README.md`; no se recalculó la autoría legal a partir de ese snapshot.
 
 Las identidades Git con nombre de usuario y nombre personal se agruparon cuando el historial permite asociarlas: `joseamaya009` / `José David Amaya Mosquera`, y `EmersonMolano` / `Emerson Calet Molano Cardozo`. El equipo debe confirmar que esas identidades corresponden a las personas indicadas.
 

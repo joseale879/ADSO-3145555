@@ -522,15 +522,16 @@ Al corte histórico 2026-09-26 quedaban pendientes calibración con volumen cono
 
 <!-- footer: HidroSmart | DOC-08 | Versión documental consolidada 1.0 | Página PAGE -->
 
-## Actualización técnica - 2026-11-04
+## Actualización técnica - 2026-11-05
 
-La fuente de esta actualización es PT_HS/hu-20-dev (`1f02b78`), no una lectura de las variables privadas ni del panel de los proveedores.
+La fuente de esta actualización es PT_HS/main (`32be1cf`), no una lectura de las variables privadas ni del panel de los proveedores.
 
 - Autenticación web: cookies HttpOnly y CSRF; Bearer es compatibilidad opcional.
 - Correo: Brevo por API HTTPS, con BREVO_API_KEY, BREVO_FROM_EMAIL y BREVO_FROM_NAME. La respuesta HTTP aceptada no confirma entrega.
 - MQTT ESP32: topics del contrato de firmware: hidrosmart/devices/{deviceCode}/telemetry, /status y /commands. Flespi/TLS usa puerto 8883; Mosquitto local queda para desarrollo. Verifica ACL y tokens en el ambiente.
 - Identidad: deviceCode es lógico; hardwareId identifica la placa. El firmware elige un único código lógico activo a la vez.
 - Vigilancia de fuga: measurementEnabled=false conserva telemetría de flujo/pulsos y conexión MQTT, pero deja de sumar litros. No es un apagado eléctrico.
+- HU-21: la pantalla de Configuración consulta el perfil independientemente de hogares y dispositivos, para que un error en esas consultas no impida cargar los datos del perfil.
 - Límites: el flujo físico reciente, la entrega de todos los correos, la ACL remota y la calibración requieren evidencia del ambiente/dispositivo; no se infieren de que exista código.
 
 Consulta el [contrato MQTT del firmware](../04-software-design/architecture.md), la [guía de correos](../04-software-design/architecture.md) y el [estado actual](../delivery-draft-status.md).

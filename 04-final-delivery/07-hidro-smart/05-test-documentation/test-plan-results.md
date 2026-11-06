@@ -69,7 +69,7 @@ Este documento separa evidencia ya registrada en el repositorio de pruebas que a
 </table>
 
 
-**Nota de reconciliación de base de datos:** el total de 58 tablas de la tabla anterior corresponde al reporte histórico del 2026-09-26. El inventario estático posterior de PT_HS `hu-20-dev` (`1f02b78`) identifica 57 sentencias `CREATE TABLE` en los changelogs consultados. No se debe interpretar la diferencia como una eliminación aplicada en Neon: el inventario no consulta la base desplegada. Confirmar el esquema vivo y sus migraciones antes de cerrar la prueba de base de datos.
+**Nota de reconciliación de base de datos:** el total de 58 tablas de la tabla anterior corresponde al reporte histórico del 2026-09-26. El inventario estático posterior de PT_HS `main` (`32be1cf787f20120dfd3b4cc72226dab55d88216`) identifica 57 sentencias `CREATE TABLE` en los changelogs consultados; la actualización HU-21 cambió solo un archivo del frontend y no modificó las migraciones de base de datos. No se debe interpretar la diferencia como una eliminación aplicada en Neon: el inventario no consulta la base desplegada. Confirmar el esquema vivo y sus migraciones antes de cerrar la prueba de base de datos.
 
 # 3. Casos de prueba
 
@@ -201,8 +201,10 @@ Las pruebas físicas de calibración con volumen conocido, carga y autonomía qu
 
 <!-- footer: HidroSmart | DOC-07 | Versión documental consolidada 1.0 | Página PAGE -->
 
-## Actualización técnica - 2026-11-04
+## Actualización técnica - 2026-11-05
 
-La rama PT_HS/hu-20-dev (`1f02b78`) contiene integración de correo con la API HTTPS de Brevo y pruebas de código para el emisor. Esto no certifica que Render tenga variables válidas ni que cada correo llegue al destinatario. Para cerrar la prueba, registrar por flujo el commit, ambiente, solicitud, `messageId`, estado en Brevo y resultado del enlace. Para alertas, medición y desvinculación hace falta evidencia reproducible con lecturas y estado observados; la existencia del código no es resultado de aceptación.
+El código de referencia es PT_HS `main` (`32be1cf787f20120dfd3b4cc72226dab55d88216`). HU-21 separa la carga del perfil de la consulta de hogares y dispositivos; el cambio no modifica el contrato de correo ni las migraciones. El commit obtuvo cuatro ejecuciones de Actions y nueve check-runs exitosos, incluidos build/pruebas/E2E de frontend; el estado combinado de GitHub sigue `pending` sin contextos. Esto no certifica que Render tenga variables válidas ni que cada correo llegue al destinatario. Para cerrar la prueba, registrar por flujo el commit, ambiente, solicitud, `messageId`, estado en Brevo y resultado del enlace. Alertas, medición, desvinculación y el flujo de perfil en despliegue requieren evidencia reproducible; la existencia del código no es resultado de aceptación.
 
 El [contrato MQTT del firmware](../04-software-design/architecture.md) documenta Flespi/TLS y Mosquitto para desarrollo. Esto no equivale a una prueba reciente de la ACL, del token remoto ni de una placa física. Conserva como evidencia histórica los resultados fechados de las secciones anteriores.
+
+En la consulta remota del 2026-11-05 al SHA `32be1cf`, cuatro ejecuciones de Actions y nueve check-runs terminaron correctamente; el estado combinado figuró `pending` con cero contextos. Consulta el detalle y sus límites en [evidencia de CI](ci-evidence.md). No se ejecutaron pruebas locales durante esta revisión documental.

@@ -1,6 +1,6 @@
 # Hidro Smart — entrega final
 
-**Estado: borrador de entrega en revisión.** Los avances están subidos a la rama [codex/hidrosmart-delivery-draft](https://github.com/joseale879/ADSO-3145555/tree/codex/hidrosmart-delivery-draft) del remoto de trabajo joseale879/ADSO-3145555. No se ha aprobado ni fusionado el paquete como entrega final; todavía no se debe crear el tag.
+**Estado: borrador de entrega en revisión.** En la última consulta remota, `main` y [codex/hidrosmart-delivery-draft](https://github.com/joseale879/ADSO-3145555/tree/codex/hidrosmart-delivery-draft) de `joseale879/ADSO-3145555` apuntaban a `993c5b2de07aa60bd49d866c63267ce0b983c312`. Las correcciones de esta revisión están solo en el checkout local y aún no se han publicado. El paquete no está aprobado como entrega final. El repositorio ADSO no tiene un tag de entrega, aunque hay tags `final-delivery-2026` preexistentes en varios repositorios de componentes con destinos distintos de sus `main` actuales; véase [código y tags](code-tag/README.md). No tratar esos tags como una versión aprobada ni modificarlos durante esta revisión.
 
 ## Información general
 
@@ -49,7 +49,7 @@ La existencia de un archivo Markdown significa que el documento está redactado;
 | `02-software-analysis/` | Análisis del sistema y flujos | Redactado; cotejar actores y procesos contra la versión candidata. |
 | `03-technical-proposal/` | Propuesta técnica | Redactada; confirmar supuestos y estimaciones históricas. |
 | `04-software-design/` | Arquitectura, diseño, modelo ER conceptual, inventario estático de 57 tablas, wireframe y diagramas | Redactados; verificar el modelo con la base aprobada y actualizar si cambia el código. |
-| `05-test-documentation/` | Plan/resultados documentados, reproducibilidad y CI de HU-20 | Redactados; falta evidencia reciente de la versión candidata y ensayos físicos del alcance IoT/correo. |
+| `05-test-documentation/` | Plan/resultados documentados, reproducibilidad y evidencia de CI | Redactados; PT_HS `main` tiene ejecuciones de Actions exitosas, pero el estado combinado figura `pending`; faltan CI verificable de los componentes y ensayos físicos de IoT/correo. |
 | `06-implementation-procedure/` | Instalación, operación, dependencias y despliegue | Redactados; reproducir desde clon limpio y verificar las URLs actuales. |
 | `07-improvement-actions/` | Acciones correctivas, preventivas y de mejora | Registro redactado; faltan responsables, fechas y evidencias de cierre. |
 | `08-manuals/` | Manual técnico, de instalación y de usuario | Redactados; recorrerlos con la versión candidata y corregir desajustes. |
@@ -58,9 +58,19 @@ La existencia de un archivo Markdown significa que el documento está redactado;
 | `code-tag/` | Inventario de repositorios y checklist de artefactos | Incompleto; faltan versión aprobada, exportaciones, hashes, permisos y Release/tag. |
 | `team-roster.md` | Integrantes y aportes observados en Git | Borrador; cada persona debe confirmar nombre, usuario, rol y aportes. |
 | `software-registration.md` | Borrador de registro de software | Requiere confirmación de autoría, titularidad, productor y demás datos legales/institucionales. |
-| `delivery-draft-status.md` | Estado, fuente y pendientes del borrador | Actualizado al 2026-11-05; refleja lo publicado en la rama de revisión y las validaciones aún pendientes. |
-| PDF de categorías | Nueve copias de lectura de las categorías 01–09 | Seis se regeneraron el 2026-11-04; diseño, acciones y manuales se regeneraron el 2026-11-05. Se revisaron muestras visuales; falta revisión completa y aprobación. |
+| `delivery-draft-status.md` | Estado, fuentes remotas, tags y pendientes | Actualizado al 2026-11-05; distingue el corte remoto de las correcciones locales de esta revisión. |
+| PDF de categorías | Nueve copias de lectura de las categorías 01–09 | Seis PDF se regeneraron el 2026-11-05 (requisitos, diseño, pruebas, acciones, manuales y artículo); análisis, propuesta e implementación conservan sus copias del 2026-11-04. Si cambia una fuente, se debe regenerar su PDF y revisar todas las páginas. |
 
+## Regenerar PDFs
+
+Desde la raíz del repositorio, instala las dependencias fijadas y ejecuta el generador:
+
+```powershell
+python -m pip install -r scripts/requirements-pdf.txt
+python scripts/build_hidrosmart_delivery_pdfs.py
+```
+
+El generador recompone los PDF de requisitos, diseño, pruebas, acciones, manuales y artículo desde sus fuentes Markdown. Los PDF de análisis, propuesta, implementación y wireframe se mantienen separados y no se actualizan con ese script. Después de modificar una fuente, regenerar y revisar visualmente cada página del PDF correspondiente.
 ## Criterios para cerrar la entrega
 
 - Todos los documentos describen la misma versión identificada por tag y SHA.

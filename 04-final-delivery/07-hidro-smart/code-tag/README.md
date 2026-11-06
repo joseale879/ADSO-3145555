@@ -1,38 +1,40 @@
-# Código fuente, tag y artefactos de entrega
+# Código fuente, tags y artefactos de entrega
 
-**Estado:** inventario local; ningún tag, ZIP, hash o Release final está creado. PT_HS es la fuente funcional canónica elegida. Los repositorios separados se listan para trazabilidad y no se presumen sincronizados con PT_HS.
+**Corte remoto consultado:** 2026-11-05.
+**Estado:** inventario de trazabilidad; no constituye aprobación de versión ni prueba de que los repositorios formen un mismo árbol de código.
 
-## Checkouts locales consultados
+## Ramas `main` consultadas
 
-Los commits siguientes se observaron localmente el 2026-11-04. No son todavía una versión coordinada de entrega.
+Se consultó el SHA remoto de `main` mediante `git ls-remote`. PT_HS es la fuente funcional canónica elegida por el equipo; los repositorios separados se registran como componentes relacionados cuya equivalencia debe demostrarse, no presumirse.
 
-| Componente | Repositorio original | Rama y commit local | Tag de entrega | ZIP de versión | Exportación completa | Visibilidad y acceso de revisor |
-| --- | --- | --- | --- | --- | --- | --- |
-| Monorepo e integración | [joseale879/PT_HS](https://github.com/joseale879/PT_HS) | `hu-20-dev` / `1f02b78` | Pendiente | Pendiente | Pendiente | Verificar |
-| Backend separado | [joseamaya009/BK_HS](https://github.com/joseamaya009/BK_HS) | `hu-15-dev` / `9db5040` | Pendiente | Pendiente | Pendiente | Verificar |
-| Frontend separado | [joseamaya009/FT_HS](https://github.com/joseamaya009/FT_HS) | `hu-16-staging` / `18d26e3` | Pendiente | Pendiente | Pendiente | Verificar |
-| Base de datos | [EmersonMolano/BD_HS](https://github.com/EmersonMolano/BD_HS) | `hu-23-dev` / `7095168` | Pendiente | Pendiente | Pendiente | Verificar |
-| Firmware ESP32 | [joseamaya009/Firmaware_HS](https://github.com/joseamaya009/Firmaware_HS) | `hu-03-dev` / `5ec5013` | Pendiente | Pendiente | Pendiente | Verificar |
-| Documentación del proyecto | [EmersonMolano/DOCS_HS](https://github.com/EmersonMolano/DOCS_HS) | `main` / `eab6c78` | Pendiente | Pendiente | Pendiente | Verificar |
+| Componente | Repositorio | Rama | SHA remoto completo | Tag remoto `final-delivery-2026` y SHA objetivo | Estado del tag frente a `main` |
+|---|---|---|---|---|---|
+| Monorepo e integración | [joseale879/PT_HS](https://github.com/joseale879/PT_HS) | `main` | `32be1cf787f20120dfd3b4cc72226dab55d88216` | Sí: `8dd45ca349134ad0851a536af5f90760b10691f3` | No coincide; el tag apunta al merge HU-19 del 2026-10-30. |
+| Backend separado | [joseamaya009/Backend-Hidrosmart](https://github.com/joseamaya009/Backend-Hidrosmart) | `main` | `190263da952afba5d4ce7f6c2d83c0fde2b239c4` | Sí: `190263da952afba5d4ce7f6c2d83c0fde2b239c4` | Coincide con `main`. |
+| Frontend separado | [joseamaya009/FT_HS](https://github.com/joseamaya009/FT_HS) | `main` | `1cc57796aabee446410146ad6475db2a780dbb10` | Sí: `91a5ef3125ed73d4d9d410f772b54923f8099430` | No coincide; el tag apunta al merge HU-20 del 2026-10-31 y no incluye el commit HU-21 actual. |
+| Base de datos separada | [EmersonMolano/BD_HS](https://github.com/EmersonMolano/BD_HS) | `main` | `42ee03b5906dfdcbd9e9f6c7f03ddc453250d23b` | Sí: `42ee03b5906dfdcbd9e9f6c7f03ddc453250d23b` | Coincide con `main`. Aun así, revisar el historial e identidad de changesets con PT_HS antes de aplicar entre repositorios. |
+| Firmware ESP32 | [joseamaya009/Firmaware_HS](https://github.com/joseamaya009/Firmaware_HS) | `main` | `2e5cfca7d0573e4225a07c6b7b13ea23e9570f4d` | Sí: `917fcfd2129ea6ff92860a4321b1fd7863957d85` | No coincide; el tag apunta a un commit de firmware del 2026-10-28. |
+| Documentación de componentes | [EmersonMolano/DOCS_HS](https://github.com/EmersonMolano/DOCS_HS) | `main` | `8ad8a018dd5d0875fa4b3360fa2071c1c4a2adde` | Sí: `054a063a667f637a55b3641f83a9e4dded1faa5b` | No coincide; el tag apunta a un commit anterior de documentación. |
+| Entrega ADSO | [joseale879/ADSO-3145555](https://github.com/joseale879/ADSO-3145555) | `main` | `993c5b2de07aa60bd49d866c63267ce0b983c312` | No existe en el remoto consultado | No hay tag de entrega en este repositorio. |
 
-## Repositorios de entrega y trazabilidad
+Las consultas comprobaron el tag remoto anotado y su SHA de commit desplegado (línea `^{}` de `git ls-remote --tags`). No se crearon, movieron ni borraron tags en esta revisión. Los targets distintos son evidencia de que `final-delivery-2026` no debe presentarse como una versión coordinada y aprobada sin una decisión explícita del equipo.
 
-El equipo indicó joseale879/ADSO-3145555 como remoto de trabajo para subir este paquete. Los documentos actuales están publicados en la rama [codex/hidrosmart-delivery-draft](https://github.com/joseale879/ADSO-3145555/tree/codex/hidrosmart-delivery-draft). Esta rama es un borrador de revisión y no está fusionada en main.
+## Estado del paquete ADSO
 
-La estructura de entrega también referencia [code-sena/ADSO-3145555](https://github.com/code-sena/ADSO-3145555). No se afirma que el fork de trabajo y el repositorio institucional sean el mismo remoto ni que esta rama ya esté entregada allí. Confirmar con el instructor cuál enlace y método de contribución debe recibir la versión final.
+Al último corte remoto, `main` y `codex/hidrosmart-delivery-draft` apuntaban a `993c5b2de07aa60bd49d866c63267ce0b983c312`. La revisión actual se mantiene local; el SHA remoto no incluye estas modificaciones documentales locales.
 
 ## Artefactos por preparar
 
-La versión de entrega debe quedar identificada por un tag real y el SHA exacto en cada repositorio que se decida entregar. final-delivery-2026 se ha usado como nombre propuesto, pero no se debe presentar como tag existente mientras no se cree y verifique.
+Una vez aprobada la versión y fijados los SHA de cada repositorio:
 
-- ZIP del código de la versión aprobada, sin secretos ni datos locales.
-- Exportación completa en el formato exigido por la guía oficial. Confirmar si requiere solo archivos o también ramas, tags e historial; un ZIP de GitHub de una rama no incluye el historial completo.
-- Archivo SHA256SUMS.txt con el hash de cada artefacto una vez generado.
-- Release asociado al tag y con los artefactos que indique la guía oficial.
-- Acceso de lectura/revisión para el instructor o cuenta indicada por el SENA, confirmado por el propietario de cada repositorio.
+- ZIP del código aprobado, sin secretos ni datos locales.
+- Exportación completa en el formato que exija la guía oficial. Confirmar si se requieren ramas, tags e historial; un ZIP de GitHub de una rama no conserva todo el historial.
+- `SHA256SUMS.txt` con el hash de cada artefacto generado.
+- Release asociado a la versión aprobada, con los artefactos requeridos.
+- Acceso de lectura para el instructor o cuenta indicada por el SENA, verificado con los propietarios de cada repositorio.
 
-Antes de empaquetar, comprobar que las credenciales expuestas en el historial fueron rotadas y que los archivos de entorno con secretos no están en los adjuntos. La limpieza de ramas o del historial se coordina aparte y no debe alterar la evidencia que el SENA solicite conservar.
+Antes de empaquetar, comprobar que las credenciales expuestas en el historial fueron rotadas y que los archivos adjuntos no contienen secretos. La limpieza de ramas o historial debe coordinarse aparte y no alterar evidencia requerida por el SENA.
 
 ## Criterio de cierre
 
-No marcar esta sección como completa hasta que el equipo apruebe el conjunto de repositorios, se verifique cada tag/SHA, se construyan y revisen los ZIP, se calcule SHA-256, se compruebe el acceso del revisor y el Release se vincule a la misma versión documentada en todos los archivos.
+No marcar esta sección como completa hasta que el equipo apruebe el conjunto de repositorios, se resuelva el estado de los tags existentes, se verifique CI en los SHA de entrega, se construyan y revisen los ZIP, se calcule SHA-256, se confirme el acceso del revisor y el Release corresponda a la misma versión documentada.

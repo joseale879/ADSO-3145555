@@ -1,5 +1,28 @@
 > **Estado y alcance.** Documento en revisión para la entrega. Las fechas, cifras y funciones heredadas del documento fuente solo se consideran vigentes cuando están respaldadas por evidencia del monorepo PT_HS. Consulta el [índice de entrega](../README.md) y el [estado del borrador](../delivery-draft-status.md).
 
+> **Cómo leer la propuesta.** Los capítulos originales preservan la propuesta académica de 2025. Sus metas, cifras, compatibilidades, afirmaciones de cumplimiento y alternativas de nube no son por sí mismas evidencia de que estén implementadas, medidas o aprobadas. La línea base comprobable del producto se resume abajo; las limitaciones y pendientes se mantienen explícitos.
+
+## Línea base técnica observada al 2026-11-05
+
+Fuente funcional acordada: `PT_HS/main` en `32be1cf787f20120dfd3b4cc72226dab55d88216`. Los repositorios separados sirven como contraste y no se presumen idénticos al monorepo.
+
+| Área | Estado que muestra el repositorio | Límite de la afirmación |
+|---|---|---|
+| Aplicación web | React, Vite y TypeScript; la interfaz web concentra los flujos del producto. | La ejecución de CI corresponde a commits concretos; no acredita por sí sola el despliegue ni la aceptación de usuarios. |
+| Aplicación móvil | Expo SDK 57, React Native y WebView que carga el bundle web; BLE usa `react-native-ble-plx`. | Expo Go no incluye BLE; aprovisionamiento requiere compilación nativa. No se declara una matriz Android certificada ni una prueba física completa de la versión final. |
+| Backend y sesión | API Node.js/Express; sesión web en cookies HttpOnly y protección CSRF. | HTTPS y atributos de cookies dependen del ambiente desplegado. No se afirma cifrado AES-256 de datos en reposo. |
+| Persistencia | PostgreSQL con cambios de esquema administrados por Liquibase. | Los conteos históricos de tablas o changesets no se usan como inventario del candidato sin volverlos a obtener de ese SHA. |
+| Correo | Brevo está integrado en los flujos de autenticación y notificaciones del código. | La presencia del proveedor en código no prueba entrega de registro, verificación, recuperación y demás correos en el ambiente final. |
+| MQTT e IoT | Firmware ESP32 con perfil TLS para Flespi; Mosquitto se usa en el stack local de desarrollo. | La ACL, credenciales por dispositivo y comunicación completa deben acreditarse con evidencia asociada al firmware y configuración entregados. |
+| Acceso | La base define permisos de sistema y roles del hogar, incluidos Administrator, Owner, Member y Guest. | Soporte es un módulo funcional; no se afirma que sea un rol global distinto sin evidencia de configuración. |
+| Despliegue documentado | Cloudflare Pages, Render y Neon aparecen como proveedores del despliegue. | No se infieren costos actuales, disponibilidad, SLA ni configuración de producción a partir del código. |
+
+El registro de pruebas detalla las verificaciones disponibles y las pendientes. Esta línea base no equivale a aprobación final, cumplimiento certificado ni validación integral del dispositivo físico.
+
+---
+
+## Propuesta académica conservada (2025)
+
 
 <strong>INFORME TÉCNICO-ECONÓMICO</strong>
 
@@ -33,18 +56,18 @@ La propuesta académica de Hidro Smart (2025) planteó monitorear el consumo de 
 Su propósito es ayudar a los hogares a observar su consumo de agua y detectar usos inusuales. Las metas de ahorro, seguridad, escalabilidad y recomendaciones personalizadas son objetivos de la propuesta y no resultados medidos en este informe.
 
 
-En el plano económico, la fuente académica presenta una inversión estimada de $ 80.305.000 COP (sin equipos personales) y un potencial de ahorro del 15 % al 25 % anual por hogar. Son hipótesis originales de 2025: no se recalcularon ni se midieron con usuarios, por lo que no demuestran viabilidad financiera ni ahorro real.
+En el plano económico, la fuente académica presenta cifras incompatibles: $ 80.305.000 COP y $ 110.595.000 COP se describen de forma contradictoria respecto de la inclusión de equipos. También propone un ahorro del 15 % al 25 % por hogar. Son cifras e hipótesis originales de 2025, no recalculadas ni verificadas; no demuestran viabilidad financiera ni ahorro real.
 
 
 -<strong>Nombre del proyecto</strong><strong>:</strong> <strong>Hidro Smart – Sistema de Monitoreo Inteligente del Agua</strong><strong>.</strong>
 
 <strong>-</strong><strong>Tipo de solución</strong><strong>: </strong><strong>Aplicación móvil multiplataforma + dispositivos </strong><strong>IoT</strong><strong> + </strong><strong>backend</strong><strong> en la nube</strong>
 
-<strong>-</strong><strong>Plataforma objetivo</strong><strong>: </strong><strong>Android 9 o superior (hasta Android 14) / Navegadores web (Chrome, Edge, Firefox)</strong>
+<strong>-</strong><strong>Plataforma objetivo original</strong><strong>: </strong><strong>Android y navegador web. La compatibilidad concreta por versión y navegador no se certifica en esta propuesta.</strong>
 
 <strong>- Stack técnico observado en el repositorio: React/Vite/TypeScript web; Expo/React Native móvil; Node.js/Express; PostgreSQL/Liquibase; firmware ESP32 en C++/Arduino; Flespi MQTT con TLS para la integración externa y Mosquitto para desarrollo local. La validación de la versión final queda pendiente.</strong>
 
-<strong>-</strong><strong>Presupuesto total</strong><strong>: </strong><strong>$ 80.305.000 COP (operativo) \| $ 110.595.000 COP (incluyendo equipos de desarrollo)</strong>
+<strong>-</strong><strong>Presupuesto</strong><strong>: </strong><strong>Estimaciones históricas no conciliadas; véase la sección económica y sus salvedades.</strong>
 
 <strong>-</strong><strong>Duración del proyecto</strong><strong>: </strong><strong>6 meses – Metodología ágil Scrum (</strong><strong>sprints</strong><strong> de 2 semanas)</strong>
 
@@ -52,13 +75,13 @@ En el plano económico, la fuente académica presenta una inversión estimada de
 <strong>2. INTRODUCCIÓN</strong>
 
 
-El acceso al agua potable y la gestión eficiente del recurso hídrico son desafíos prioritarios en Colombia. Según datos de la Personería de Bogotá (2024), hasta el 40% del agua potable se pierde en la capital, y a nivel nacional esta cifra asciende al 48% (Universidad de los Andes, 2024). A su vez, el DANE (2024) estima que solo el 33% de los ciudadanos adopta prácticas de ahorro hídrico.
+El acceso al agua potable y la gestión eficiente del recurso hídrico son la motivación del proyecto. El documento fuente de 2025 cita porcentajes atribuidos a la Personería de Bogotá, la Universidad de los Andes y el DANE, pero no proporciona referencias bibliográficas completas que permitan verificar esos datos y su metodología. Por ello, esta versión no los presenta como estadísticas confirmadas; deben verificarse con fuentes institucionales antes de reutilizarlos.
 
 
 Esta problemática evidencia la urgente necesidad de soluciones tecnológicas accesibles que permitan a los hogares conocer, controlar y optimizar su consumo diario. Los medidores convencionales únicamente registran el total mensual sin ofrecer desglose por actividad, lo que impide la toma de decisiones informadas.
 
 
-Hidro Smart surge como respuesta innovadora a esta necesidad. El sistema combina sensores IoT de caudal con una aplicación móvil que muestra el consumo en tiempo real, clasificado por actividad doméstica (ducha, lavado, cocina, aseo), y genera alertas y recomendaciones personalizadas para fomentar el uso responsable del agua.
+La propuesta original planteó sensores IoT y una aplicación para observar consumo, generar alertas y orientar el ahorro. La clasificación automática por actividad doméstica y las recomendaciones personalizadas son objetivos de esa propuesta; no se declaran aquí como capacidades validadas de la versión actual. La documentación funcional vigente describe lecturas por dispositivo/hogar, consultas de consumo y alertas, con sus límites en el [plan y reporte de pruebas](../05-test-documentation/test-plan-results.md).
 
 
 Este documento consolida los aspectos técnicos y económicos del desarrollo: requerimientos del sistema, arquitectura tecnológica, recursos humanos, presupuesto detallado, cronograma, plan de mantenimiento, impacto ambiental y análisis de viabilidad del proyecto.
@@ -70,11 +93,11 @@ Este documento consolida los aspectos técnicos y económicos del desarrollo: re
 Hidro Smart es un sistema inteligente de monitoreo hídrico compuesto por tres capas tecnológicas integradas:
 
 
-<p>• Capa de sensores IoT: dispositivos de medición de caudal conectados vía Wi-Fi o Bluetooth que capturan datos de consumo en tiempo real y los transmiten al servidor mediante protocolos seguros.</p>
-<p>• Capa de backend e integración: API REST en Node.js/Express con persistencia PostgreSQL/Liquibase. El flujo de telemetría usa MQTT; Flespi/TLS aparece configurado para la integración externa y Mosquitto se documenta como broker de desarrollo local. La operación completa debe validarse de nuevo sobre el tag de entrega.</p>
-<p>• Capa de aplicación móvil/web: interfaz multiplataforma desarrollada en React/Vite web; Expo/React Native con WebView para móvil (JavaScript) para Android 9 o superior (hasta Android 14), y versión web compatible con Chrome, Edge y Firefox, que permite al usuario visualizar estadísticas, configurar alertas, gestionar hogares y descargar reportes en PDF o Excel.</p>
+<p>• Capa IoT: el firmware del ESP32 mide caudal y utiliza Wi-Fi y BLE para conectividad y aprovisionamiento. El uso de BLE requiere una compilación nativa y una prueba física del candidato.</p>
+<p>• Capa de backend e integración: API REST en Node.js/Express, persistencia PostgreSQL/Liquibase y telemetría MQTT. El perfil externo del firmware usa TLS con Flespi; Mosquitto pertenece al stack local de desarrollo. La ACL y la prueba extremo a extremo deben acreditarse para la versión entregada.</p>
+<p>• Capa de presentación: web React/Vite/TypeScript y cliente Android Expo/React Native con WebView y puente nativo BLE. No se declara aquí compatibilidad certificada por versión de Android ni disponibilidad de todos los flujos en un APK final.</p>
 
-El sistema soporta tres tipos de usuarios con roles diferenciados: Administrador (supervisa hogares y dispositivos), Soporte Técnico (mantenimiento IoT y calibraciones) y Usuario Doméstico (monitorea consumo y sigue recomendaciones). La gestión de accesos se controla mediante autenticación segura con tokens JWT (Access y Refresh), cifrado AES-256 y comunicaciones HTTPS/TLS.
+La propuesta original describía Administrador, Soporte Técnico y Usuario Doméstico. En el modelo actual, la base contempla Administrator a nivel de sistema y Owner, Member y Guest para hogares, con permisos asociados. El soporte aparece como módulo de tickets. La sesión web utiliza cookies HttpOnly y protección CSRF; HTTPS y los atributos de cookie dependen de la configuración del despliegue. No se afirma cifrado AES-256 de datos en reposo, pues no se encontró evidencia suficiente para certificarlo.
 
 
 <strong>4. OBJETIVOS</strong>
@@ -87,7 +110,7 @@ Desarrollar e implementar un sistema IoT para el monitoreo y control inteligente
 
 <strong>4.2 Objetivos Específicos</strong>
 
-<p>1\. Desarrollar una aplicación móvil multiplataforma (Android 9 o superior (hasta Android 14)) que muestre datos de consumo en tiempo real desde sensores IoT.</p>
+<p>1\. Desarrollar una aplicación móvil multiplataforma que muestre datos de consumo desde sensores IoT. El rango Android 9–14 que aparecía en el texto original es una meta histórica y requiere una matriz de compatibilidad probada.</p>
 <p>2\. Registrar, procesar y clasificar el consumo de agua por actividad doméstica (ducha, lavado, cocina, aseo).</p>
 <p>3\. Generar gráficos comparativos y reportes periódicos (diario, semanal, mensual, anual) en formato PDF y Excel.</p>
 <p>4\. Implementar un modelo predictivo de consumo basado en historial registrado.</p>
@@ -108,7 +131,7 @@ El sistema Hidro Smart, según lo definido en el SRS, abarca los siguientes mód
 <p>• Módulo RF4 – Configuraciones del sistema: topes de consumo, alertas, recomendaciones, idiomas, moneda y controles de auditoría.</p>
 <p>• Módulo RF5 – Reportes y análisis: gráficos en tiempo real, históricos, hábitos de consumo, modelo predictivo, alertas y proyectos asociados al usuario.</p>
 
-El sistema no incluirá en su versión inicial integración con redes externas de servicios públicos, pero quedará preparado para futuras extensiones. Compatibilidad confirmada: Android 9–14 y navegadores Chrome, Edge, Firefox y Opera.
+La exclusión de integración con redes de servicios públicos y la lista de plataformas eran decisiones de alcance de la propuesta original. La compatibilidad Android 9–14 y la lista de navegadores no están certificadas por este documento; usar la evidencia de pruebas del SHA que se entregue.
 
 
 <strong>5.2 Metodología de Desarrollo</strong>
@@ -186,7 +209,7 @@ La arquitectura de Hidro Smart sigue un modelo de tres capas (Dispositivo – Se
 <tr>
 <td><p>Comunicaci&#243;n</p></td>
 <td><p>Protocolo de mensajer&#237;a</p></td>
-<td><p>MQTT local sin TLS; TLS/ACL de producci&#243;n pendiente</p></td>
+<td><p>Flespi con TLS para integración externa; Mosquitto local para desarrollo. La ACL y las credenciales por dispositivo requieren evidencia del despliegue</p></td>
 <td><p>Transmisi&#243;n segura sensor–nube</p></td>
 </tr>
 <tr>
@@ -210,13 +233,13 @@ La arquitectura de Hidro Smart sigue un modelo de tres capas (Dispositivo – Se
 <tr>
 <td><p>Frontend m&#243;vil</p></td>
 <td><p>Aplicaci&#243;n Android</p></td>
-<td><p>React/Vite web; Expo/React Native con WebView para m&#243;vil (JavaScript)</p></td>
+<td><p>React/Vite/TypeScript web; Expo/React Native con WebView y puente nativo BLE para Android</p></td>
 <td><p>Interfaz multiplataforma para usuarios</p></td>
 </tr>
 <tr>
 <td><p>Frontend web</p></td>
 <td><p>Panel de administraci&#243;n</p></td>
-<td><p>HTML5 + CSS3 + JS</p></td>
+<td><p>React + Vite + TypeScript</p></td>
 <td><p>Gesti&#243;n desde navegador</p></td>
 </tr>
 <tr>
@@ -245,6 +268,8 @@ La arquitectura de Hidro Smart sigue un modelo de tres capas (Dispositivo – Se
 
 Según el SRS, los principales RNF que impactan el diseño técnico y económico son:
 
+Los valores de rendimiento, concurrencia, disponibilidad, tiempos de correo y compatibilidad de la tabla son objetivos originales por medir, no resultados de pruebas ni garantías de servicio. La matriz de requisitos y el informe de pruebas registran la evidencia disponible para la versión candidata.
+
 
 <table>
 <tr>
@@ -255,12 +280,12 @@ Según el SRS, los principales RNF que impactan el diseño técnico y económico
 <tr>
 <td><p>Rendimiento</p></td>
 <td><p>Tiempo de inicio y respuesta</p></td>
-<td><p>App inicia en &lt; 5 s; respuesta por solicitud &lt; 3 s</p></td>
+<td><p>Meta original: inicio &lt; 5 s y respuesta &lt; 3 s; no acreditada aquí</p></td>
 </tr>
 <tr>
 <td><p>Escalabilidad</p></td>
 <td><p>Soporte de usuarios concurrentes</p></td>
-<td><p>≥ 100 usuarios simult&#225;neos sin degradaci&#243;n</p></td>
+<td><p>Meta original: 100 usuarios simultáneos; no probada</p></td>
 </tr>
 <tr>
 <td><p>Disponibilidad</p></td>
@@ -270,22 +295,22 @@ Según el SRS, los principales RNF que impactan el diseño técnico y económico
 <tr>
 <td><p>Seguridad</p></td>
 <td><p>Cifrado y autenticaci&#243;n</p></td>
-<td><p>HTTPS/TLS, AES-256, tokens JWT &#250;nicos</p></td>
+<td><p>Objetivo original: HTTPS/TLS. La sesión web usa cookies HttpOnly y CSRF; AES-256 en reposo y la compatibilidad de cada cliente no se acreditan en esta propuesta</p></td>
 </tr>
 <tr>
 <td><p>Compatibilidad</p></td>
 <td><p>Plataformas soportadas</p></td>
-<td><p>Android 9–14; Chrome, Edge, Firefox, Opera</p></td>
+<td><p>Matriz original; compatibilidad por versión/navegador pendiente de validación</p></td>
 </tr>
 <tr>
 <td><p>Notificaciones</p></td>
 <td><p>Tiempo real de alertas</p></td>
-<td><p>Env&#237;o &lt; 3 s, tasa de entrega ≥ 98%</p></td>
+<td><p>Meta original: &lt; 3 s y 98%; entrega no medida de forma integral</p></td>
 </tr>
 <tr>
 <td><p>Cumplimiento</p></td>
 <td><p>Marco legal colombiano</p></td>
-<td><p>Ley 1581 de 2012 – Protecci&#243;n de datos personales</p></td>
+<td><p>Revisar obligaciones aplicables de la Ley 1581 de 2012; no es una certificación de cumplimiento</p></td>
 </tr>
 <tr>
 <td><p>Portabilidad</p></td>
@@ -428,6 +453,8 @@ Según el SRS, los principales RNF que impactan el diseño técnico y económico
 
 
 <strong>8. PRESUPUESTO TÉCNICO Y ECONÓMICO</strong>
+
+**Salvedad económica:** las partidas del cuadro original suman $ 80.305.000 COP e incluyen una partida de equipos de $ 30.290.000 COP, mientras que la nota al pie presenta $ 110.595.000 COP como total “incluyendo equipos”. Esa diferencia no está conciliada. No utilizar ninguno de los valores como presupuesto vigente, gasto real o cotización aprobada.
 
 
 <strong>8.1 Hardware y Componentes </strong><strong>IoT</strong>
@@ -676,13 +703,13 @@ El plan de mantenimiento de Hidro Smart cubre un período de 6 meses posteriores
 </table>
 
 
-El sistema cuenta con mecanismos automáticos de recuperación ante fallos (RNF4.4): en caso de caída, el tiempo de recuperación no debe superar los 5 minutos y no se perderá información registrada antes del fallo.
+La propuesta exige recuperación ante fallos en cinco minutos y conservación de datos previos (RNF4.4). Este documento no contiene una prueba de recuperación ni evidencia para garantizar ese objetivo.
 
 
 <strong>10. IMPACTO AMBIENTAL Y SOSTENIBILIDAD</strong>
 
 
-Hidro Smart contribuye activamente al desarrollo sostenible mediante los siguientes impactos medibles:
+La propuesta original planteó los siguientes impactos esperados. No son mediciones realizadas por el proyecto:
 
 
 <table>
@@ -693,23 +720,23 @@ Hidro Smart contribuye activamente al desarrollo sostenible mediante los siguien
 </tr>
 <tr>
 <td><p>Reducci&#243;n del consumo de agua por hogar</p></td>
-<td><p>15% – 25% anual</p></td>
-<td><p>Uso de alertas, recomendaciones y modelo predictivo</p></td>
+<td><p>15%–25% anual; hipótesis no medida</p></td>
+<td><p>Supuesto de uso de alertas y recomendaciones; modelo predictivo no acreditado</p></td>
 </tr>
 <tr>
 <td><p>Hogares colombianos potencialmente beneficiados</p></td>
-<td><p>Millones (solo el 33% ahorra agua actualmente)</p></td>
-<td><p>DANE 2024</p></td>
+<td><p>No cuantificado</p></td>
+<td><p>La referencia original al DANE carece de datos bibliográficos suficientes para verificar la cifra</p></td>
 </tr>
 <tr>
 <td><p>Reducci&#243;n del desperdicio h&#237;drico nacional</p></td>
-<td><p>Contribuci&#243;n a reducir el 48% de p&#233;rdidas</p></td>
-<td><p>Universidad de los Andes 2024</p></td>
+<td><p>No medida; no atribuir al sistema la reducción de pérdidas nacionales</p></td>
+<td><p>La referencia original no permite verificar la cifra ni establecer causalidad</p></td>
 </tr>
 <tr>
 <td><p>Huella de carbono del sistema</p></td>
-<td><p>M&#237;nima – sensores de bajo consumo, app ligera</p></td>
-<td><p>Dise&#241;o eficiente (RNF8.1: CPU en background &lt; 15%)</p></td>
+<td><p>No cuantificada</p></td>
+<td><p>Requiere inventario de hardware, energía y uso; el requisito de CPU no mide la huella de carbono</p></td>
 </tr>
 <tr>
 <td><p>Cumplimiento ODS</p></td>
@@ -719,10 +746,12 @@ Hidro Smart contribuye activamente al desarrollo sostenible mediante los siguien
 </table>
 
 
-A futuro, el sistema puede ampliarse con integración de paneles solares para alimentar los dispositivos IoT, logrando autonomía energética parcial y reduciendo la huella de carbono del proyecto. También se prevé la integración futura con redes externas de servicios públicos y plataformas de gestión municipal del agua.
+A futuro, el equipo podría evaluar paneles solares y conexiones con redes de servicios públicos. Son extensiones propuestas, no capacidades implementadas ni impactos demostrados.
 
 
 <strong>11. CRONOGRAMA DE EJECUCIÓN Y PAGOS</strong>
+
+El cronograma y los pagos son estimaciones de la fuente de 2025, no un plan ejecutado ni un acuerdo financiero. El cuadro suma 16 semanas, aunque la fila total lo identifica como seis meses; esa diferencia queda sin conciliar.
 
 
 <table>
@@ -828,7 +857,7 @@ El análisis costo-beneficio original proyectó ahorros mensuales de $ 50.000–
 
 <strong>12.3 Viabilidad Legal</strong>
 
-El sistema cumple con la Ley 1581 de 2012 de Protección de Datos Personales de Colombia (RNF8.2). Todo tratamiento de datos de usuarios requiere consentimiento explícito, y las políticas de privacidad estarán actualizadas y accesibles dentro de la plataforma.
+La Ley 1581 de 2012 se conserva como marco que debe revisarse para el tratamiento de datos personales. Este documento no certifica cumplimiento legal. La validación requiere revisar, entre otros aspectos, avisos y consentimientos, finalidades, derechos de titulares, retención, seguridad y procedimientos operativos con el equipo responsable y el instructor.
 
 
 <strong>13. CONCLUSIONES</strong>
@@ -840,18 +869,18 @@ El documento de propuesta 2025 plantea la aplicación de IoT al monitoreo del ag
 La cifra de $ 80.305.000 COP y el ahorro hídrico del 15 % al 25 % son estimaciones de la fuente académica, no un presupuesto auditado ni un ahorro medido. La vida útil, el rendimiento y la escalabilidad requieren pruebas y datos que no se presentan en esta propuesta.
 
 
-El equipo de desarrollo, conformado por tres aprendices del SENA en Programación de Software, cuenta con la división de roles adecuada para ejecutar el proyecto dentro del plazo y presupuesto estimado: José Alejandro Montealegre (Base de Datos / QA), Emerson Calet Molano (Backend / IoT) y José David Amaya (Análisis / Frontend).
+El documento fuente identifica a tres aprendices y asigna responsabilidades de Base de Datos/QA, Backend/IoT y Análisis/Frontend. La lista, los roles y su vigencia deben confirmarse contra el roster institucional antes de presentarlos como actuales; el plazo y el presupuesto no están verificados.
 
 
-En conclusión, Hidro Smart se posiciona como una propuesta tecnológica, ecológica y socialmente responsable, con impacto real en la conservación del agua y alineada con los Objetivos de Desarrollo Sostenible ODS 6, ODS 9 y ODS 13 de la ONU.
+En conclusión, Hidro Smart es una propuesta tecnológica orientada al monitoreo del consumo de agua. Su impacto ambiental, ahorro y contribución a los Objetivos de Desarrollo Sostenible no se han medido en esta propuesta; cualquier afirmación de resultados requiere datos de uso y evaluación documentada.
 
 
 <strong>14. REFERENCIAS</strong>
 
 
-<p>• Personería de Bogotá (2024). Informe sobre pérdidas de agua potable en la capital colombiana.</p>
-<p>• Universidad de los Andes (2024). Estudio sobre desperdicio hídrico en Colombia.</p>
-<p>• DANE (2024). Encuesta Nacional de Prácticas de Ahorro Hídrico en Colombia.</p>
+<p>• Personería de Bogotá (2024). Referencia citada por el documento fuente; faltan título bibliográfico, URL y datos para verificar la estadística atribuida.</p>
+<p>• Universidad de los Andes (2024). Referencia citada por el documento fuente; faltan título bibliográfico, URL y datos para verificar la estadística atribuida.</p>
+<p>• DANE (2024). Referencia citada por el documento fuente; no se identificó una publicación con el título indicado que permita reproducir la cifra.</p>
 <p>• IEEE Standard 830-1998. Recommended Practice for Software Requirements Specifications. IEEE.</p>
 <p>• Ley 1581 de 2012. Régimen General de Protección de Datos Personales en Colombia. Congreso de la República.</p>
 <p>• AWS IoT Core. Alternativa de la propuesta original; no es el broker que se documenta para el despliegue actual. https://aws.amazon.com/es/iot-core</p>
@@ -862,7 +891,7 @@ En conclusión, Hidro Smart se posiciona como una propuesta tecnológica, ecoló
 <p>• Figma Inc. – Herramienta de diseño colaborativo UI/UX. https://figma.com</p>
 Control de actualización
 
-<strong>Fecha de revisión documental: 2026-11-04. Estado: propuesta histórica con reconciliación técnica; pendiente de revisión contra la versión final.</strong>
+<strong>Fecha de revisión documental: 2026-11-05. Estado: propuesta histórica revisada contra PT_HS/main 32be1cf; borrador pendiente de validación del equipo y del instructor.</strong>
 
 Fuentes: informe técnico/económico académico, PT_HS como monorepo canónico y repositorios separados como referencias de componentes. Las estimaciones originales se preservan como antecedentes.
 
@@ -879,15 +908,15 @@ Stack observado en los repositorios
 | Capa | Tecnología documentada | Límite de la afirmación |
 |---|---|---|
 | Web | React, Vite y TypeScript | El build y la disponibilidad deben asociarse al commit final. |
-| Móvil | Expo y React Native, SDK 57 | BLE requiere compilación nativa; esta propuesta no acredita una prueba integral en teléfono. |
-| Backend | Node.js y Express | La API debe probarse con el mismo tag que se entregue. |
+| Móvil | Expo SDK 57, React Native y WebView; módulo `react-native-ble-plx` para BLE nativo | Expo Go no incluye BLE; se requiere compilación nativa. Esta propuesta no acredita una prueba integral en teléfono. |
+| Backend y sesión | Node.js, Express, cookies de sesión HttpOnly y protección CSRF | Validar atributos de cookies y HTTPS en el ambiente final; no afirmar cifrado AES-256 en reposo sin evidencia. |
 | Persistencia | PostgreSQL y Liquibase | Las cifras de tablas y changesets del informe original son históricas; volver a obtenerlas del tag final. |
-| MQTT | Flespi con TLS para integración externa; Mosquitto para desarrollo local | Verificar conectividad, ACL y credenciales por dispositivo en el despliegue final. |
-| Correo | Brevo | La configuración en código no prueba por sí sola la entrega de cada tipo de correo. |
+| MQTT | Flespi con TLS para integración externa; Mosquitto para desarrollo local | Verificar conectividad, ACL, credenciales por dispositivo y telemetría con el firmware entregado. |
+| Correo | Brevo integrado en los flujos de autenticación y notificaciones | La configuración en código no prueba por sí sola la entrega de cada tipo de correo. |
 | Firmware | ESP32 con framework Arduino/C++ | Repetir la prueba física de aprovisionamiento, telemetría y modo de medición sobre el firmware entregado. |
 | Proveedores de despliegue | Cloudflare Pages, Render y Neon aparecen en la documentación operativa | Comprobar disponibilidad, configuración y variables del ambiente final; no incluir secretos en los documentos. |
 
-AWS IoT Core, Firebase y Redis aparecen en partes de la propuesta histórica. No se consideran servicios activos de la línea base actual sin evidencia específica.
+AWS IoT Core, Firebase y Redis aparecen en partes de la propuesta histórica. No se consideran servicios activos de la línea base actual sin evidencia específica. Las cifras de conectividad, compatibilidad y costo que aparecen en las tablas originales siguen siendo estimaciones por conciliar o metas por medir.
 
 
 Clasificación de afirmaciones económicas

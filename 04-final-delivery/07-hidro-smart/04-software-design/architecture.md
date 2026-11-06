@@ -1,6 +1,6 @@
 # Arquitectura de HidroSmart
 
-Vista lógica de PT_HS en la rama local `hu-20-dev`, commit `1f02b78`, revisada el 2026-11-04. Los repositorios de componentes separados son referencias de trazabilidad y pueden divergir; consulta el [índice de entrega](../README.md) antes de tratarlos como una misma versión.
+Vista lógica de PT_HS `main`, SHA `32be1cf787f20120dfd3b4cc72226dab55d88216`, consultada el 2026-11-05. HU-21 separa la carga del perfil de las consultas de hogares y dispositivos; no cambia las capas ni los límites arquitectónicos descritos aquí. Los repositorios de componentes separados son referencias de trazabilidad y pueden divergir; consulta el [índice de entrega](../README.md) antes de tratarlos como una misma versión.
 
 ## Vista de contexto
 

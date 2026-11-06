@@ -1,6 +1,6 @@
 # Inventario de tablas de la base de datos
 
-Este inventario se obtuvo de forma estática desde las sentencias `CREATE TABLE` de `PT_HS/BD_HS/01_ddl` en la rama local `hu-20-dev`, commit `1f02b78` (corte 2026-11-04). No consulta Neon y no demuestra qué migraciones están aplicadas en un entorno.
+Este inventario se obtuvo de forma estática desde las sentencias `CREATE TABLE` de `PT_HS/BD_HS/01_ddl` en `main`, SHA `32be1cf787f20120dfd3b4cc72226dab55d88216` (consulta 2026-11-05). HU-21 solo modificó la carga del perfil en el frontend, por lo que el conjunto de migraciones consultado no cambió. No consulta Neon y no demuestra qué migraciones están aplicadas en un entorno.
 
 El corte contiene **57 tablas en nueve esquemas**. La lista identifica tablas, no columnas: las columnas, tipos, claves, restricciones y políticas se deben leer en las migraciones Liquibase. Para una base desplegada, comparar `liquibase status --verbose` y `DATABASECHANGELOG` antes de usar este inventario como descripción del esquema vivo.
 

@@ -1,7 +1,7 @@
 # Matriz de requisitos y cobertura de la entrega
 
 **Estado:** versión de trabajo actualizada para la estructura `04-final-delivery/07-hidro-smart`.
-**Corte documental:** 2026-11-04.
+**Corte documental:** 2026-11-05.
 
 ## 1. Propósito y fuentes
 
@@ -21,7 +21,7 @@ El SRS convertido conserva requisitos y antecedentes de su documento académico.
 | Análisis del sistema | `02-software-analysis/system-analysis.md` | Borrador presente | Cotejar actores, flujos y permisos con la versión final. |
 | Propuesta técnica | `03-technical-proposal/technical-proposal.md` | Borrador presente con contenido histórico | Reconciliar stack, costos, cifras y beneficios; no presentar estimaciones como resultados medidos. |
 | Diseño de software | `04-software-design/` | Borradores, diagramas y wireframe presentes | Quitar referencias obsoletas a diagramas pendientes y actualizar modelos contra código/migraciones. |
-| Pruebas | `05-test-documentation/` | Plan, resultados y evidencia de CI disponibles | Añadir resultados reproducibles de la versión final; CI de `hu-20-dev` no demuestra CI verde en la rama final. |
+| Pruebas | `05-test-documentation/` | Plan, resultados históricos y consulta de CI del `main` actual | Añadir resultados reproducibles de la versión final; PT_HS `main` tuvo checks exitosos pero estado combinado `pending`; los componentes carecen de CI completa verificada. |
 | Implementación y operación | `06-implementation-procedure/` | Fuentes Markdown y PDF presentes | Validar desde clon limpio y confirmar pasos y URLs. |
 | Mejora | `07-improvement-actions/` | Borrador presente | Confirmar responsables, estado, evidencia y fecha de cierre de acciones. |
 | Manuales | `08-manuals/` | Manual técnico, instalación y usuario presentes | Validar pasos, pantallas y funciones contra el artefacto final. |
@@ -46,7 +46,7 @@ Los requisitos detallados permanecen en el SRS. Esta tabla agrupa los flujos que
 
 ## 4. Evidencia técnica disponible y límites
 
-- La carpeta `05-test-documentation/ci-evidence-hu-20.md` registra CI verde para un commit de `hu-20-dev`. Esa evidencia es válida para ese commit, no para una futura rama/tag de entrega.
+- La carpeta `05-test-documentation/ci-evidence.md` distingue CI histórica de HU-20 y la consulta remota del `main` actual. No se debe declarar aprobado el estado combinado mientras figure `pending` ni extrapolar los checks de PT_HS a los repositorios separados.
 - La URL web indicada es `https://pt-hs.pages.dev/login`; su registro en documentos no prueba disponibilidad al momento de la entrega.
 - Se aportó un enlace Canva para una explicación del proyecto; falta verificar su duración, permisos y correspondencia con los criterios del pitch/tutorial.
 - Los repositorios separados reflejan trabajo y antecedentes de componentes, pero la entrega debe identificar claramente qué código integrado se registra y qué repositorios son espejos, forks o fuentes complementarias.

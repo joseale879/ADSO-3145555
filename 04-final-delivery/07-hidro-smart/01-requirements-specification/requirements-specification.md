@@ -143,10 +143,10 @@ Diseñar e implementar una solución tecnológica compuesta por un <strong>medid
 <strong>1.5 Alcance</strong>
 
 <!-- page break -->
-<del><u>Este documento de Especificación de Requisitos de Software (SRS) define los requerimientos funcionales y no funcionales del sistema </u></del><del><u><strong>Hidro Smart</strong></u></del><del><u>, una solución tecnológica orientada al monitoreo, análisis y gestión inteligente del consumo doméstico de agua mediante dispositivos IoT y una aplicación web desarrollada con </u></del><del><u><strong>React + Vite</strong></u></del><del><u>.</u></del>
+Este documento especifica los requisitos funcionales y no funcionales de Hidro Smart para esta entrega. El sistema integra una aplicación web y móvil con dispositivos IoT para registrar y consultar el consumo doméstico de agua.
 
 <!-- page break -->
-<del><u>El alcance del proyecto comprende los siguientes aspectos:</u></del>
+El alcance documentado para esta entrega comprende:
 
 <p>● Diseño, desarrollo, implementación y validación de una plataforma para el monitoreo inteligente del consumo doméstico de agua.</p>
 

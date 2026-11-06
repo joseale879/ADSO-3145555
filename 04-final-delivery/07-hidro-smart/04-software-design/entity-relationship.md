@@ -1,6 +1,6 @@
 # Modelo entidad-relación vigente de HidroSmart
 
-Descripción estática de las migraciones incluidas en PT_HS/BD_HS, rama local `hu-20-dev`, commit `1f02b78`, revisadas el 2026-11-04. Esto describe archivos versionados; no confirma que Neon u otro entorno tenga aplicados todos los changesets. Comprueba cada entorno con `liquibase status --verbose` y `DATABASECHANGELOG`.
+Descripción estática de las migraciones incluidas en PT_HS/BD_HS, `main`, SHA `32be1cf787f20120dfd3b4cc72226dab55d88216`, consultadas el 2026-11-05. HU-21 solo modificó la carga del perfil en el frontend; las migraciones incluidas no cambiaron. Esto describe archivos versionados; no confirma que Neon u otro entorno tenga aplicados todos los changesets. Comprueba cada entorno con `liquibase status --verbose` y `DATABASECHANGELOG`.
 
 El corte contiene 57 declaraciones de tablas en nueve esquemas según `CREATE TABLE` bajo `BD_HS/01_ddl`. El conteo y los nombres completos están en el [inventario de tablas](database-schema-inventory.md). El diagrama Mermaid de esta página es un resumen conceptual; no sustituye el DDL ni representa todas las tablas. El [diagrama de dominio editable](diagrams/domain-diagram.drawio) es otra vista conceptual, no un MER físico.
 
