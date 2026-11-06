@@ -12,7 +12,7 @@ Ejecuciones consultadas el 2026-11-04 para `PT_HS/hu-20-dev`.
 
 Ejecuciones históricas: [HidroSmart validation #41923198240](https://github.com/joseale879/PT_HS/actions/runs/41923198240) y [HidroSmart CI #41923198129](https://github.com/joseale879/PT_HS/actions/runs/41923198129).
 
-## Snapshot remoto de `main` consultado el 2026-11-05
+## Snapshot anterior de `main` consultado el 2026-11-05
 
 - Repositorio: [joseale879/PT_HS](https://github.com/joseale879/PT_HS).
 - SHA de `main`: `09c9e4cc7150687e7881699e8da9e0832928df1e`.
@@ -20,13 +20,13 @@ Ejecuciones históricas: [HidroSmart validation #41923198240](https://github.com
 - Las cuatro ejecuciones de Actions asociadas a `main` terminaron correctamente: [HidroSmart CI #41977974917](https://github.com/joseale879/PT_HS/actions/runs/41977974917), [HidroSmart validation #41977974989](https://github.com/joseale879/PT_HS/actions/runs/41977974989), [HidroSmart CI #41977970618](https://github.com/joseale879/PT_HS/actions/runs/41977970618) y [HidroSmart validation #41977970507](https://github.com/joseale879/PT_HS/actions/runs/41977970507). Los nueve checks reportados en el SHA terminaron `success`.
 - El endpoint de estado combinado del commit informó `pending` con cero contextos de estado. No se interpreta ese resultado como verde; hay que aclararlo en GitHub antes de afirmar que el gate completo está aprobado.
 
-## Snapshot remoto de `main` HU-21 consultado el 2026-11-05
+## Snapshot vigente de `main` (HU-21) consultado el 2026-11-05 a las 07:39 UTC
 
-- SHA remoto: `32be1cf787f20120dfd3b4cc72226dab55d88216`; rama de promoción: `hu-21-main`.
+- SHA remoto de `main`: `32be1cf787f20120dfd3b4cc72226dab55d88216`; coincide con `hu-21-main`.
 - El cambio HU-21 separa la consulta del perfil de las llamadas para hogares y dispositivos.
-- Cuatro ejecuciones de Actions terminaron correctamente: [HidroSmart validation #41988293427](https://github.com/joseale879/PT_HS/actions/runs/41988293427), [HidroSmart CI #41988293609](https://github.com/joseale879/PT_HS/actions/runs/41988293609), [HidroSmart validation #41988310293](https://github.com/joseale879/PT_HS/actions/runs/41988310293) y [HidroSmart CI #41988310310](https://github.com/joseale879/PT_HS/actions/runs/41988310310).
+- Las dos ejecuciones de workflow asociadas a este SHA terminaron correctamente: [HidroSmart validation #41988310293](https://github.com/joseale879/PT_HS/actions/runs/41988310293) y [HidroSmart CI #41988310310](https://github.com/joseale879/PT_HS/actions/runs/41988310310).
 - Los nueve check-runs asociados terminaron `success`, incluidos `full-validation`, frontend build/unit/browser E2E, backend checks/unit tests, build ESP32 local/Flespi TLS y Cloudflare Pages.
-- El endpoint de estado combinado del commit seguía informando `pending` con cero contextos. Registrar ambos resultados y no describir el estado combinado como verde.
+- El endpoint de commit status informó `pending` con cero contextos. Por tanto, los workflows/check-runs están verdes, pero el estado combinado del commit no aparece aprobado; no describir el gate global como verde.
 - CI de software/compilación no acredita telemetría física, BLE, ACL remota, entrega real de correos, base desplegada ni aceptación de requisitos.
 
 ## Comprobaciones en los repositorios separados

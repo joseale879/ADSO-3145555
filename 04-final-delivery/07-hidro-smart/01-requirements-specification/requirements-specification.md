@@ -61,48 +61,48 @@ Tabla de contenido
 
 # Control de actualización
 
-<strong>Fecha de revisión documental: 2026-11-04. Estado: documento base histórico con anexo de vigencia; pendiente de validación contra el tag final.</strong>
+<strong>Fecha de revisión documental: 2026-11-05. Estado: documento base académico con anexo de vigencia; pendiente de aceptación del equipo y validación contra el tag final.</strong>
 
-Fuentes: SRS académico convertido, PT_HS como monorepo canónico y repositorios separados de componentes para contraste. La evidencia técnica disponible corresponde a cortes locales documentados y no certifica el commit/tag que finalmente se entregue.
+Fuentes: SRS académico convertido, PT_HS como monorepo canónico (rama `main`, commit `32be1cf787f20120dfd3b4cc72226dab55d88216`) y repositorios separados de componentes para contraste. La revisión del código es estática: no certifica aceptación funcional, operación productiva ni el commit/tag que finalmente se entregue.
 
-Se conserva la estructura y los requisitos funcionales/no funcionales del SRS fuente. Los requisitos aún no implementados o cuya aceptación no esté demostrada permanecen como requisitos y no deben presentarse como funciones verificadas. El anexo registra una interpretación técnica provisional; se debe volver a cotejar con el mismo commit/tag de entrega.
+Se conserva la estructura y los requisitos funcionales/no funcionales del SRS fuente. Las secciones originales describen alcance esperado, no resultados de pruebas. Los requisitos aún no implementados o cuya aceptación no esté demostrada permanecen como requisitos y no deben presentarse como funciones verificadas. El anexo registra la evidencia disponible para el commit indicado; debe volver a cotejarse con el mismo commit/tag de entrega.
 
 # Introducción.
 
 
 <strong>Bienvenidos </strong>
 
-El consumo eficiente y responsable del agua es uno de los principales desafíos ambientales y sociales en los hogares modernos. En Colombia, gran parte de la población desconoce cuánta agua utiliza diariamente y en qué actividades específicas se gasta. La ausencia de información detallada en las facturas y las limitaciones de los medidores tradicionales impiden que los usuarios tomen decisiones informadas sobre su consumo.
+El consumo eficiente y responsable del agua es un desafío ambiental y social. En un hogar, una lectura agregada del medidor no siempre permite saber en qué punto o actividad se originó el consumo. Este problema motiva Hidro Smart; el documento no presenta una medición nacional de cuánto conocen los hogares sobre su consumo.
 
-Según datos de la <em>Personería de Bogotá (2024)</em>, hasta un <strong>40 % del agua potable</strong> se pierde en la capital, y a nivel nacional, la cifra asciende al <strong>48 %</strong> (<em>Universidad de los Andes, 2024</em>). Esta situación demuestra la necesidad urgente de soluciones tecnológicas que faciliten el monitoreo, control y análisis del consumo doméstico.
+Las cifras de contexto disponibles miden fenómenos distintos: la Universidad de los Andes publicó en 2016 una estimación del 48 % de pérdidas en los sistemas colombianos de distribución de agua potable, no del consumo dentro de los hogares. El DANE informó que en 2020 el 92,2 % de los hogares realizó al menos una práctica para reducir el consumo de agua y energía; el indicador combina ambos servicios y no representa una tasa de ahorro de agua exclusivamente. No se conservan las cifras de 40 % atribuida a la Personería de Bogotá ni de 33 % atribuida al DANE en 2024 porque este documento no cuenta con referencias verificables que respalden esas atribuciones.
 
-<strong>Hidro Smart</strong> surge como una solución innovadora orientada al desarrollo sostenible. Se trata de un sistema inteligente que combina <strong>tecnología IoT (Internet of Things)</strong> con una <strong>aplicación móvil</strong>, permitiendo a los usuarios monitorear su consumo de agua en tiempo real, recibir alertas, analizar estadísticas y adoptar hábitos más conscientes. El propósito es optimizar el uso del recurso hídrico, reducir el desperdicio y contribuir a la sostenibilidad ambiental desde el hogar.
+<strong>Hidro Smart</strong> integra un cliente web, un cliente Android y dispositivos IoT para registrar y consultar consumo de agua. En el código revisado, las vistas web de consumo, dashboard y dispositivos consultan datos periódicamente (intervalo nominal de cinco segundos); esto no equivale a una garantía de tiempo real. El cliente Android empaqueta la interfaz web en una vista WebView y requiere una compilación nativa para usar aprovisionamiento BLE; Expo Go no incluye esa capacidad. Las alertas, estadísticas y demás resultados deben considerarse sujetos a los estados de aceptación descritos en el anexo.
 
 
 
 ## Planteamiento del problema.
 
 
-En la mayoría de los hogares colombianos no se dispone de herramientas que permitan identificar cómo, cuándo y en qué se consume el agua. Los medidores convencionales solo registran el total mensual, sin ofrecer un desglose detallado por actividad (ducha, lavado, cocina, aseo, etc.).
+Una lectura general del hogar puede no permitir identificar cómo, cuándo y en qué punto se consume el agua. Los medidores convencionales suelen presentar un total del periodo sin atribuir cada lectura a una actividad doméstica específica. Esta descripción plantea el problema del proyecto; no es una afirmación estadística sobre todos los hogares colombianos.
 
 Esta falta de información provoca desperdicio, costos elevados y un bajo nivel de conciencia sobre el impacto ambiental del consumo doméstico.
 
 Por tanto, se plantea la siguiente pregunta de investigación:
 
-<strong>¿Cómo puede una solución tecnológica basada en medidores inteligentes e integración móvil ayudar a los usuarios domésticos a conocer, controlar y optimizar su consumo de agua diario para reducir el desperdicio?</strong>
+<strong>¿Cómo puede una solución tecnológica basada en medidores inteligentes, una interfaz web y un cliente móvil ayudar a los usuarios domésticos a conocer y gestionar su consumo de agua para reducir el desperdicio?</strong>
 
 ## Propósito.
 
-El propósito del proyecto <strong>Hidro Smart</strong> es diseñar e implementar una herramienta tecnológica integral que permita <strong>registrar, analizar y visualizar el consumo de agua</strong> en los hogares de manera automática y detallada. La aplicación móvil recibirá datos desde medidores inteligentes conectados por IoT, mostrando estadísticas, recomendaciones y reportes que ayuden a los usuarios a mejorar sus hábitos de consumo.
+El propósito del proyecto <strong>Hidro Smart</strong> es desarrollar una herramienta que permita <strong>registrar, analizar y visualizar el consumo de agua</strong> en los hogares mediante un dispositivo IoT y clientes web y Android. La interfaz presenta datos consultados del backend; las vistas principales usan actualización periódica y no se afirma que cada dato aparezca instantáneamente. Las recomendaciones, reportes y alertas se sujetan a los requisitos y estados de aceptación del anexo.
 
 El sistema busca promover el ahorro, la sostenibilidad ambiental y el uso consciente del recurso hídrico, contribuyendo a la gestión eficiente del agua a nivel doméstico.
 
 
 ## Justificación.
 
-En Colombia, el desperdicio de agua continúa siendo un problema significativo. Se estima que <strong>solo el 33 % de los ciudadanos adopta prácticas de ahorro hídrico</strong> (<em>DANE, 2024</em>). La falta de conocimiento sobre el consumo real en el hogar impide implementar medidas efectivas para reducir el uso innecesario del recurso.
+El DANE informó que en 2020 el 92,2 % de los hogares realizó al menos una práctica para reducir el consumo de agua y energía. Como el indicador combina los dos servicios, no permite afirmar qué proporción ahorra agua únicamente ni cuánto conoce cada hogar sobre su consumo. Hidro Smart se justifica por la necesidad funcional de consultar lecturas del propio hogar, sin atribuirle a esta fuente conclusiones que no mide.
 
-<strong>Hidro Smart</strong> busca cerrar esta brecha mediante una solución tecnológica accesible y funcional. Al integrar sensores de flujo, conectividad IoT y una interfaz móvil intuitiva, el sistema ofrece al usuario información en tiempo real sobre su consumo, alertas ante anomalías y recomendaciones personalizadas para optimizar el uso del agua.
+<strong>Hidro Smart</strong> busca facilitar esa consulta mediante sensores de flujo, conectividad IoT y clientes web y Android. La actualización periódica puede ayudar a observar cambios en el consumo; la detección de anomalías y las recomendaciones personalizadas requieren validación funcional y no se consideran resultados demostrados por esta justificación.
 
 El proyecto no solo tiene un impacto ecológico, sino también <strong>económico y educativo</strong>, al incentivar una cultura de sostenibilidad y responsabilidad ambiental en los hogares.
 
@@ -111,15 +111,15 @@ El proyecto no solo tiene un impacto ecológico, sino también <strong>económic
 
 ## Objetivo General.
 
-Diseñar e implementar una solución tecnológica compuesta por un <strong>medidor inteligente de agua</strong> y una <strong>aplicación móvil</strong> que permita a los usuarios monitorear, controlar y optimizar su consumo diario, proporcionando información detallada, alertas preventivas y estrategias prácticas para fomentar el uso responsable del agua.
+Diseñar e implementar una solución tecnológica compuesta por un <strong>medidor inteligente de agua</strong>, un <strong>cliente web</strong> y un <strong>cliente Android</strong> que permita a los usuarios consultar y gestionar su consumo, con alertas y herramientas de ahorro sujetas a los criterios de aceptación del proyecto.
 
 
 ### Objetivos específicos.
 
 
-<p>● Desarrollar una <strong>aplicación móvil</strong> que muestre los datos recibidos desde un medidor inteligente en tiempo real.
+<p>● Desarrollar clientes web y Android para consultar los datos recibidos desde un medidor inteligente con actualización periódica; el tiempo real estricto es un requisito por validar.
 </p>
-<p>● Registrar, procesar y clasificar el consumo de agua por actividad doméstica.
+<p>● Registrar y procesar el consumo de agua. La clasificación automática por actividad doméstica permanece como requisito por validar; una medición agregada de un solo dispositivo no permite inferir si el caudal proviene de la ducha, la cocina u otro punto.
 </p>
 <p>● Generar <strong>informes y gráficos periódicos</strong> para que el usuario evalúe sus patrones de consumo.
 </p>
@@ -150,8 +150,8 @@ El alcance documentado para esta entrega comprende:
 
 <p>● Diseño, desarrollo, implementación y validación de una plataforma para el monitoreo inteligente del consumo doméstico de agua.</p>
 
-<p>● Integración con dispositivos IoT para la captura y transmisión de datos de consumo en tiempo real mediante el protocolo MQTT.</p>
-<p>● Visualización en tiempo real del consumo de agua, estado de los dispositivos y estadísticas mediante una interfaz web desarrollada con React + Vite.
+<p>● Integración con dispositivos IoT para capturar lecturas y transmitirlas mediante MQTT. La latencia de extremo a extremo depende del dispositivo, broker, backend y red; no se afirma tiempo real garantizado.</p>
+<p>● Visualización del consumo de agua, estado de los dispositivos y estadísticas mediante una interfaz web desarrollada con React + Vite, con actualización periódica nominal de cinco segundos en las vistas principales revisadas.
 </p>
 <p>● Gestión de usuarios, autenticación segura, administración de perfiles y control de acceso basado en roles.
 </p>
@@ -163,7 +163,7 @@ El alcance documentado para esta entrega comprende:
 <p>● Implementación de un sistema de soporte técnico basado en tickets para el reporte y seguimiento de incidencias.</p>
 <p>● Desarrollo del backend utilizando Node.js y Express, con PostgreSQL como sistema gestor de bases de datos. La mensajería IoT usa MQTT: Mosquitto es el broker local y el firmware ofrece un perfil externo Flespi/TLS; Redis y Firebase Cloud Messaging no están verificados en el corte actual.</p>
 <p>● Implementación de una arquitectura modular por capas y componentes integrados, utilizando Arquitectura Hexagonal (Ports and Adapters) para el backend y Arquitectura Basada en Componentes (Component-Based Architecture) para el frontend desarrollado con React + Vite.</p>
-<p>● Comunicación entre los diferentes componentes del sistema mediante API REST, polling HTTP de 5 segundos en el cliente actual (WebSockets no verificado) y el protocolo MQTT, garantizando comunicación eficiente; la interfaz actualiza periódicamente los datos persistidos.</p>
+<p>● Comunicación entre componentes mediante API REST, polling HTTP nominal de cinco segundos en las vistas principales revisadas y MQTT para telemetría. WebSockets no se verificó en el cliente actual; por ello, no se promete entrega instantánea de cada lectura.</p>
 <p>● Diseño del sistema bajo principios de escalabilidad, mantenibilidad, seguridad, disponibilidad y facilidad de integración con futuros servicios.
 </p>
 El sistema no incluirá inicialmente integración con redes externas de servicios públicos, pero quedará preparado para futuras extensiones.
@@ -383,6 +383,14 @@ El sistema no incluirá inicialmente integración con redes externas de servicio
 <td><p>Documentaci&#243;n interna</p></td>
 <td><p>Acta General del Proyecto (10 feb 2025), Informe de Dise&#241;o v2.0, MER actualizado.</p></td>
 </tr>
+<tr>
+<td><p>Indicador de pr&#225;cticas de ahorro en hogares</p></td>
+<td><p>Departamento Administrativo Nacional de Estad&#237;stica (DANE). (2021, 7 de diciembre). <em>En 2020, el 92,2 % de los hogares realizaron al menos una pr&#225;ctica para reducir el consumo de agua y energ&#237;a.</em> <a href="https://www.dane.gov.co/index.php/actualidad-dane/5425-en-2020-el-92-2-de-los-hogares-realizaron-al-menos-una-practica-para-reducir-el-consumo-de-agua-y-energia">Publicaci&#243;n del DANE</a>. El indicador combina agua y energ&#237;a.</p></td>
+</tr>
+<tr>
+<td><p>P&#233;rdidas en sistemas de distribuci&#243;n</p></td>
+<td><p>Universidad de los Andes. (2016, 30 de junio). <em>En Colombia, 48 % del agua se pierde en sistemas de distribuci&#243;n.</em> <a href="https://www.uniandes.edu.co/es/noticias/ambiente-y-sostenibilidad/en-colombia-48--del-agua-se-pierde-en-sistemas-de-distribucion">Art&#237;culo de Uniandes</a>. Es un dato de distribuci&#243;n de agua potable, no de consumo intradomiciliario.</p></td>
+</tr>
 </table>
 
 ## Resumen.
@@ -499,7 +507,7 @@ El sistema puede integrarse con servicios en la nube (servicios cloud, Firebase 
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.1.3. Los requerimientos definidos permanecerán estables durante el desarrollo.
 </p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.1.4. Las pruebas iniciales se realizarán en un entorno doméstico controlado.</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.1.5. El equipo de desarrollo tiene acceso a las herramientas y plataformas necesarias (GitHub, AWS, Firebase, Redis).</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.1.5. El SRS académico original suponía acceso a GitHub, AWS, Firebase y Redis. Esa suposición no demuestra que AWS, Firebase o Redis formen parte del entorno desplegado; su estado se indica en el anexo.</p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.1.6. La disponibilidad de servicios cloud externos no forma parte del corte verificable; el ambiente de referencia es local.
 
 </p>
@@ -531,7 +539,7 @@ La aplicación contará con una interfaz web moderna, intuitiva, responsiva y de
 <p>● <strong>Sensor de caudal (YF-S201 o equivalente): Encargado de medir el flujo de agua y enviar las lecturas al microcontrolador.</strong></p>
 <p>● <strong>Microcontrolador ESP32: Dispositivo responsable de procesar las lecturas del sensor, gestionar la conectividad Wi-Fi (2.4 GHz) y transmitir la información al servidor mediante el protocolo MQTT.</strong></p>
 <p>● <strong>Red Wi-Fi: Medio de comunicación utilizado por el ESP32 para enviar la telemetría al backend.</strong></p>
-<p>● <strong>Equipo cliente: Computador, portátil o dispositivo móvil con un navegador web moderno compatible con la aplicación desarrollada en React + Vite.</strong></p>
+<p>● <strong>Equipo cliente: computador o dispositivo con navegador moderno para el cliente React + Vite; Android para la aplicación Expo/React Native que aloja la interfaz web y comunica el puente BLE nativo cuando se instala una compilación compatible.</strong></p>
 <p>● <strong>Conexión a Internet: Requerida para la sincronización de datos entre el navegador, el backend y los dispositivos IoT.</strong></p>
 <p>● <strong>Pantalla OLED 0.96" (Opcional): Permite visualizar localmente información del dispositivo, como el consumo instantáneo, estado de conexión y mensajes de diagnóstico.</strong></p>
 <hr />
@@ -4073,31 +4081,31 @@ Este anexo conserva los requisitos y casos de uso del SRS original, pero estable
 </tr>
 <tr>
 <td><p>Autenticaci&#243;n, sesiones, perfiles y roles</p></td>
-<td><p>Implementado en backend seg&#250;n documentaci&#243;n y m&#243;dulos revisados.</p></td>
-<td><p>Se conserva; los detalles exactos se validan en BK_HS.</p></td>
+<td><p>Hay m&#243;dulos y rutas de autenticaci&#243;n en el monorepo; la revisi&#243;n de c&#243;digo no prueba la aceptaci&#243;n en despliegue ni todos los roles.</p></td>
+<td><p>Se conserva; verificar registro, verificaci&#243;n, login, recuperaci&#243;n, refresh, logout, CSRF y permisos en la misma versi&#243;n.</p></td>
 </tr>
 <tr>
 <td><p>Hogares, miembros, vacaciones y metas</p></td>
-<td><p>Implementado en la API y modelo de dominio documentados.</p></td>
-<td><p>Se conserva; la aceptaci&#243;n debe ejecutarse por rol.</p></td>
+<td><p>Hay m&#243;dulos de API, persistencia y pantallas para hogares y metas; no hay evidencia de aceptaci&#243;n completa por rol en este anexo.</p></td>
+<td><p>Se conserva; probar Owner, Guest y Admin, incluyendo cambio de hogar y aislamiento de datos.</p></td>
 </tr>
 <tr>
 <td><p>Dispositivos y telemetr&#237;a</p></td>
-<td><p>Implementado; asociaci&#243;n por c&#243;digo y flujo MQTT documentados.</p></td>
-<td><p>Topics reales por deviceCode y deduplicaci&#243;n por mqttMessageId; firmware mantiene un c&#243;digo l&#243;gico activo por placa y measurementEnabled pausa la suma sin detener telemetr&#237;a.</p></td>
+<td><p>El c&#243;digo define asociaci&#243;n por deviceCode, contrato MQTT y deduplicaci&#243;n por mqttMessageId. La revisi&#243;n est&#225;tica no certifica el flujo f&#237;sico del tag final.</p></td>
+<td><p>El firmware maneja un c&#243;digo l&#243;gico activo por placa. <code>set_measurement</code> pausa la suma al total y conserva telemetr&#237;a de caudal/pulsos para vigilar fugas; no apaga la placa, el sensor ni MQTT. Adjuntar prueba f&#237;sica y ACL del entorno.</p></td>
 </tr>
 <tr>
 <td><p>WebSockets / tiempo real</p></td>
-<td><p>No corresponde al corte actual de frontend.</p></td>
-<td><p>Se reemplaza la afirmaci&#243;n de push por polling HTTP de 5 segundos; WebSockets queda como evoluci&#243;n.</p></td>
+<td><p>El cliente revisado actualiza las vistas principales mediante polling HTTP nominal de cinco segundos; WebSockets no se verific&#243;.</p></td>
+<td><p>Describirlo como actualizaci&#243;n peri&#243;dica, sin prometer tiempo real estricto ni push.</p></td>
 </tr>
 <tr>
 <td><p>AWS, Firebase, Redis y nube</p></td>
-<td><p>No verificados en el repositorio actual.</p></td>
-<td><p>Se conservan como alternativas o antecedentes, no como dependencias implementadas.</p></td>
+<td><p>AWS, FCM y Redis/Bull no se acreditan como servicios activos del corte integrado revisado.</p></td>
+<td><p>Se conservan como alternativas o antecedentes, no como dependencias desplegadas verificadas.</p></td>
 </tr>
 <tr>
-<td><p>MQTT seguro de producci&#243;n</p></td><td><p>El firmware incluye perfil Flespi/TLS; ACL y token del entorno necesitan evidencia operativa.</p></td><td><p>Local: Mosquitto sin TLS para desarrollo. Externo: Flespi/TLS; verificar credenciales y ACL por dispositivo.</p></td>
+<td><p>MQTT seguro de producci&#243;n</p></td><td><p>El firmware contiene un perfil Flespi/TLS; la revisi&#243;n del repositorio no demuestra que el entorno externo actual acepte el token ni aplique la ACL esperada.</p></td><td><p>Local: Mosquitto para desarrollo. Externo: documentar conexi&#243;n, ACL efectiva y prueba telemetry/status/commands sin exponer tokens.</p></td>
 </tr>
 <tr>
 <td><p>Calibraci&#243;n y exactitud metrol&#243;gica</p></td>
@@ -4106,16 +4114,26 @@ Este anexo conserva los requisitos y casos de uso del SRS original, pero estable
 </tr>
 <tr>
 <td><p>Reportes PDF/Excel y notificaciones</p></td>
-<td><p>Integraci&#243;n Brevo documentada; la aceptaci&#243;n HTTP no prueba entrega y las alertas sin disparador siguen pendientes.</p></td>
-<td><p>Se conserva como requisito funcional condicionado a pruebas y configuraci&#243;n.</p></td>
+<td><p>El c&#243;digo contempla reportes y el proveedor Brevo; un resultado HTTP aceptado no acredita entrega real, y el c&#243;digo est&#225;tico no demuestra el flujo de alerta en producci&#243;n.</p></td>
+<td><p>Probar descargas PDF/Excel y recepci&#243;n de correo en el entorno/versi&#243;n de entrega. Validar separadamente disparo, consulta y atenci&#243;n de alertas.</p></td>
 </tr>
 <tr>
 <td><p>Seguridad, privacidad y RLS</p></td>
-<td><p>Hay modelos, roles y controles en el repositorio; hardening productivo no cerrado.</p></td>
-<td><p>Se conserva con separaci&#243;n entre dise&#241;o, ejecuci&#243;n local y producci&#243;n.</p></td>
+<td><p>Hay controles de sesi&#243;n, CSRF, permisos y modelos de privacidad en el c&#243;digo; la revisi&#243;n est&#225;tica no demuestra hardening productivo, 2FA ni SLA.</p></td>
+<td><p>Separar requisitos de dise&#241;o de verificaciones operativas. Medir disponibilidad, recuperaci&#243;n, privacidad y seguridad antes de declarar aceptaci&#243;n.</p></td>
 </tr>
 </table>
 
+
+### Requisitos originales cuyo estado no se debe sobreinterpretar
+
+| Área | Estado en el corte de código revisado | Tratamiento para la entrega |
+|---|---|---|
+| Clasificación del consumo por actividad | No se demuestra clasificación automática por baño, cocina u otro punto a partir de una lectura agregada. | Mantener como requisito pendiente. Requiere sensores diferenciados, identificación de puntos de medición u otro método validado. |
+| Predicción y recomendaciones | La existencia de pantallas o endpoints no prueba el modelo predictivo descrito en el SRS ni la personalización basada en datos. | Conservar la predicción como requisito no verificado; documentar el origen de datos y el método antes de afirmar que está implementada. |
+| Cliente Android y BLE | El repositorio contiene una aplicación Expo/React Native que carga el cliente web en WebView y un puente BLE; Expo Go no incluye el módulo BLE nativo. | Para aprovisionar por BLE se requiere una compilación nativa compatible. Añadir prueba en dispositivo físico sobre el commit de entrega. |
+| Calibración y exactitud metrológica | Pendiente de ensayo con volumen conocido. | Registrar montaje, volumen, pulsos, error y calibración en una prueba reproducible. |
+| Disponibilidad, failover y recuperación | Los objetivos de 99 % de disponibilidad y RTO menor a 15 minutos provienen del SRS académico y no están medidos en esta entrega. | No presentarlos como niveles alcanzados; adjuntar medición y ensayo de recuperación si se mantienen como criterios de aceptación. |
 
 ## Anexo de trazabilidad técnica
 

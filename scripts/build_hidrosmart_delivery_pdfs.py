@@ -54,13 +54,14 @@ ul, ol { margin: 4pt 0 8pt; padding-left: 18pt; }
 li { margin: 0 0 4pt; }
 table {
   width: 100%;
-  font-size: 7.3pt;
+  font-size: 6.8pt;
   margin: 8pt 0 10pt;
 }
 th, td {
   border: 0.5pt solid #cbd5e1;
   padding: 4pt 5pt;
   vertical-align: top;
+  word-wrap: break-word;
 }
 th { background-color: #eaf1fb; color: #173b80; }
 tr { -pdf-keep-with-next: false; }
@@ -72,7 +73,7 @@ pre {
   padding: 6pt;
   white-space: pre-wrap;
 }
-code { font-family: Courier; font-size: 8pt; }
+code { font-family: Courier; font-size: 7.5pt; word-wrap: break-word; }
 hr { border: 0; border-top: 0.5pt solid #d8e1ed; }
 .cover { padding-top: 8mm; }
 .cover-brand { font-size: 9pt; color: #2563eb; margin-bottom: 29mm; }
