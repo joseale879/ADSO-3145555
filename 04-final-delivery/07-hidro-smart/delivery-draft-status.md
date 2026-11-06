@@ -5,7 +5,7 @@
 
 ## Estado del repositorio de entrega
 
-La base remota de este corte fue `993c5b2de07aa60bd49d866c63267ce0b983c312`, igual en `main` y `codex/hidrosmart-delivery-draft`. Este paquete se prepara para publicarse en `main`; permanece como borrador en revisión y no crea ni mueve tags.
+La base remota de este corte fue `993c5b2de07aa60bd49d866c63267ce0b983c312`, igual en `main` y `codex/hidrosmart-delivery-draft`. El paquete actualizado se publicó en `main` como `bb009cf`; permanece como borrador en revisión y no crea ni mueve tags.
 
 El repositorio ADSO no tiene el tag remoto `final-delivery-2026`. Ese nombre sí existe como tag anotado en seis repositorios de componentes; sus destinos no forman una versión coordinada: los tags de PT_HS, FT_HS, Firmaware_HS y DOCS_HS no apuntan a sus `main` actuales. Véase el [inventario de código y tags](code-tag/README.md). No crear, mover ni volver a etiquetar una versión hasta cerrar los pendientes y obtener aprobación.
 
